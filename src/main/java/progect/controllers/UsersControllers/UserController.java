@@ -1,16 +1,10 @@
 package progect.controllers.UsersControllers;
 
 
-import org.hibernate.metamodel.internal.MetamodelImpl;
-import org.json.JSONObject;
-import org.skyscreamer.jsonassert.JSONParser;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.support.ManagedMap;
-import org.springframework.data.jpa.repository.Query;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
-import progect.DTO.UserDTO;
-import progect.domain.UsersDomain;
+import progect.domain.user.UsersDomain;
 import progect.repository.UserRepository;
 import progect.service.UserService.UserService;
 

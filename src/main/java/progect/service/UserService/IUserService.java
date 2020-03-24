@@ -1,7 +1,6 @@
 package progect.service.UserService;
 
-import progect.DTO.UserDTO;
-import progect.domain.UsersDomain;
+import progect.domain.user.UsersDomain;
 
 import java.util.List;
 
