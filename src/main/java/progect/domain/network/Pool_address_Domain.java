@@ -10,7 +10,7 @@ import java.util.List;
 
 @Entity
 @Data
-@Table(schema = "network", name = "Pool_address_Domain")
+@Table(schema = "network", name = "Pool_address")
 public class Pool_address_Domain {
 
     @Id
@@ -35,11 +35,11 @@ public class Pool_address_Domain {
 
     @Column(name = "date_old")
     private Date date_old;
-
+/*
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
     private UsersDomain id_user_old;
-
+*/
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
     private UsersDomain id_user_reg;
@@ -49,7 +49,6 @@ public class Pool_address_Domain {
     private String actual;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "id_pool_address")
-    @JoinColumn(name = "id_pool_address")
     private List<NetworkDomain> id_network;
 
 

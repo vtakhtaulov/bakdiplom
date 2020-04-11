@@ -13,14 +13,13 @@ import java.util.List;
 
 @Entity
 @Data
-@Table(schema = "network", name = "RoomDomain")
+@Table(schema = "network", name = "Room")
 public class RoomDomain {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id_room;
 
-    @Column(name = "name_room")
     @NotNull
     private String name_room;
 
@@ -28,7 +27,6 @@ public class RoomDomain {
     @JoinColumn(name = "user_id")
     private UsersDomain user_otv;
 
-    @Column(name = "type_room")
     @NotNull
     private String type_room;
 

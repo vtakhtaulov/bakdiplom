@@ -2,8 +2,6 @@ package progect.domain.devices;
 
 
 import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
 import progect.domain.journal.NetworkJournalDomain;
 import progect.domain.room.RoomDomain;
 import progect.domain.user.UsersDomain;
@@ -14,11 +12,11 @@ import java.util.List;
 
 @Entity
 @Data
-@Table(schema = "network", name = "DevicesDomain")
+@Table(schema = "network", name = "Devices")
 public class DevicesDomain {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id_devices;
 
     @ManyToOne(fetch = FetchType.LAZY)
@@ -29,7 +27,7 @@ public class DevicesDomain {
     @JoinColumn(name = "user_id")
     private UsersDomain user_otv;
 
-    @Column(name = "hostname")
+    @NotNull
     private String hostname;
 
     @ManyToOne(fetch = FetchType.LAZY)

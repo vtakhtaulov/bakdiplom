@@ -12,11 +12,11 @@ import java.util.List;
 
 @Entity
 @Data
-@Table(schema = "network", name = "NetworkJournalDomain")
+@Table(schema = "network", name = "NetworkJournal")
 public class NetworkJournalDomain {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id_network_journal;
 
 
@@ -24,19 +24,15 @@ public class NetworkJournalDomain {
     @JoinColumn(name = "id_network")
     private NetworkDomain id_network;
 
-    @Column(name = "DNS_zone")
     @NotNull
     private String DNS_zone;
 
-    @Column(name = "date_reg")
     @NotNull
     private Date date_reg;
 
-    @Column(name = "date_old")
     @NotNull
     private Date date_old;
 
-    @Column(name = "ip_address")
     @NotNull
     private String ip_address;
 
@@ -45,10 +41,10 @@ public class NetworkJournalDomain {
     @JoinColumn(name = "user_id")
     private UsersDomain id_user_reg;
 
-
+/*
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
-    private UsersDomain id_user_old;
+    private UsersDomain id_user_old;*/
 
 
     @ManyToOne(fetch = FetchType.LAZY)
@@ -60,5 +56,6 @@ public class NetworkJournalDomain {
     private Integer actual;
 
 
-
+    public NetworkJournalDomain() {
+    }
 }

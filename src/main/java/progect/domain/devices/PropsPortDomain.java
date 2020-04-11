@@ -7,15 +7,15 @@ import javax.validation.constraints.NotNull;
 
 @Entity
 @Data
-@Table(schema = "network", name = "PropsPortDomain")
+@Table(schema = "network", name = "PropsPort")
 public class PropsPortDomain {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id_props_port;
-    @Column(name = "EthernetPort")
+
     private String EthernetPort;
-    @Column(name = "OVPort")
+
     private String OVPort;
 
 

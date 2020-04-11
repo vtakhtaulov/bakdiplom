@@ -7,14 +7,13 @@ import javax.validation.constraints.NotNull;
 
 @Entity
 @Data
-@Table(schema = "network", name = "DHСP_poolDomain")
+@Table(schema = "network", name = "DHСP_pool")
 public class DHСP_poolDomain {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id_DHСP_pool;
 
-    @Column(name = "address_start")
     @NotNull
     private String address_start;
 

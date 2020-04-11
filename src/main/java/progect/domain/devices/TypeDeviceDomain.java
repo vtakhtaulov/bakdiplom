@@ -8,13 +8,13 @@ import java.util.List;
 
 @Entity
 @Data
-@Table(schema = "network", name = "TypeDeviceDomain")
+@Table(schema = "network", name = "type_device")
 public class TypeDeviceDomain {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id_type_dev;
 
-    @Column(name = "name_type_dev")
+
     @NotNull
     private String name_type_dev;
 

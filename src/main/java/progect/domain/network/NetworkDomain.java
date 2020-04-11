@@ -9,11 +9,11 @@ import java.util.Date;
 
 @Entity
 @Data
-@Table(schema = "network", name = "NetworkDomain")
+@Table(schema = "network", name = "Network")
 public class NetworkDomain {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id_network;
 
     @ManyToOne(fetch = FetchType.LAZY)
@@ -47,22 +47,17 @@ public class NetworkDomain {
     @NotNull
     private String NetworkMask;
 
-    @Column(name = "number_mstp")
     private Integer number_mstp;
 
-    @Column(name = "DefaultGeteway")
     @NotNull
     private Integer DefaultGeteway;
 
-    @Column(name = "date_reg")
     @NotNull
     private Date date_reg;
 
-    @Column(name = "date_old")
     @NotNull
     private Date date_old;
 
-    @Column(name = "actual")
     @NotNull
     private Integer actual;
 

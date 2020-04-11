@@ -11,18 +11,17 @@ import java.util.List;
 
 @Entity
 @Data
-@Table(schema = "network", name = "NodesDomain")
+@Table(schema = "network", name = "Nodes")
 public class NodesDomain {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id_nodes;
 
     @ManyToOne(optional=false)
     @JoinColumn(name = "user_id")
     private UsersDomain usert_otv;
 
-    @Column(name = "name_nodes")
     @NotNull
     private String name_nodes;
 
