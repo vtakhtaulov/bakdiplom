@@ -24,13 +24,12 @@ public class NetworkJournalDomain {
     @JoinColumn(name = "id_network")
     private NetworkDomain id_network;
 
-    @NotNull
+
     private String DNS_zone;
 
     @NotNull
     private Date date_reg;
 
-    @NotNull
     private Date date_old;
 
     @NotNull
@@ -41,10 +40,7 @@ public class NetworkJournalDomain {
     @JoinColumn(name = "user_id")
     private UsersDomain id_user_reg;
 
-/*
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id")
-    private UsersDomain id_user_old;*/
+    private Integer id_user_old;
 
 
     @ManyToOne(fetch = FetchType.LAZY)
@@ -58,4 +54,5 @@ public class NetworkJournalDomain {
 
     public NetworkJournalDomain() {
     }
+
 }

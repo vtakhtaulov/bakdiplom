@@ -21,14 +21,10 @@ public class NetworkDomain {
     private Pool_address_Domain id_pool_address;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_user_reg", referencedColumnName = "user_id", insertable = false, updatable = false)
+    @JoinColumn(name = "id_user_reg")
     private UsersDomain id_user_reg;
 
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_user_old", referencedColumnName = "user_id", insertable = false, updatable = false)
-    private UsersDomain id_user_old;
-
+    private Integer id_user_old;
 
     @OneToOne(optional=false)
     @JoinColumn(name = "id_vlan")

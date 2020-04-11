@@ -35,21 +35,18 @@ public class Pool_address_Domain {
 
     @Column(name = "date_old")
     private Date date_old;
-/*
+
+    private Integer id_user_old;
+
+
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id")
-    private UsersDomain id_user_old;
-*/
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id")
+    @JoinColumn(name = "id_user_reg")
     private UsersDomain id_user_reg;
 
     @Column(name = "actual")
     @NotNull
-    private String actual;
+    private Integer actual;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "id_pool_address")
-    private List<NetworkDomain> id_network;
 
 
     public Pool_address_Domain(){

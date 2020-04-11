@@ -7,44 +7,56 @@ import org.springframework.stereotype.Service;
 import progect.domain.user.UsersDomain;
 import progect.repository.user.UserRepository;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.concurrent.atomic.AtomicInteger;
 
 @Service
 public class UserService implements IUserService {
     @Autowired
-    private final UserRepository userRepository;
-
-    public UserService(UserRepository userRepository) {
-        this.userRepository = userRepository;
-    }
+    private UserRepository userrepository;
 
     @Override
     public List<UsersDomain> getAllUsers() {
-        List<UsersDomain> users = userRepository.findAll();
-        return users;
+        try {
+            return userrepository.findAll();
+        }
+        catch (Exception e){
+            return null;
+        }
     }
 
     @Override
     public UsersDomain getOneUsers(UsersDomain users) {
-        return users;
+       try {
+           return users;
+       }catch (Exception e) {
+           return null;
+       }
     }
 
     @Override
-    public void deleteUsers(UsersDomain users) {
-        userRepository.delete(users);
+    public boolean deleteUsers(UsersDomain users) {
+        try {
+            userrepository.delete(users);
+            return true;
+        }catch (Exception e){
+            return false;
+        }
     }
 
     @Override
     public List<UsersDomain> updateUser(UsersDomain users, UsersDomain newuser) {
         BeanUtils.copyProperties(newuser, users,"user_id" );
-        return userRepository.findAll();
+        return userrepository.findAll();
     }
 
     @Override
     public List<UsersDomain> AddUser(UsersDomain users) {
         try {
-            userRepository.save(users);
-            return userRepository.findAll();
+            userrepository.save(users);
+            return userrepository.findAll();
         }
         catch (Exception e) {
              System.out.println(e.getMessage());

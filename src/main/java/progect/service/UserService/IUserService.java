@@ -7,7 +7,7 @@ import java.util.List;
 public interface IUserService {
     List<UsersDomain> getAllUsers();
     UsersDomain getOneUsers(UsersDomain users);
-    void deleteUsers(UsersDomain users);
+    boolean deleteUsers(UsersDomain users);
     List<UsersDomain> updateUser (UsersDomain users,UsersDomain newusers);
     List<UsersDomain> AddUser (UsersDomain users);
 }
