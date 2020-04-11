@@ -1,7 +1,6 @@
 package progect.domain.network;
 
 import lombok.Data;
-import progect.domain.journal.NetworkJournalDomain;
 import progect.domain.user.UsersDomain;
 
 import javax.persistence.*;
@@ -15,7 +14,7 @@ import java.util.List;
 public class Pool_address_Domain {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id_pool_address;
 
     @Column(name = "name_pool")

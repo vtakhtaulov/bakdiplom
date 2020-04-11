@@ -5,7 +5,7 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import progect.domain.user.UsersDomain;
-import progect.repository.UserRepository;
+import progect.repository.user.UserRepository;
 import java.util.ArrayList;
 import java.util.List;
 

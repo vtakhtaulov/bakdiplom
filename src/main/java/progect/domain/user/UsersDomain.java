@@ -17,7 +17,7 @@ import java.util.List;
 public class UsersDomain {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer user_id;
 
     @Column(name = "last_name")

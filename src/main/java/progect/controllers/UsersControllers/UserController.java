@@ -5,7 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 import progect.domain.user.UsersDomain;
-import progect.repository.UserRepository;
+import progect.repository.user.UserRepository;
 import progect.service.UserService.UserService;
 
 import java.util.*;
