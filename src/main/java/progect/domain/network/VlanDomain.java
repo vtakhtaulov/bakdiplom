@@ -22,5 +22,9 @@ public class VlanDomain {
     @NotNull
     private String vlan_number;
 
+    @OneToOne(optional=false)
+    @JoinColumn(name = "id_vlan")
+    private NetworkDomain id_network;
+
     public VlanDomain(){}
 }

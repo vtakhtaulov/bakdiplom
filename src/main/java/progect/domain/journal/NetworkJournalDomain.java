@@ -8,6 +8,7 @@ import progect.domain.network.NetworkDomain;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Data
@@ -18,8 +19,8 @@ public class NetworkJournalDomain {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id_network_journal;
 
-    @Column(name = "id_network")
-    @ManyToOne
+
+    @ManyToOne(optional=false)
     @JoinColumn(name = "id_network")
     private NetworkDomain id_network;
 
@@ -39,26 +40,25 @@ public class NetworkJournalDomain {
     @NotNull
     private String ip_address;
 
-    @Column(name = "id_user_reg")
-    @NotNull
-    @ManyToOne
+
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
     private UsersDomain id_user_reg;
 
-    @Column(name = "Id_user_old")
-    @NotNull
-    @ManyToOne
-    @JoinColumn(name = "user_id")
-    private UsersDomain Id_user_old;
 
-    @Column(name = "id_devices")
-    @NotNull
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id")
+    private UsersDomain id_user_old;
+
+
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_devices")
     private DevicesDomain id_devices;
 
     @Column(name = "actual")
     @NotNull
     private Integer actual;
+
+
 
 }

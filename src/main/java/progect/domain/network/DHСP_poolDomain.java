@@ -22,5 +22,9 @@ public class DHСP_poolDomain {
     @NotNull
     private String address_end;
 
+    @OneToOne(optional=false)
+    @JoinColumn(name = "id_DHСP_pool")
+    private NetworkDomain id_network;
+
     public DHСP_poolDomain(){}
 }

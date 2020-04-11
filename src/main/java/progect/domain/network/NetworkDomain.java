@@ -16,32 +16,26 @@ public class NetworkDomain {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id_network;
 
-    @Column(name = "id_pool_address")
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_pool_address")
     private Pool_address_Domain id_pool_address;
 
-    @Column(name = "id_user_reg")
-    @NotNull
-    @ManyToOne
-    @JoinColumn(name = "user_id")
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_user_reg", referencedColumnName = "user_id", insertable = false, updatable = false)
     private UsersDomain id_user_reg;
 
-    @Column(name = "Id_user_old")
-    @NotNull
-    @ManyToOne
-    @JoinColumn(name = "user_id")
-    private UsersDomain Id_user_old;
 
-    @Column(name = "id_vlan")
-    @NotNull
-    @OneToOne
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_user_old", referencedColumnName = "user_id", insertable = false, updatable = false)
+    private UsersDomain id_user_old;
+
+
+    @OneToOne(optional=false)
     @JoinColumn(name = "id_vlan")
     private VlanDomain id_vlan;
 
-    @Column(name = "id_DHСP_pool")
-    @NotNull
-    @OneToOne
+
+    @OneToOne(optional=false)
     @JoinColumn(name = "id_DHСP_pool")
     private DHСP_poolDomain id_DHСP_pool;
 

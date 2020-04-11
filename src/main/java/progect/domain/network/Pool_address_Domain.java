@@ -1,11 +1,13 @@
 package progect.domain.network;
 
 import lombok.Data;
+import progect.domain.journal.NetworkJournalDomain;
 import progect.domain.user.UsersDomain;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Data
@@ -35,20 +37,24 @@ public class Pool_address_Domain {
     @Column(name = "date_old")
     private Date date_old;
 
-    @Column(name = "id_user_old")
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
-    @NotNull
     private UsersDomain id_user_old;
 
-    @Column(name = "Id_user_reg")
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
-    private UsersDomain Id_user_reg;
+    private UsersDomain id_user_reg;
 
     @Column(name = "actual")
     @NotNull
     private String actual;
 
-    Pool_address_Domain(){}
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "id_pool_address")
+    @JoinColumn(name = "id_pool_address")
+    private List<NetworkDomain> id_network;
+
+
+    public Pool_address_Domain(){
+
+    }
 }

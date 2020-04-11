@@ -4,6 +4,7 @@ import lombok.Data;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.util.List;
 
 @Entity
 @Data
@@ -16,6 +17,10 @@ public class TypeDeviceDomain {
     @Column(name = "name_type_dev")
     @NotNull
     private String name_type_dev;
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "id_type_devices")
+    private List<DevicesDomain> id_device;
+
 
     public TypeDeviceDomain(){}
 }

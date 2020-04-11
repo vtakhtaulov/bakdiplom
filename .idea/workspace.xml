@@ -2,19 +2,26 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ec4e63fb-d68d-42ba-bb80-fe8deeb5cfcc" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/progect/domain/DHСP_poolDomain.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/progect/domain/DevicesDomain.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/progect/domain/NetworkDomain.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/progect/domain/NetworkJournalDomain.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/progect/domain/NodesDomain.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/progect/domain/Pool_address_Domain.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/progect/domain/PropsPortDomain.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/progect/domain/RoomDomain.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/progect/domain/TypeDeviceDomain.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/progect/domain/VlanDomain.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/progect/repository/devicesrepository/DevicesRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/progect/repository/devicesrepository/PropsPortRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/progect/domain/UsersDomain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/progect/domain/UsersDomain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/progect/domain/UsersDomain.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/progect/domain/UsersDomain.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/progect/domain/devices/DevicesDomain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/progect/domain/devices/DevicesDomain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/progect/domain/devices/PropsPortDomain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/progect/domain/devices/PropsPortDomain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/progect/domain/devices/TypeDeviceDomain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/progect/domain/devices/TypeDeviceDomain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/progect/domain/journal/NetworkJournalDomain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/progect/domain/journal/NetworkJournalDomain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/progect/domain/network/DHСP_poolDomain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/progect/domain/network/DHСP_poolDomain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/progect/domain/network/NetworkDomain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/progect/domain/network/NetworkDomain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/progect/domain/network/NodesDomain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/progect/domain/network/NodesDomain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/progect/domain/network/Pool_address_Domain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/progect/domain/network/Pool_address_Domain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/progect/domain/network/VlanDomain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/progect/domain/network/VlanDomain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/progect/domain/room/RoomDomain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/progect/domain/room/RoomDomain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/progect/domain/user/UsersDomain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/progect/domain/user/UsersDomain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/progect/controllers/UsersControllers/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/progect/controllers/UsersControllers/UserController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/progect/domain/UsersDomain.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/progect/repository/UserRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/progect/repository/UserRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/progect/service/UserService/IUserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/progect/service/UserService/IUserService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/progect/service/UserService/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/progect/service/UserService/UserService.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -28,8 +35,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -58,6 +65,7 @@
     <property name="RequestMappingsPanelWidth0" value="75" />
     <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -80,8 +88,8 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.Application (1)">
-    <configuration name="Application (1)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+  <component name="RunManager">
+    <configuration name="ApplicationStart" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true">
       <module name="bakdiplom" />
       <extension name="coverage">
         <pattern>
@@ -90,26 +98,7 @@
         </pattern>
       </extension>
       <option name="SPRING_BOOT_MAIN_CLASS" value="progect.Application" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Application" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true">
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="progect.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="SPRING_BOOT_MAIN_CLASS" value="progect.Application" />
       <option name="ALTERNATIVE_JRE_PATH" />
-      <additionalParameters>
-        <param>
-          <option name="enabled" value="true" />
-          <option name="name" value="" />
-          <option name="value" value="" />
-        </param>
-      </additionalParameters>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -129,8 +118,7 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Spring Boot.Application (1)" />
-        <item itemvalue="Spring Boot.Application" />
+        <item itemvalue="Spring Boot.ApplicationStart" />
         <item itemvalue="Spring Boot.Application" />
       </list>
     </recent_temporary>
@@ -139,6 +127,7 @@
     <option name="viewStates">
       <list>
         <serviceView>
+          <option name="contentProportion" value="0.26583648" />
           <treeState>
             <expand>
               <path>
@@ -179,12 +168,28 @@
       <workItem from="1584168751917" duration="777000" />
       <workItem from="1584169902221" duration="3035000" />
       <workItem from="1584270074866" duration="1838000" />
-      <workItem from="1585064965345" duration="4081000" />
+      <workItem from="1585064965345" duration="4398000" />
+      <workItem from="1585146156172" duration="558000" />
+      <workItem from="1585303554519" duration="599000" />
+      <workItem from="1586413127565" duration="158000" />
+      <workItem from="1586588330432" duration="9687000" />
     </task>
+    <task id="LOCAL-00001" summary="appgrade progect">
+      <created>1585069886791</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1585069886791</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="appgrade progect" />
+    <option name="LAST_COMMIT_MESSAGE" value="appgrade progect" />
   </component>
   <component name="WindowStateProjectService">
     <state x="590" y="138" key="#Application" timestamp="1583074425550">
@@ -195,11 +200,15 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="590" y="138" key="#Application_(1)/0.0.1920.1040@0.0.1920.1040" timestamp="1583074409947" />
-    <state x="552" y="217" key="#Inspections" timestamp="1585069032533">
+    <state x="552" y="217" key="#Inspections" timestamp="1586596478902">
       <screen x="0" y="40" width="1920" height="1040" />
     </state>
     <state x="552" y="177" key="#Inspections/0.0.1920.1040@0.0.1920.1040" timestamp="1582923803435" />
-    <state x="552" y="217" key="#Inspections/0.40.1920.1040@0.40.1920.1040" timestamp="1585069032533" />
+    <state x="552" y="217" key="#Inspections/0.40.1920.1040@0.40.1920.1040" timestamp="1586596478902" />
+    <state x="414" y="213" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1586595305134">
+      <screen x="0" y="40" width="1920" height="1040" />
+    </state>
+    <state x="414" y="213" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.40.1920.1040@0.40.1920.1040" timestamp="1586595305134" />
     <state x="765" y="202" key="#com.intellij.ide.util.MemberChooser" timestamp="1582926635213">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -208,50 +217,50 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="806" y="407" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1583074382423" />
-    <state x="80" y="154" key="CommitChangelistDialog2" timestamp="1585066084857">
+    <state x="80" y="154" key="CommitChangelistDialog2" timestamp="1585069884224">
       <screen x="0" y="40" width="1920" height="1040" />
     </state>
-    <state x="80" y="154" key="CommitChangelistDialog2/0.40.1920.1040@0.40.1920.1040" timestamp="1585066084857" />
-    <state width="619" height="151" key="GridCell.Tab.0.bottom" timestamp="1585069695418">
+    <state x="80" y="154" key="CommitChangelistDialog2/0.40.1920.1040@0.40.1920.1040" timestamp="1585069884224" />
+    <state width="1355" height="410" key="GridCell.Tab.0.bottom" timestamp="1586598686570">
       <screen x="0" y="40" width="1920" height="1040" />
     </state>
     <state width="1293" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1583422005687" />
-    <state width="619" height="151" key="GridCell.Tab.0.bottom/0.40.1920.1040@0.40.1920.1040" timestamp="1585069695418" />
-    <state width="619" height="151" key="GridCell.Tab.0.center" timestamp="1585069695418">
+    <state width="1355" height="410" key="GridCell.Tab.0.bottom/0.40.1920.1040@0.40.1920.1040" timestamp="1586598686570" />
+    <state width="1355" height="410" key="GridCell.Tab.0.center" timestamp="1586598686570">
       <screen x="0" y="40" width="1920" height="1040" />
     </state>
     <state width="1293" height="282" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1583422005687" />
-    <state width="619" height="151" key="GridCell.Tab.0.center/0.40.1920.1040@0.40.1920.1040" timestamp="1585069695418" />
-    <state width="619" height="151" key="GridCell.Tab.0.left" timestamp="1585069695418">
+    <state width="1355" height="410" key="GridCell.Tab.0.center/0.40.1920.1040@0.40.1920.1040" timestamp="1586598686570" />
+    <state width="1355" height="410" key="GridCell.Tab.0.left" timestamp="1586598686570">
       <screen x="0" y="40" width="1920" height="1040" />
     </state>
     <state width="1293" height="282" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1583422005686" />
-    <state width="619" height="151" key="GridCell.Tab.0.left/0.40.1920.1040@0.40.1920.1040" timestamp="1585069695418" />
-    <state width="619" height="151" key="GridCell.Tab.0.right" timestamp="1585069695418">
+    <state width="1355" height="410" key="GridCell.Tab.0.left/0.40.1920.1040@0.40.1920.1040" timestamp="1586598686570" />
+    <state width="1355" height="410" key="GridCell.Tab.0.right" timestamp="1586598686570">
       <screen x="0" y="40" width="1920" height="1040" />
     </state>
     <state width="1293" height="282" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1583422005687" />
-    <state width="619" height="151" key="GridCell.Tab.0.right/0.40.1920.1040@0.40.1920.1040" timestamp="1585069695418" />
-    <state width="619" height="151" key="GridCell.Tab.1.bottom" timestamp="1585069695418">
+    <state width="1355" height="410" key="GridCell.Tab.0.right/0.40.1920.1040@0.40.1920.1040" timestamp="1586598686570" />
+    <state width="1355" height="410" key="GridCell.Tab.1.bottom" timestamp="1586598686570">
       <screen x="0" y="40" width="1920" height="1040" />
     </state>
     <state width="1293" height="282" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1583422005687" />
-    <state width="619" height="151" key="GridCell.Tab.1.bottom/0.40.1920.1040@0.40.1920.1040" timestamp="1585069695418" />
-    <state width="619" height="151" key="GridCell.Tab.1.center" timestamp="1585069695418">
+    <state width="1355" height="410" key="GridCell.Tab.1.bottom/0.40.1920.1040@0.40.1920.1040" timestamp="1586598686570" />
+    <state width="1355" height="410" key="GridCell.Tab.1.center" timestamp="1586598686570">
       <screen x="0" y="40" width="1920" height="1040" />
     </state>
     <state width="1293" height="282" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1583422005687" />
-    <state width="619" height="151" key="GridCell.Tab.1.center/0.40.1920.1040@0.40.1920.1040" timestamp="1585069695418" />
-    <state width="619" height="151" key="GridCell.Tab.1.left" timestamp="1585069695418">
+    <state width="1355" height="410" key="GridCell.Tab.1.center/0.40.1920.1040@0.40.1920.1040" timestamp="1586598686570" />
+    <state width="1355" height="410" key="GridCell.Tab.1.left" timestamp="1586598686570">
       <screen x="0" y="40" width="1920" height="1040" />
     </state>
     <state width="1293" height="282" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1583422005687" />
-    <state width="619" height="151" key="GridCell.Tab.1.left/0.40.1920.1040@0.40.1920.1040" timestamp="1585069695418" />
-    <state width="619" height="151" key="GridCell.Tab.1.right" timestamp="1585069695418">
+    <state width="1355" height="410" key="GridCell.Tab.1.left/0.40.1920.1040@0.40.1920.1040" timestamp="1586598686570" />
+    <state width="1355" height="410" key="GridCell.Tab.1.right" timestamp="1586598686570">
       <screen x="0" y="40" width="1920" height="1040" />
     </state>
     <state width="1293" height="282" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1583422005687" />
-    <state width="619" height="151" key="GridCell.Tab.1.right/0.40.1920.1040@0.40.1920.1040" timestamp="1585069695418" />
+    <state width="1355" height="410" key="GridCell.Tab.1.right/0.40.1920.1040@0.40.1920.1040" timestamp="1586598686570" />
     <state width="1877" height="348" key="GridCell.Tab.2.bottom" timestamp="1582930331875">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -272,11 +281,15 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="490" y="173" key="Maven.ArtifactSearchDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1582926072335" />
-    <state x="342" y="254" key="new project wizard" timestamp="1584368870411">
+    <state x="752" y="475" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1586599182516">
+      <screen x="0" y="40" width="1920" height="1040" />
+    </state>
+    <state x="752" y="475" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.40.1920.1040@0.40.1920.1040" timestamp="1586599182516" />
+    <state x="260" y="176" key="new project wizard" timestamp="1586413285423">
       <screen x="0" y="40" width="1920" height="1040" />
     </state>
     <state x="342" y="214" key="new project wizard/0.0.1920.1040@0.0.1920.1040" timestamp="1583896481000" />
-    <state x="342" y="254" key="new project wizard/0.40.1920.1040@0.40.1920.1040" timestamp="1584368870411" />
+    <state x="260" y="176" key="new project wizard/0.40.1920.1040@0.40.1920.1040" timestamp="1586413285423" />
     <state x="702" y="134" key="refactoring.ChangeSignatureDialog" timestamp="1582927971417">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

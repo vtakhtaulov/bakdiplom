@@ -11,17 +11,16 @@ import javax.validation.constraints.NotNull;
 public class PropsPortDomain {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue
     private Integer id_props_port;
-
-    @Column(name = "id_devices")
-    @NotNull
-    @OneToOne
-    @JoinColumn(name = "id_devices")
-    private DevicesDomain id_devices;
-
     @Column(name = "EthernetPort")
     private String EthernetPort;
     @Column(name = "OVPort")
     private String OVPort;
+
+
+    @OneToOne(mappedBy = "id_props_port", cascade = CascadeType.ALL)
+    private DevicesDomain id_devices;
+    public PropsPortDomain() {
+    }
 }
