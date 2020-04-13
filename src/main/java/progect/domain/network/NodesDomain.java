@@ -18,14 +18,14 @@ public class NodesDomain {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id_nodes;
 
-    @ManyToOne(optional=false)
-    @JoinColumn(name = "user_id")
+    @ManyToOne
+    @JoinColumn(name = "usert_otv",referencedColumnName = "user_id")
     private UsersDomain usert_otv;
 
     @NotNull
     private String name_nodes;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "id_nodes")
+    @OneToMany( mappedBy = "id_nodes")
     private List<RoomDomain> id_nodes_RoomDomain;
 
     public NodesDomain() {

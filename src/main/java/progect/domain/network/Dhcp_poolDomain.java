@@ -8,7 +8,7 @@ import javax.validation.constraints.NotNull;
 @Entity
 @Data
 @Table(schema = "network", name = "DHСP_pool")
-public class DHСP_poolDomain {
+public class Dhcp_poolDomain {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,5 +25,5 @@ public class DHСP_poolDomain {
     @JoinColumn(name = "id_DHСP_pool")
     private NetworkDomain id_network;
 
-    public DHСP_poolDomain(){}
+    public Dhcp_poolDomain(){}
 }

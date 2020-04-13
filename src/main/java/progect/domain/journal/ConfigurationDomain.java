@@ -30,11 +30,13 @@ public class ConfigurationDomain {
 
     private String deference;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id")
+    @ManyToOne
+    @JoinColumn(name = "id_user_reg",referencedColumnName = "user_id")
     private UsersDomain id_user_reg;
 
-    private Integer id_user_old;
+    @ManyToOne
+    @JoinColumn(name = "id_user_old",referencedColumnName = "user_id")
+    private UsersDomain id_user_old;
 
     @NotNull
     private Date date_reg;

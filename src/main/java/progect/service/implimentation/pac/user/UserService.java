@@ -1,16 +1,15 @@
-package progect.service.UserService;
+package progect.service.implimentation.pac.user;
 
 
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import progect.DTO.UserDTO;
 import progect.domain.user.UsersDomain;
 import progect.repository.user.UserRepository;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.concurrent.atomic.AtomicInteger;
+import progect.service.interfase.pac.user.IUserService;
+
+import java.util.*;
 
 @Service
 public class UserService implements IUserService {
@@ -21,8 +20,8 @@ public class UserService implements IUserService {
     public List<UsersDomain> getAllUsers() {
         try {
             return userrepository.findAll();
-        }
-        catch (Exception e){
+        } catch (Exception e){
+            System.out.println(e.getMessage());
             return null;
         }
     }
@@ -32,6 +31,7 @@ public class UserService implements IUserService {
        try {
            return users;
        }catch (Exception e) {
+           System.out.println(e.getMessage());
            return null;
        }
     }
@@ -42,6 +42,7 @@ public class UserService implements IUserService {
             userrepository.delete(users);
             return true;
         }catch (Exception e){
+            System.out.println(e.getMessage());
             return false;
         }
     }
@@ -60,7 +61,13 @@ public class UserService implements IUserService {
         }
         catch (Exception e) {
              System.out.println(e.getMessage());
-             return new ArrayList<>();
+             return null;
         }
+    }
+
+    @Override
+    public List<UserDTO> testuser() {
+
+        return null;
     }
 }

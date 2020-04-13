@@ -18,7 +18,7 @@ public class CrossDevicesDomain {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer Id_crossdevices;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name = "id_device")
     @NotNull
     private DevicesDomain id_devices_first;
@@ -26,11 +26,13 @@ public class CrossDevicesDomain {
     @NotNull
     private Integer id_devices_end;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_user")
+    @ManyToOne
+    @JoinColumn(name = "id_user_otv",referencedColumnName = "user_id")
     private UsersDomain id_user_otv;
 
-    private Integer id_user_old;
+    @ManyToOne
+    @JoinColumn(name = "id_user_old",referencedColumnName = "user_id")
+    private UsersDomain id_user_old;
 
     @OneToOne
     @JoinColumn(name = "id_network_journal")
@@ -47,7 +49,7 @@ public class CrossDevicesDomain {
     @JoinColumn(name = "id_vlan")
     private VlanDomain id_vlan;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name = "id_crosses")
     private CrossesDomain id_crosses;
 

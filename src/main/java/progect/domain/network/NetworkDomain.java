@@ -16,15 +16,17 @@ public class NetworkDomain {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id_network;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name = "id_pool_address")
     private Pool_address_Domain id_pool_address;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_user_reg")
+    @ManyToOne
+    @JoinColumn(name = "id_user_reg",referencedColumnName = "user_id")
     private UsersDomain id_user_reg;
 
-    private Integer id_user_old;
+    @ManyToOne
+    @JoinColumn(name = "id_user_old",referencedColumnName = "user_id")
+    private UsersDomain id_user_old;
 
     @OneToOne(optional=false)
     @JoinColumn(name = "id_vlan")
@@ -33,7 +35,7 @@ public class NetworkDomain {
 
     @OneToOne(optional=false)
     @JoinColumn(name = "id_DHСP_pool")
-    private DHСP_poolDomain id_DHСP_pool;
+    private Dhcp_poolDomain id_DHСP_pool;
 
     @Column(name = "ip_address_network")
     @NotNull

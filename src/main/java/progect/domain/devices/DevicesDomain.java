@@ -19,18 +19,18 @@ public class DevicesDomain {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id_devices;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name = "id_type_devices")
     private TypeDeviceDomain id_type_devices;
 
-    @ManyToOne(optional=false)
-    @JoinColumn(name = "user_id")
+    @ManyToOne
+    @JoinColumn(name = "user_otv",referencedColumnName = "user_id")
     private UsersDomain user_otv;
 
     @NotNull
     private String hostname;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name = "id_room")
     private RoomDomain id_room;
 

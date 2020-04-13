@@ -23,8 +23,8 @@ public class RoomDomain {
     @NotNull
     private String name_room;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id")
+    @ManyToOne
+    @JoinColumn(name = "usert_otv",referencedColumnName = "user_id")
     private UsersDomain user_otv;
 
     @NotNull
