@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 import progect.DTO.network.Pool_address_DTO;
+import progect.domain.network.Pool_address_Domain;
 import progect.service.interfase.pac.network.IPoolAddressService;
 
 import java.util.*;

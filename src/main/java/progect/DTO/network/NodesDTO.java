@@ -50,4 +50,14 @@ public class NodesDTO {
     public void setName_nodes(String name_nodes) {
         this.name_nodes = name_nodes;
     }
+
+    @Override
+    public String toString() {
+        return "NodesDTO{" +
+                "id_nodes=" + id_nodes +
+                ", usert_otv='" + usert_otv + '\'' +
+                ", id_user_otv=" + id_user_otv +
+                ", name_nodes='" + name_nodes + '\'' +
+                '}';
+    }
 }

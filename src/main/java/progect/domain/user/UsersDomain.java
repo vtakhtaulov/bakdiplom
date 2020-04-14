@@ -49,7 +49,11 @@ public class UsersDomain {
     }
 
     public Integer getUser_id() {
-        return user_id;
+        try {
+            return user_id;
+        }catch (RuntimeException e) {
+            return 0;
+        }
     }
 
     public void setUser_id(Integer user_id) {

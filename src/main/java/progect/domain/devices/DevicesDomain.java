@@ -44,4 +44,70 @@ public class DevicesDomain {
 
 
     public DevicesDomain(){}
+
+    public Integer getId_devices() {
+        return id_devices;
+    }
+
+    public void setId_devices(Integer id_devices) {
+        this.id_devices = id_devices;
+    }
+
+    public TypeDeviceDomain getId_type_devices() {
+        return id_type_devices;
+    }
+
+    public void setId_type_devices(TypeDeviceDomain id_type_devices) {
+        this.id_type_devices = id_type_devices;
+    }
+
+    public UsersDomain getUser_otv() {
+        return user_otv;
+    }
+
+    public void setUser_otv(UsersDomain user_otv) {
+        this.user_otv = user_otv;
+    }
+
+    public String getHostname() {
+        return hostname;
+    }
+
+    public void setHostname(String hostname) {
+        this.hostname = hostname;
+    }
+
+    public RoomDomain getId_room() {
+        return id_room;
+    }
+
+    public void setId_room(RoomDomain id_room) {
+        this.id_room = id_room;
+    }
+
+    public PropsPortDomain getId_props_port() {
+        return id_props_port;
+    }
+
+    public void setId_props_port(PropsPortDomain id_props_port) {
+        this.id_props_port = id_props_port;
+    }
+
+    public List<NetworkJournalDomain> getId_network_journal() {
+        return id_network_journal;
+    }
+
+    public void setId_network_journal(List<NetworkJournalDomain> id_network_journal) {
+        this.id_network_journal = id_network_journal;
+    }
+    public String getFIOotv(){
+        try {
+            return this.user_otv.getFirst_name() + " "
+                    + this.user_otv.getLast_name() + " "
+                    + this.user_otv.getMiddle_name();
+        }
+        catch (Exception e){
+            return " ";
+        }
+    }
 }

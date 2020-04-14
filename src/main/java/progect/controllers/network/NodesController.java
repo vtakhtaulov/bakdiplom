@@ -4,24 +4,26 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 import progect.DTO.network.NodesDTO;
+import progect.domain.network.NetworkDomain;
+import progect.domain.network.NodesDomain;
 import progect.service.interfase.pac.network.INodesService;
 
 import java.util.*;
 
 @RestController
 @CrossOrigin("*")
-@RequestMapping(value = "/Network/")
+@RequestMapping(value = "/Nodes/")
 public class NodesController  {
     @Autowired
     private INodesService nodesService;
 
     @RequestMapping(value = "/NodesAll", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-    public List<NodesDTO> FindAllPool() {
+    public List<NodesDTO> findAllPool() {
         return nodesService.findAllNodes();
     }
 
     @RequestMapping(value = "/NodesNetwork/{id_nodes}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-    public NodesDTO ReadPool(@PathVariable("id_nodes") NodesDTO obj) {
+    public NodesDTO readPool(@PathVariable("id_nodes") NodesDTO obj) {
         return nodesService.readNodes(obj);
     }
 
@@ -35,7 +37,7 @@ public class NodesController  {
         return nodesService.updateNodes(obj, new_obj);
     }
     @RequestMapping(value = "/CreateNetwork", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-    public List<NodesDTO> CreatePool (@RequestBody NodesDTO obj){
+    public List<NodesDTO> createPool (@RequestBody NodesDTO obj){
         return nodesService.createNodes(obj);
     }
 

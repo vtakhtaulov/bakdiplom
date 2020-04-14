@@ -205,4 +205,28 @@ public class NetworkDTO {
     public void setActual(Integer actual) {
         this.actual = actual;
     }
+
+    @Override
+    public String toString() {
+        return "NetworkDTO{" +
+                "id_network=" + id_network +
+                ", pool_address='" + pool_address + '\'' +
+                ", id_pool_address=" + id_pool_address +
+                ", user_reg='" + user_reg + '\'' +
+                ", id_user_reg=" + id_user_reg +
+                ", user_old='" + user_old + '\'' +
+                ", id_user_old=" + id_user_old +
+                ", vlan='" + vlan + '\'' +
+                ", id_vlan=" + id_vlan +
+                ", dhcp_pool='" + dhcp_pool + '\'' +
+                ", id_dhcp_pool=" + id_dhcp_pool +
+                ", ip_address_network='" + ip_address_network + '\'' +
+                ", networkMask='" + networkMask + '\'' +
+                ", number_mstp=" + number_mstp +
+                ", defaultGeteway=" + defaultGeteway +
+                ", date_reg=" + date_reg +
+                ", date_old=" + date_old +
+                ", actual=" + actual +
+                '}';
+    }
 }
