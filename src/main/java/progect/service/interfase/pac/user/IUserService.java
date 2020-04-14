@@ -1,6 +1,6 @@
 package progect.service.interfase.pac.user;
 
-import progect.DTO.UserDTO;
+import progect.DTO.user.UserDTO;
 import progect.domain.user.UsersDomain;
 
 import java.util.List;

@@ -4,7 +4,7 @@ package progect.service.implimentation.pac.user;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import progect.DTO.UserDTO;
+import progect.DTO.user.UserDTO;
 import progect.domain.user.UsersDomain;
 import progect.repository.user.UserRepository;
 import progect.service.interfase.pac.user.IUserService;

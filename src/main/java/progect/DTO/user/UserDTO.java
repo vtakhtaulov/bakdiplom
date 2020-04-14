@@ -1,4 +1,4 @@
-package progect.DTO;
+package progect.DTO.user;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 

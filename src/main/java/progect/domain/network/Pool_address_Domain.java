@@ -132,11 +132,11 @@ public class Pool_address_Domain {
                 +this.id_user_reg.getMiddle_name();
     }
     public String getFIOOld(){
-        try {
-            return this.id_user_old.getFirst_name() + " "
-                    + this.id_user_old.getLast_name() + " "
-                    + this.id_user_old.getMiddle_name();
-        }
+            try {
+                return this.id_user_old.getFirst_name() + " "
+                        + this.id_user_old.getLast_name() + " "
+                        + this.id_user_old.getMiddle_name();
+            }
         catch (Exception e){
             return " ";
         }

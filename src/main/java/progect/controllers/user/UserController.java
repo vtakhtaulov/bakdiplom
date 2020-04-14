@@ -1,9 +1,9 @@
-package progect.controllers.UsersControllers;
+package progect.controllers.user;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
-import progect.DTO.UserDTO;
+import progect.DTO.user.UserDTO;
 import progect.domain.user.UsersDomain;
 import progect.service.interfase.pac.user.IUserService;
 

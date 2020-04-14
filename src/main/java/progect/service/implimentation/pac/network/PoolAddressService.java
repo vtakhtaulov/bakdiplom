@@ -28,14 +28,14 @@ public class PoolAddressService implements IPoolAddressService {
     }
 
     @Override
-    public Pool_address_Domain readPool(Pool_address_Domain pool_address) {
+    public Pool_address_DTO readPool(Pool_address_DTO pool_address) {
         return pool_address;
     }
 
     @Override
-    public boolean deletePool(Pool_address_Domain pool) {
+    public boolean deletePool(Pool_address_DTO pool) {
        try {
-        pool_address_repository.delete(pool);
+        //pool_address_repository.delete(pool);
         return true;
         } catch (Exception e){
            System.out.println(e.getMessage());
@@ -44,7 +44,7 @@ public class PoolAddressService implements IPoolAddressService {
     }
 
     @Override
-    public List<Pool_address_DTO> updatePool(Pool_address_Domain pool, Pool_address_Domain new_pool) {
+    public List<Pool_address_DTO> updatePool(Pool_address_DTO pool, Pool_address_DTO new_pool) {
         try {
         BeanUtils.copyProperties(new_pool,pool, "id_pool_address");
             return mapperEntityToDTO();
@@ -55,10 +55,10 @@ public class PoolAddressService implements IPoolAddressService {
     }
 
     @Override
-    public List<Pool_address_DTO> createPool(Pool_address_Domain pool) {
+    public List<Pool_address_DTO> createPool(Pool_address_DTO pool) {
         try {
-            pool_address_repository.save(pool);
-            mapperEntityToDTO();
+            //pool_address_repository.save(pool);
+           // mapperEntityToDTO();
             return  mapperEntityToDTO();
         }catch (Exception e) {
             System.out.println(e.getMessage());

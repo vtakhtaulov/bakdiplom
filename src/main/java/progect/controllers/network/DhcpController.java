@@ -1,4 +1,4 @@
-package progect.controllers.NetworkControllers;
+package progect.controllers.network;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
