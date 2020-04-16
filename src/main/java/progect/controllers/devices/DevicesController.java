@@ -1,14 +1,12 @@
-package progect.controllers.network;
+package progect.controllers.devices;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 import progect.DTO.devices.DevicesDTO;
-import progect.domain.network.VlanDomain;
 import progect.service.interfase.pac.device.IDeviceService;
-import progect.service.interfase.pac.network.IVlanService;
 
-import java.util.*;
+import java.util.List;
 
 @RestController
 @CrossOrigin("*")

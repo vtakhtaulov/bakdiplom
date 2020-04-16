@@ -3,9 +3,7 @@ package progect.service.implimentation.pac.devices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import progect.DTO.devices.DevicesDTO;
-import progect.DTO.network.Pool_address_DTO;
 import progect.domain.devices.DevicesDomain;
-import progect.domain.network.Pool_address_Domain;
 import progect.repository.devices.DevicesRepository;
 import progect.service.interfase.pac.device.IDeviceService;
 

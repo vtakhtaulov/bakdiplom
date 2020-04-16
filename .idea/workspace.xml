@@ -2,31 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ec4e63fb-d68d-42ba-bb80-fe8deeb5cfcc" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/progect/controllers/devices/DevicesController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/progect/controllers/devices/TypeDeviceController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/progect/service/implimentation/pac/devices/DevicesService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/progect/service/interfase/pac/device/IDeviceService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/progect/DTO/journal/ConfigurationDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/progect/DTO/journal/CrossDevicesDomain.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/progect/DTO/journal/NetworkJournalDomain.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/progect/service/implimentation/pac/devices/TypeDeviceService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/progect/service/interfase/pac/device/ITypeDeviceService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/progect/controllers/network/CrossesController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/progect/controllers/network/CrossesController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/progect/controllers/network/DhcpController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/progect/controllers/network/DhcpController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/progect/controllers/network/NetworkController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/progect/controllers/network/NetworkController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/progect/controllers/network/NodesController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/progect/controllers/network/NodesController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/progect/controllers/network/PoolController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/progect/controllers/network/PoolController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/progect/controllers/network/VlanController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/progect/controllers/network/VlanController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/progect/controllers/devices/DevicesController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/progect/controllers/devices/DevicesController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/progect/controllers/devices/TypeDeviceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/progect/controllers/devices/TypeDeviceController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/progect/controllers/user/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/progect/controllers/user/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/progect/service/implimentation/pac/network/CrossesService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/progect/service/implimentation/pac/network/CrossesService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/progect/service/implimentation/pac/network/DHCPService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/progect/service/implimentation/pac/network/DHCPService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/progect/service/implimentation/pac/network/NetworkService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/progect/service/implimentation/pac/network/NetworkService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/progect/service/implimentation/pac/network/NodesService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/progect/service/implimentation/pac/network/NodesService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/progect/service/implimentation/pac/network/PoolAddressService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/progect/service/implimentation/pac/network/PoolAddressService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/progect/service/implimentation/pac/network/VlanService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/progect/service/implimentation/pac/network/VlanService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/progect/domain/journal/ConfigurationDomain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/progect/domain/journal/ConfigurationDomain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/progect/service/implimentation/pac/devices/DevicesService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/progect/service/implimentation/pac/devices/DevicesService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/progect/service/implimentation/pac/user/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/progect/service/implimentation/pac/user/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/progect/service/interfase/pac/network/ICrossesService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/progect/service/interfase/pac/network/ICrossesService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/progect/service/interfase/pac/network/IDHCPService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/progect/service/interfase/pac/network/IDHCPService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/progect/service/interfase/pac/network/INetworkService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/progect/service/interfase/pac/network/INetworkService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/progect/service/interfase/pac/network/INodesService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/progect/service/interfase/pac/network/INodesService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/progect/service/interfase/pac/network/IPoolAddressService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/progect/service/interfase/pac/network/IPoolAddressService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/progect/service/interfase/pac/network/IVlanService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/progect/service/interfase/pac/network/IVlanService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/progect/service/interfase/pac/user/IUserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/progect/service/interfase/pac/user/IUserService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -103,11 +90,6 @@
         <item name="tables" type="d4e8921:DatabaseStructure$FamilyGroup" />
         <item name="nodes: table" type="69fad909:PgImplModel$LocalTable" />
       </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="diplomdb" type="feb32156:DbDataSourceImpl" />
-        <item name="roles" type="d4e8921:DatabaseStructure$FamilyGroup" />
-      </path>
     </expand>
     <select />
   </component>
@@ -158,7 +140,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java/progect/DTO/journal" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -172,12 +154,13 @@
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
-    <key name="CreateClassDialog.RecentsKey">
-      <recent name="progect.mapper" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Diplom\bakdiplom\src\main\java\progect\DTO\journal" />
       <recent name="D:\Diplom\bakdiplom\src\main\java\progect\controllers\devices" />
       <recent name="D:\Diplom\bakdiplom\src\main\java\progect\service\implimentation\pac" />
+    </key>
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="progect.mapper" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -238,11 +221,6 @@
                 <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
                 <item name="Spring Boot" type="7427dc5b:ServiceModel$ServiceGroupNode" />
               </path>
-              <path>
-                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-                <item name="Spring Boot" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-                <item name="Finished" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-              </path>
             </expand>
             <select />
           </treeState>
@@ -279,7 +257,8 @@
       <workItem from="1586588330432" duration="77370000" />
       <workItem from="1586869950358" duration="18228000" />
       <workItem from="1586939637243" duration="110000" />
-      <workItem from="1586962980660" duration="5336000" />
+      <workItem from="1586962980660" duration="5377000" />
+      <workItem from="1587033128975" duration="3527000" />
     </task>
     <task id="LOCAL-00001" summary="appgrade progect">
       <created>1585069886791</created>
@@ -337,7 +316,14 @@
       <option name="project" value="LOCAL" />
       <updated>1586891817046</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="appgrade progect">
+      <created>1587021504579</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1587021504579</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -365,10 +351,10 @@
     </state>
     <state x="552" y="177" key="#Inspections/0.0.1920.1040@0.0.1920.1040" timestamp="1582923803435" />
     <state x="552" y="217" key="#Inspections/0.40.1920.1040@0.40.1920.1040" timestamp="1586714395302" />
-    <state x="552" y="217" width="816" height="737" key="#Intentions" timestamp="1586804011070">
+    <state x="552" y="217" width="816" height="788" key="#Intentions" timestamp="1587034286033">
       <screen x="0" y="40" width="1920" height="1040" />
     </state>
-    <state x="552" y="217" width="816" height="737" key="#Intentions/0.40.1920.1040@0.40.1920.1040" timestamp="1586804011070" />
+    <state x="552" y="217" width="816" height="788" key="#Intentions/0.40.1920.1040@0.40.1920.1040" timestamp="1587034286033" />
     <state x="346" y="317" key="#com.intellij.codeInsight.editorActions.RestoreReferencesDialog" timestamp="1586629530843">
       <screen x="0" y="40" width="1920" height="1040" />
     </state>
@@ -377,11 +363,11 @@
       <screen x="0" y="40" width="1920" height="1040" />
     </state>
     <state x="553" y="220" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.40.1920.1040@0.40.1920.1040" timestamp="1586721005020" />
-    <state x="765" y="242" key="#com.intellij.ide.util.MemberChooser" timestamp="1586964475646">
+    <state x="765" y="242" key="#com.intellij.ide.util.MemberChooser" timestamp="1587037723892">
       <screen x="0" y="40" width="1920" height="1040" />
     </state>
     <state x="765" y="202" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1582926635213" />
-    <state x="765" y="242" key="#com.intellij.ide.util.MemberChooser/0.40.1920.1040@0.40.1920.1040" timestamp="1586964475646" />
+    <state x="765" y="242" key="#com.intellij.ide.util.MemberChooser/0.40.1920.1040@0.40.1920.1040" timestamp="1587037723892" />
     <state x="828" y="348" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1586720989793">
       <screen x="0" y="40" width="1920" height="1040" />
     </state>
@@ -394,58 +380,58 @@
       <screen x="0" y="40" width="1920" height="1040" />
     </state>
     <state x="739" y="416" width="441" height="299" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.40.1920.1040@0.40.1920.1040" timestamp="1586885935547" />
-    <state x="690" y="304" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1586886245727">
+    <state x="690" y="304" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1587033195467">
       <screen x="0" y="40" width="1920" height="1040" />
     </state>
-    <state x="690" y="304" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.40.1920.1040@0.40.1920.1040" timestamp="1586886245727" />
-    <state x="527" y="151" key="CommitChangelistDialog2" timestamp="1586891814714">
+    <state x="690" y="304" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.40.1920.1040@0.40.1920.1040" timestamp="1587033195467" />
+    <state x="367" y="144" key="CommitChangelistDialog2" timestamp="1587021501879">
       <screen x="0" y="40" width="1920" height="1040" />
     </state>
-    <state x="527" y="151" key="CommitChangelistDialog2/0.40.1920.1040@0.40.1920.1040" timestamp="1586891814714" />
-    <state x="570" y="315" key="FileChooserDialogImpl" timestamp="1586939747745">
+    <state x="367" y="144" key="CommitChangelistDialog2/0.40.1920.1040@0.40.1920.1040" timestamp="1587021501879" />
+    <state x="570" y="315" key="FileChooserDialogImpl" timestamp="1587021524606">
       <screen x="0" y="40" width="1920" height="1040" />
     </state>
-    <state x="570" y="315" key="FileChooserDialogImpl/0.40.1920.1040@0.40.1920.1040" timestamp="1586939747745" />
-    <state width="1504" height="234" key="GridCell.Tab.0.bottom" timestamp="1587021481381">
+    <state x="570" y="315" key="FileChooserDialogImpl/0.40.1920.1040@0.40.1920.1040" timestamp="1587021524606" />
+    <state width="1504" height="234" key="GridCell.Tab.0.bottom" timestamp="1587021525609">
       <screen x="0" y="40" width="1920" height="1040" />
     </state>
     <state width="1293" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1583422005687" />
-    <state width="1504" height="234" key="GridCell.Tab.0.bottom/0.40.1920.1040@0.40.1920.1040" timestamp="1587021481381" />
-    <state width="1504" height="234" key="GridCell.Tab.0.center" timestamp="1587021481381">
+    <state width="1504" height="234" key="GridCell.Tab.0.bottom/0.40.1920.1040@0.40.1920.1040" timestamp="1587021525609" />
+    <state width="1504" height="234" key="GridCell.Tab.0.center" timestamp="1587021525609">
       <screen x="0" y="40" width="1920" height="1040" />
     </state>
     <state width="1293" height="282" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1583422005687" />
-    <state width="1504" height="234" key="GridCell.Tab.0.center/0.40.1920.1040@0.40.1920.1040" timestamp="1587021481381" />
-    <state width="1504" height="234" key="GridCell.Tab.0.left" timestamp="1587021481381">
+    <state width="1504" height="234" key="GridCell.Tab.0.center/0.40.1920.1040@0.40.1920.1040" timestamp="1587021525609" />
+    <state width="1504" height="234" key="GridCell.Tab.0.left" timestamp="1587021525609">
       <screen x="0" y="40" width="1920" height="1040" />
     </state>
     <state width="1293" height="282" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1583422005686" />
-    <state width="1504" height="234" key="GridCell.Tab.0.left/0.40.1920.1040@0.40.1920.1040" timestamp="1587021481381" />
-    <state width="1504" height="234" key="GridCell.Tab.0.right" timestamp="1587021481381">
+    <state width="1504" height="234" key="GridCell.Tab.0.left/0.40.1920.1040@0.40.1920.1040" timestamp="1587021525609" />
+    <state width="1504" height="234" key="GridCell.Tab.0.right" timestamp="1587021525609">
       <screen x="0" y="40" width="1920" height="1040" />
     </state>
     <state width="1293" height="282" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1583422005687" />
-    <state width="1504" height="234" key="GridCell.Tab.0.right/0.40.1920.1040@0.40.1920.1040" timestamp="1587021481381" />
-    <state width="1504" height="234" key="GridCell.Tab.1.bottom" timestamp="1587021481382">
+    <state width="1504" height="234" key="GridCell.Tab.0.right/0.40.1920.1040@0.40.1920.1040" timestamp="1587021525609" />
+    <state width="1504" height="234" key="GridCell.Tab.1.bottom" timestamp="1587021525610">
       <screen x="0" y="40" width="1920" height="1040" />
     </state>
     <state width="1293" height="282" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1583422005687" />
-    <state width="1504" height="234" key="GridCell.Tab.1.bottom/0.40.1920.1040@0.40.1920.1040" timestamp="1587021481382" />
-    <state width="1504" height="234" key="GridCell.Tab.1.center" timestamp="1587021481381">
+    <state width="1504" height="234" key="GridCell.Tab.1.bottom/0.40.1920.1040@0.40.1920.1040" timestamp="1587021525610" />
+    <state width="1504" height="234" key="GridCell.Tab.1.center" timestamp="1587021525610">
       <screen x="0" y="40" width="1920" height="1040" />
     </state>
     <state width="1293" height="282" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1583422005687" />
-    <state width="1504" height="234" key="GridCell.Tab.1.center/0.40.1920.1040@0.40.1920.1040" timestamp="1587021481381" />
-    <state width="1504" height="234" key="GridCell.Tab.1.left" timestamp="1587021481381">
+    <state width="1504" height="234" key="GridCell.Tab.1.center/0.40.1920.1040@0.40.1920.1040" timestamp="1587021525610" />
+    <state width="1504" height="234" key="GridCell.Tab.1.left" timestamp="1587021525609">
       <screen x="0" y="40" width="1920" height="1040" />
     </state>
     <state width="1293" height="282" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1583422005687" />
-    <state width="1504" height="234" key="GridCell.Tab.1.left/0.40.1920.1040@0.40.1920.1040" timestamp="1587021481381" />
-    <state width="1504" height="234" key="GridCell.Tab.1.right" timestamp="1587021481382">
+    <state width="1504" height="234" key="GridCell.Tab.1.left/0.40.1920.1040@0.40.1920.1040" timestamp="1587021525609" />
+    <state width="1504" height="234" key="GridCell.Tab.1.right" timestamp="1587021525610">
       <screen x="0" y="40" width="1920" height="1040" />
     </state>
     <state width="1293" height="282" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1583422005687" />
-    <state width="1504" height="234" key="GridCell.Tab.1.right/0.40.1920.1040@0.40.1920.1040" timestamp="1587021481382" />
+    <state width="1504" height="234" key="GridCell.Tab.1.right/0.40.1920.1040@0.40.1920.1040" timestamp="1587021525610" />
     <state width="1504" height="291" key="GridCell.Tab.2.bottom" timestamp="1586751131684">
       <screen x="0" y="40" width="1920" height="1040" />
     </state>
