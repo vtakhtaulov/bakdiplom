@@ -18,7 +18,7 @@ public class PoolAddressService implements IPoolAddressService {
     private Pool_address_Repository pool_address_repository;
 
     @Override
-    public List<Pool_address_DTO> findAllPool() {
+    public List<Pool_address_DTO> findAll() {
         try {
             return mapperEntityToDTO();
         } catch (Exception e){
@@ -28,12 +28,12 @@ public class PoolAddressService implements IPoolAddressService {
     }
 
     @Override
-    public Pool_address_DTO readPool(Pool_address_DTO pool_address) {
-        return pool_address;
+    public Pool_address_DTO read(Pool_address_DTO obj) {
+        return obj;
     }
 
     @Override
-    public boolean deletePool(Pool_address_DTO pool) {
+    public boolean delete(Pool_address_DTO obj) {
        try {
         //pool_address_repository.delete(pool);
         return true;
@@ -44,9 +44,9 @@ public class PoolAddressService implements IPoolAddressService {
     }
 
     @Override
-    public List<Pool_address_DTO> updatePool(Pool_address_DTO pool, Pool_address_DTO new_pool) {
+    public List<Pool_address_DTO> update(Pool_address_DTO obj, Pool_address_DTO new_obj) {
         try {
-        BeanUtils.copyProperties(new_pool,pool, "id_pool_address");
+        BeanUtils.copyProperties(new_obj,obj, "id_pool_address");
             return mapperEntityToDTO();
         } catch (Exception e){
             System.out.println(e.getMessage());
@@ -55,7 +55,7 @@ public class PoolAddressService implements IPoolAddressService {
     }
 
     @Override
-    public List<Pool_address_DTO> createPool(Pool_address_DTO pool) {
+    public List<Pool_address_DTO> create(Pool_address_DTO obj) {
         try {
             //pool_address_repository.save(pool);
            // mapperEntityToDTO();
@@ -68,12 +68,12 @@ public class PoolAddressService implements IPoolAddressService {
 
     private List<Pool_address_DTO> mapperEntityToDTO()
         {
-            List<Pool_address_DTO> listPoolDTO = new ArrayList<>();
-            List<Pool_address_Domain> listPoolDom = pool_address_repository.findAll();
-            for(int i = 0; i<listPoolDom.size(); i++) {
-            Pool_address_Domain pooldom = listPoolDom.get(i);
-            listPoolDTO.add(new Pool_address_DTO(pooldom));
+            List<Pool_address_DTO> listDTO = new ArrayList<>();
+            List<Pool_address_Domain> listDom = pool_address_repository.findAll();
+            for(int i = 0; i<listDom.size(); i++) {
+            Pool_address_Domain obj_dom = listDom.get(i);
+            listDTO.add(new Pool_address_DTO(obj_dom));
             }
-        return listPoolDTO;
+        return listDTO;
     }
 }

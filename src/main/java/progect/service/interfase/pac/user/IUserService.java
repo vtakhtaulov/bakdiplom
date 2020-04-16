@@ -6,10 +6,9 @@ import progect.domain.user.UsersDomain;
 import java.util.List;
 
 public interface IUserService {
-    List<UsersDomain> getAllUsers();
-    UsersDomain getOneUsers(UsersDomain users);
-    boolean deleteUsers(UsersDomain users);
-    List<UsersDomain> updateUser (UsersDomain users,UsersDomain newusers);
-    List<UsersDomain> AddUser (UsersDomain users);
-    List<UserDTO> testuser ();
+    List<UsersDomain> findAll();
+    UsersDomain read(UsersDomain obj);
+    boolean delete(UsersDomain obj);
+    List<UsersDomain> update(UsersDomain obj,UsersDomain new_obj);
+    List<UsersDomain> create(UsersDomain obj);
 }

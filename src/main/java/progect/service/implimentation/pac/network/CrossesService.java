@@ -15,7 +15,7 @@ public class CrossesService implements ICrossesService {
     private CrossesRepository crossesRepository;
 
     @Override
-    public List<CrossesDomain> findAllPool() {
+    public List<CrossesDomain> findAll() {
         try {
             return crossesRepository.findAll();
         }catch (RuntimeException e){
@@ -26,12 +26,12 @@ public class CrossesService implements ICrossesService {
     }
 
     @Override
-    public CrossesDomain readPool(CrossesDomain crosses) {
+    public CrossesDomain read(CrossesDomain crosses) {
        return null;
     }
 
     @Override
-    public boolean deletePool(CrossesDomain crosses) {
+    public boolean delete(CrossesDomain crosses) {
         try {
             crossesRepository.delete(crosses);
             return true;
@@ -42,9 +42,9 @@ public class CrossesService implements ICrossesService {
     }
 
     @Override
-    public List<CrossesDomain> updatePool(CrossesDomain crosses, CrossesDomain new_crosses) {
+    public List<CrossesDomain> update(CrossesDomain obj, CrossesDomain new_obj) {
         try {
-            BeanUtils.copyProperties(new_crosses, crosses,"id_crosses_first" );
+            BeanUtils.copyProperties(new_obj, obj,"id_crosses_first" );
             return crossesRepository.findAll();
         }catch (RuntimeException e){
             System.out.println(e.hashCode());
@@ -54,10 +54,10 @@ public class CrossesService implements ICrossesService {
     }
 
     @Override
-    public List<CrossesDomain> createPool(CrossesDomain crosses) {
+    public List<CrossesDomain> create(CrossesDomain obj) {
 
         try {
-            crossesRepository.save(crosses);
+            crossesRepository.save(obj);
             return crossesRepository.findAll();
         }
         catch (Exception e) {

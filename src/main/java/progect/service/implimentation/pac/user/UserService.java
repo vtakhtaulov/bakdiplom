@@ -17,7 +17,7 @@ public class UserService implements IUserService {
     private UserRepository userrepository;
 
     @Override
-    public List<UsersDomain> getAllUsers() {
+    public List<UsersDomain> findAll() {
         try {
             return userrepository.findAll();
         } catch (Exception e){
@@ -27,9 +27,9 @@ public class UserService implements IUserService {
     }
 
     @Override
-    public UsersDomain getOneUsers(UsersDomain users) {
+    public UsersDomain read(UsersDomain obj) {
        try {
-           return users;
+           return obj;
        }catch (Exception e) {
            System.out.println(e.getMessage());
            return null;
@@ -37,9 +37,9 @@ public class UserService implements IUserService {
     }
 
     @Override
-    public boolean deleteUsers(UsersDomain users) {
+    public boolean delete(UsersDomain obj) {
         try {
-            userrepository.delete(users);
+            userrepository.delete(obj);
             return true;
         }catch (Exception e){
             System.out.println(e.getMessage());
@@ -48,26 +48,20 @@ public class UserService implements IUserService {
     }
 
     @Override
-    public List<UsersDomain> updateUser(UsersDomain users, UsersDomain newuser) {
-        BeanUtils.copyProperties(newuser, users,"user_id" );
+    public List<UsersDomain> update(UsersDomain obj, UsersDomain new_obj) {
+        BeanUtils.copyProperties(new_obj, obj,"user_id" );
         return userrepository.findAll();
     }
 
     @Override
-    public List<UsersDomain> AddUser(UsersDomain users) {
+    public List<UsersDomain> create(UsersDomain obj) {
         try {
-            userrepository.save(users);
+            userrepository.save(obj);
             return userrepository.findAll();
         }
         catch (Exception e) {
              System.out.println(e.getMessage());
              return null;
         }
-    }
-
-    @Override
-    public List<UserDTO> testuser() {
-
-        return null;
     }
 }

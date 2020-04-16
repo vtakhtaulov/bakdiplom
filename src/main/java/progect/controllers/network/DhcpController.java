@@ -16,27 +16,27 @@ public class DhcpController {
     private IDHCPService pool_service;
 
     @RequestMapping(value = "/DHCPAll", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-    public List<Dhcp_poolDomain> findAllDHCP() {
-        return pool_service.findAllDHCP();
+    public List<Dhcp_poolDomain> findAll() {
+        return pool_service.findAll();
     }
 
     @RequestMapping(value = "/SearchDHCP/{id_DHСP_pool}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-    public Dhcp_poolDomain readDHCP(@PathVariable("id_DHСP_pool") Dhcp_poolDomain pool) {
-        return pool_service.readDHCP(pool);
+    public Dhcp_poolDomain read(@PathVariable("id_DHСP_pool") Dhcp_poolDomain obj) {
+        return pool_service.read(obj);
     }
 
     @RequestMapping(value = "/DeleteDHCP/{id_DHСP_pool}", method = RequestMethod.DELETE, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-    public boolean deleteDHCP(@PathVariable("id_DHСP_pool") Dhcp_poolDomain pool) {
-        return pool_service.deleteDHCP(pool);
+    public boolean delete(@PathVariable("id_DHСP_pool") Dhcp_poolDomain obj) {
+        return pool_service.delete(obj);
     }
 
     @RequestMapping(value = "/UpdateDHCP/{id_DHСP_pool}", method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-    public List<Dhcp_poolDomain> updateDHCP(@PathVariable("id_DHСP_pool") Dhcp_poolDomain pool, @RequestBody Dhcp_poolDomain new_pool) {
-        return pool_service.updateDHCP(pool, new_pool);
+    public List<Dhcp_poolDomain> update(@PathVariable("id_DHСP_pool") Dhcp_poolDomain obj, @RequestBody Dhcp_poolDomain new_obj) {
+        return pool_service.update(obj, new_obj);
     }
     @RequestMapping(value = "/CreateDHCP", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-    public List<Dhcp_poolDomain> createDHCP (@RequestBody Dhcp_poolDomain pool){
-        return pool_service.createDHCP(pool);
+    public List<Dhcp_poolDomain> create(@RequestBody Dhcp_poolDomain obj){
+        return pool_service.create(obj);
     }
 
 }

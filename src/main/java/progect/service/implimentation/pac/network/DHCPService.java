@@ -15,7 +15,7 @@ public class DHCPService implements IDHCPService {
     private DHСP_poolRepository dhсp_poolRepository;
 
     @Override
-    public List<Dhcp_poolDomain> findAllDHCP() {
+    public List<Dhcp_poolDomain> findAll() {
         try {
             return dhсp_poolRepository.findAll();
         } catch (Exception e){
@@ -25,19 +25,19 @@ public class DHCPService implements IDHCPService {
     }
 
     @Override
-    public Dhcp_poolDomain readDHCP(Dhcp_poolDomain pool_address) {
+    public Dhcp_poolDomain read(Dhcp_poolDomain pool_obj) {
         return null;
     }
 
     @Override
-    public boolean deleteDHCP(Dhcp_poolDomain pool) {
+    public boolean delete(Dhcp_poolDomain obj) {
         return false;
     }
 
     @Override
-    public List<Dhcp_poolDomain> updateDHCP(Dhcp_poolDomain pool, Dhcp_poolDomain new_pool) {
+    public List<Dhcp_poolDomain> update(Dhcp_poolDomain obj, Dhcp_poolDomain new_obj) {
         try {
-            BeanUtils.copyProperties(new_pool,pool, "id_DHСP_pool");
+            BeanUtils.copyProperties(new_obj,obj, "id_DHСP_pool");
             return dhсp_poolRepository.findAll();
         } catch (Exception e){
             System.out.println(e.getMessage());
@@ -46,9 +46,9 @@ public class DHCPService implements IDHCPService {
     }
 
     @Override
-    public List<Dhcp_poolDomain> createDHCP(Dhcp_poolDomain pool) {
+    public List<Dhcp_poolDomain> create(Dhcp_poolDomain obj) {
         try {
-            dhсp_poolRepository.save(pool);
+            dhсp_poolRepository.save(obj);
             return dhсp_poolRepository.findAll();
         } catch (Exception e){
             System.out.println(e.getMessage());

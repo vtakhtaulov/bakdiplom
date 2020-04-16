@@ -8,9 +8,9 @@ import progect.domain.network.Pool_address_Domain;
 import java.util.List;
 
 public interface INetworkService {
-    List<NetworkDTO> findAllNetwork();
-    NetworkDTO readNetwork(NetworkDTO net);
-    boolean deleteNetwork(NetworkDTO net);
-    List<NetworkDTO> updateNetwork (NetworkDTO net, NetworkDTO new_net);
-    List<NetworkDTO> createNetwork (NetworkDTO net);
+    List<NetworkDTO> findAll();
+    NetworkDTO read(NetworkDTO obj);
+    boolean delete(NetworkDTO obj);
+    List<NetworkDTO> update(NetworkDTO obj, NetworkDTO new_obj);
+    List<NetworkDTO> create(NetworkDTO obj);
 }

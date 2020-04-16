@@ -7,9 +7,9 @@ import progect.domain.network.Pool_address_Domain;
 import java.util.List;
 
 public interface ICrossesService {
-    List<CrossesDomain> findAllPool();
-    CrossesDomain readPool(CrossesDomain crosses);
-    boolean deletePool(CrossesDomain crosses);
-    List<CrossesDomain> updatePool (CrossesDomain crosses,CrossesDomain new_crosses);
-    List<CrossesDomain> createPool (CrossesDomain crosses);
+    List<CrossesDomain> findAll();
+    CrossesDomain read(CrossesDomain obj);
+    boolean delete(CrossesDomain obj);
+    List<CrossesDomain> update(CrossesDomain obj, CrossesDomain new_obj);
+    List<CrossesDomain> create(CrossesDomain obj);
 }

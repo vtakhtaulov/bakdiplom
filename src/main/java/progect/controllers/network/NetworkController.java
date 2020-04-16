@@ -17,27 +17,27 @@ public class NetworkController  {
     private INetworkService networkService;
 
     @RequestMapping(value = "/NetworkAll", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-    public List<NetworkDTO> findAllNetwork() {
-        return networkService.findAllNetwork();
+    public List<NetworkDTO> findAll() {
+        return networkService.findAll();
     }
 
     @RequestMapping(value = "/SearchNetwork/{id_network}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-    public NetworkDTO readNetwork(@PathVariable("id_network") NetworkDTO obj) {
-        return networkService.readNetwork(obj);
+    public NetworkDTO read(@PathVariable("id_network") NetworkDTO obj) {
+        return networkService.read(obj);
     }
 
     @RequestMapping(value = "/DeleteNetwork/{id_network}", method = RequestMethod.DELETE, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-    public boolean deleteNetwork(@PathVariable("id_network") NetworkDTO obj) {
-        return networkService.deleteNetwork(obj);
+    public boolean delete(@PathVariable("id_network") NetworkDTO obj) {
+        return networkService.delete(obj);
     }
 
     @RequestMapping(value = "/UpdateNetwork/{id_network}", method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-    public List<NetworkDTO> updateNetwork(@PathVariable("id_network") NetworkDTO obj, @RequestBody NetworkDTO new_obj) {
-        return networkService.updateNetwork(obj, new_obj);
+    public List<NetworkDTO> update(@PathVariable("id_network") NetworkDTO obj, @RequestBody NetworkDTO new_obj) {
+        return networkService.update(obj, new_obj);
     }
     @RequestMapping(value = "/CreateNetwork", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-    public List<NetworkDTO> createNetwork(@RequestBody NetworkDTO obj){
-        return networkService.createNetwork(obj);
+    public List<NetworkDTO> create(@RequestBody NetworkDTO obj){
+        return networkService.create(obj);
     }
 
 }

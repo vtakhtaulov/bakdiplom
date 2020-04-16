@@ -17,27 +17,27 @@ public class NetworkService implements INetworkService {
     @Autowired
     private NetworkRepository networkRepository;
     @Override
-    public List<NetworkDTO> findAllNetwork() {
+    public List<NetworkDTO> findAll() {
         return mapperEntityToDTO();
     }
 
     @Override
-    public NetworkDTO readNetwork(NetworkDTO net) {
+    public NetworkDTO read(NetworkDTO obj) {
         return null;
     }
 
     @Override
-    public boolean deleteNetwork(NetworkDTO net) {
+    public boolean delete(NetworkDTO obj) {
         return false;
     }
 
     @Override
-    public List<NetworkDTO> updateNetwork(NetworkDTO net, NetworkDTO new_net) {
+    public List<NetworkDTO> update(NetworkDTO obj, NetworkDTO new_obj) {
         return mapperEntityToDTO();
     }
 
     @Override
-    public List<NetworkDTO> createNetwork(NetworkDTO net) {
+    public List<NetworkDTO> create(NetworkDTO obj) {
         return mapperEntityToDTO();
     }
 

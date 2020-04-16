@@ -15,27 +15,27 @@ public class VlanService implements IVlanService {
     private VlanRepository vlanRepository;
 
     @Override
-    public List<VlanDomain> findAllVlan() {
+    public List<VlanDomain> findAll() {
         return vlanRepository.findAll();
     }
 
     @Override
-    public VlanDomain readVlan(VlanDomain obj) {
+    public VlanDomain read(VlanDomain obj) {
         return null;
     }
 
     @Override
-    public boolean deleteVlan(VlanDomain obj) {
+    public boolean delete(VlanDomain obj) {
         return false;
     }
 
     @Override
-    public List<VlanDomain> updateVlan(VlanDomain obj, VlanDomain new_obj) {
+    public List<VlanDomain> update(VlanDomain obj, VlanDomain new_obj) {
         return vlanRepository.findAll();
     }
 
     @Override
-    public List<VlanDomain> createVlan(VlanDomain obj) {
+    public List<VlanDomain> create(VlanDomain obj) {
         return vlanRepository.findAll();
     }
 }

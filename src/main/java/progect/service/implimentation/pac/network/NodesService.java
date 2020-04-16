@@ -17,27 +17,27 @@ public class NodesService implements INodesService {
     @Autowired
     private NodesRepository nodesRepository;
     @Override
-    public List<NodesDTO> findAllNodes() {
+    public List<NodesDTO> findAll() {
         return mapperEntityToDTO();
     }
 
     @Override
-    public NodesDTO readNodes(NodesDTO obj) {
+    public NodesDTO read(NodesDTO obj) {
         return null;
     }
 
     @Override
-    public boolean deleteNodes(NodesDTO obj) {
+    public boolean delete(NodesDTO obj) {
         return false;
     }
 
     @Override
-    public List<NodesDTO> updateNodes(NodesDTO obj, NodesDTO new_obj) {
+    public List<NodesDTO> update(NodesDTO obj, NodesDTO new_obj) {
         return mapperEntityToDTO();
     }
 
     @Override
-    public List<NodesDTO> createNodes(NodesDTO obj) {
+    public List<NodesDTO> create(NodesDTO obj) {
         return mapperEntityToDTO();
     }
 
@@ -46,8 +46,8 @@ public class NodesService implements INodesService {
         List<NodesDTO> listDTO = new ArrayList<>();
         List<NodesDomain> listDom = nodesRepository.findAll();
         for(int i = 0; i<listDom.size(); i++) {
-            NodesDomain domain = listDom.get(i);
-            listDTO.add(new NodesDTO(domain));
+            NodesDomain obj_dom = listDom.get(i);
+            listDTO.add(new NodesDTO(obj_dom));
         }
         return listDTO;
     }

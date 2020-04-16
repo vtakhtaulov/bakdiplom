@@ -7,9 +7,9 @@ import progect.repository.network.VlanRepository;
 import java.util.List;
 
 public interface IVlanService {
-    List<VlanDomain> findAllVlan();
-    VlanDomain readVlan(VlanDomain obj);
-    boolean deleteVlan(VlanDomain obj);
-    List<VlanDomain> updateVlan (VlanDomain obj, VlanDomain new_obj);
-    List<VlanDomain> createVlan (VlanDomain obj);
+    List<VlanDomain> findAll();
+    VlanDomain read(VlanDomain obj);
+    boolean delete(VlanDomain obj);
+    List<VlanDomain> update(VlanDomain obj, VlanDomain new_obj);
+    List<VlanDomain> create(VlanDomain obj);
 }

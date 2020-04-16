@@ -16,27 +16,27 @@ public class CrossesController  {
     private ICrossesService crossesService;
 
     @RequestMapping(value = "/CrossesAll", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-    public List<CrossesDomain> findAllCrosses() {
-        return crossesService.findAllPool();
+    public List<CrossesDomain> findAll() {
+        return crossesService.findAll();
     }
 
     @RequestMapping(value = "/SearchCrosses/{id_crosses_first}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-    public CrossesDomain readCrosses(@PathVariable("id_crosses_first") CrossesDomain crosses) {
-        return crossesService.readPool(crosses);
+    public CrossesDomain read(@PathVariable("id_crosses_first") CrossesDomain obj) {
+        return crossesService.read(obj);
     }
 
     @RequestMapping(value = "/DeleteCrosses/{id_crosses_first}", method = RequestMethod.DELETE, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-    public boolean deleteCrosses(@PathVariable("id_crosses_first") CrossesDomain crosses) {
-        return crossesService.deletePool(crosses);
+    public boolean delete(@PathVariable("id_crosses_first") CrossesDomain obj) {
+        return crossesService.delete(obj);
     }
 
     @RequestMapping(value = "/UpdateCrosses/{id_crosses_first}", method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-    public List<CrossesDomain> updateCrosses(@PathVariable("id_crosses_first") CrossesDomain crosses, @RequestBody CrossesDomain new_crosses) {
-        return crossesService.updatePool(crosses, new_crosses);
+    public List<CrossesDomain> update(@PathVariable("id_crosses_first") CrossesDomain obj, @RequestBody CrossesDomain new_obj) {
+        return crossesService.update(obj, new_obj);
     }
     @RequestMapping(value = "/CreateCrosses", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-    public List<CrossesDomain> createCrosses (@RequestBody CrossesDomain crosses){
-        return crossesService.createPool(crosses);
+    public List<CrossesDomain> create(@RequestBody CrossesDomain obj){
+        return crossesService.create(obj);
     }
 
 }

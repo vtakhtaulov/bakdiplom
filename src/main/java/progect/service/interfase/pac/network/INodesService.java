@@ -8,9 +8,9 @@ import progect.domain.network.NodesDomain;
 import java.util.List;
 
 public interface INodesService {
-    List<NodesDTO> findAllNodes();
-    NodesDTO readNodes(NodesDTO obj);
-    boolean deleteNodes(NodesDTO obj);
-    List<NodesDTO> updateNodes (NodesDTO obj, NodesDTO new_obj);
-    List<NodesDTO> createNodes (NodesDTO obj);
+    List<NodesDTO> findAll();
+    NodesDTO read(NodesDTO obj);
+    boolean delete(NodesDTO obj);
+    List<NodesDTO> update(NodesDTO obj, NodesDTO new_obj);
+    List<NodesDTO> create(NodesDTO obj);
 }
