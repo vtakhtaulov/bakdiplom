@@ -20,4 +20,51 @@ public class CrossesDomain {
     private Integer slot;
 
     private Integer port;
+
+    public CrossesDomain() {
+    }
+
+    public Integer getId_crosses_first() {
+        return id_crosses_first;
+    }
+
+    public void setId_crosses_first(Integer id_crosses_first) {
+        this.id_crosses_first = id_crosses_first;
+    }
+
+    public Integer getId_crosses_end() {
+        return id_crosses_end;
+    }
+
+    public void setId_crosses_end(Integer id_crosses_end) {
+        this.id_crosses_end = id_crosses_end;
+    }
+
+    public Integer getShkaf() {
+        return shkaf;
+    }
+
+    public void setShkaf(Integer shkaf) {
+        this.shkaf = shkaf;
+    }
+
+    public Integer getSlot() {
+        return slot;
+    }
+
+    public void setSlot(Integer slot) {
+        this.slot = slot;
+    }
+
+    public Integer getPort() {
+        return port;
+    }
+
+    public void setPort(Integer port) {
+        this.port = port;
+    }
+
+    public String getInfoCrosses(){
+        return "Порт: "+this.port+" Слот: "+this.slot+" Шкаф:"+this.shkaf;
+    }
 }

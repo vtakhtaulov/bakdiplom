@@ -123,4 +123,8 @@ public class UsersDomain {
     public void setUser_role(String user_role) {
         this.user_role = user_role;
     }
+
+    public String getFioUser(){
+        return this.middle_name+" "+this.first_name+" "+this.last_name;
+    }
 }

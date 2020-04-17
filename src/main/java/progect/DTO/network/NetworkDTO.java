@@ -45,8 +45,8 @@ public class NetworkDTO {
         this.id_network = net.getId_network();
         this.pool_address = net.getPoolIpAddress();
         this.id_pool_address = net.getId_pool_address().getId_pool_address();
-        this.user_reg = net.getFIOReg();
-        this.user_old = net.getFIOOld();
+        this.user_reg = net.getId_user_reg().getFioUser();
+        this.user_old = net.getId_user_old().getFioUser();
         this.id_user_old = net.getId_user_old().getUser_id();
         this.id_user_reg = net.getId_user_reg().getUser_id();
         this.vlan = net.getVlan();

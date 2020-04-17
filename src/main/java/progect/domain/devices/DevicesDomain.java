@@ -100,14 +100,4 @@ public class DevicesDomain {
     public void setId_network_journal(List<NetworkJournalDomain> id_network_journal) {
         this.id_network_journal = id_network_journal;
     }
-    public String getFIOotv(){
-        try {
-            return this.user_otv.getFirst_name() + " "
-                    + this.user_otv.getLast_name() + " "
-                    + this.user_otv.getMiddle_name();
-        }
-        catch (Exception e){
-            return " ";
-        }
-    }
 }

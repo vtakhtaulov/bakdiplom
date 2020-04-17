@@ -2,19 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ec4e63fb-d68d-42ba-bb80-fe8deeb5cfcc" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/progect/DTO/journal/ConfigurationDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/progect/DTO/journal/CrossDevicesDomain.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/progect/DTO/journal/NetworkJournalDomain.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/progect/service/implimentation/pac/devices/TypeDeviceService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/progect/service/interfase/pac/device/ITypeDeviceService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/progect/DTO/room/RoomDTO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/progect/controllers/devices/DevicesController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/progect/controllers/devices/DevicesController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/progect/controllers/devices/TypeDeviceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/progect/controllers/devices/TypeDeviceController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/progect/controllers/user/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/progect/controllers/user/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/progect/DTO/devices/DevicesDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/progect/DTO/devices/DevicesDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/progect/DTO/journal/ConfigurationDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/progect/DTO/journal/ConfigurationDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/progect/DTO/journal/CrossDevicesDomain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/progect/DTO/journal/CrossDevicesDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/progect/DTO/journal/NetworkJournalDomain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/progect/DTO/journal/NetworkJournalDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/progect/DTO/network/NetworkDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/progect/DTO/network/NetworkDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/progect/domain/devices/DevicesDomain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/progect/domain/devices/DevicesDomain.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/progect/domain/journal/ConfigurationDomain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/progect/domain/journal/ConfigurationDomain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/progect/service/implimentation/pac/devices/DevicesService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/progect/service/implimentation/pac/devices/DevicesService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/progect/service/implimentation/pac/user/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/progect/service/implimentation/pac/user/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/progect/service/interfase/pac/user/IUserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/progect/service/interfase/pac/user/IUserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/progect/domain/journal/CrossDevicesDomain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/progect/domain/journal/CrossDevicesDomain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/progect/domain/journal/NetworkJournalDomain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/progect/domain/journal/NetworkJournalDomain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/progect/domain/network/CrossesDomain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/progect/domain/network/CrossesDomain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/progect/domain/network/NetworkDomain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/progect/domain/network/NetworkDomain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/progect/domain/user/UsersDomain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/progect/domain/user/UsersDomain.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -140,7 +141,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java/progect/DTO/journal" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -154,13 +155,16 @@
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="progect.mapper" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="progect.DTO.room" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\Diplom\bakdiplom\src\main\java\progect\DTO\journal" />
       <recent name="D:\Diplom\bakdiplom\src\main\java\progect\controllers\devices" />
       <recent name="D:\Diplom\bakdiplom\src\main\java\progect\service\implimentation\pac" />
-    </key>
-    <key name="CreateClassDialog.RecentsKey">
-      <recent name="progect.mapper" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -258,7 +262,9 @@
       <workItem from="1586869950358" duration="18228000" />
       <workItem from="1586939637243" duration="110000" />
       <workItem from="1586962980660" duration="5377000" />
-      <workItem from="1587033128975" duration="3527000" />
+      <workItem from="1587033128975" duration="3540000" />
+      <workItem from="1587043341815" duration="1812000" />
+      <workItem from="1587156217334" duration="2210000" />
     </task>
     <task id="LOCAL-00001" summary="appgrade progect">
       <created>1585069886791</created>
@@ -323,7 +329,14 @@
       <option name="project" value="LOCAL" />
       <updated>1587021504579</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="appgrade progect">
+      <created>1587038315762</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1587038315762</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -363,11 +376,11 @@
       <screen x="0" y="40" width="1920" height="1040" />
     </state>
     <state x="553" y="220" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.40.1920.1040@0.40.1920.1040" timestamp="1586721005020" />
-    <state x="765" y="242" key="#com.intellij.ide.util.MemberChooser" timestamp="1587037723892">
+    <state x="765" y="242" key="#com.intellij.ide.util.MemberChooser" timestamp="1587158301185">
       <screen x="0" y="40" width="1920" height="1040" />
     </state>
     <state x="765" y="202" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1582926635213" />
-    <state x="765" y="242" key="#com.intellij.ide.util.MemberChooser/0.40.1920.1040@0.40.1920.1040" timestamp="1587037723892" />
+    <state x="765" y="242" key="#com.intellij.ide.util.MemberChooser/0.40.1920.1040@0.40.1920.1040" timestamp="1587158301185" />
     <state x="828" y="348" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1586720989793">
       <screen x="0" y="40" width="1920" height="1040" />
     </state>
@@ -384,14 +397,14 @@
       <screen x="0" y="40" width="1920" height="1040" />
     </state>
     <state x="690" y="304" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.40.1920.1040@0.40.1920.1040" timestamp="1587033195467" />
-    <state x="367" y="144" key="CommitChangelistDialog2" timestamp="1587021501879">
+    <state x="367" y="144" key="CommitChangelistDialog2" timestamp="1587038313718">
       <screen x="0" y="40" width="1920" height="1040" />
     </state>
-    <state x="367" y="144" key="CommitChangelistDialog2/0.40.1920.1040@0.40.1920.1040" timestamp="1587021501879" />
-    <state x="570" y="315" key="FileChooserDialogImpl" timestamp="1587021524606">
+    <state x="367" y="144" key="CommitChangelistDialog2/0.40.1920.1040@0.40.1920.1040" timestamp="1587038313718" />
+    <state x="570" y="315" key="FileChooserDialogImpl" timestamp="1587066023355">
       <screen x="0" y="40" width="1920" height="1040" />
     </state>
-    <state x="570" y="315" key="FileChooserDialogImpl/0.40.1920.1040@0.40.1920.1040" timestamp="1587021524606" />
+    <state x="570" y="315" key="FileChooserDialogImpl/0.40.1920.1040@0.40.1920.1040" timestamp="1587066023355" />
     <state width="1504" height="234" key="GridCell.Tab.0.bottom" timestamp="1587021525609">
       <screen x="0" y="40" width="1920" height="1040" />
     </state>

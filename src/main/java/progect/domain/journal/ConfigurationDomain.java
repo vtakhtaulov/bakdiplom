@@ -125,19 +125,4 @@ public class ConfigurationDomain {
         this.actual = actual;
     }
 
-    public String getFIOReg(){
-        return this.id_user_reg.getFirst_name() +" "
-                +this.id_user_reg.getLast_name()+" "
-                +this.id_user_reg.getMiddle_name();
-    }
-    public String getFIOOld(){
-        try {
-            return this.id_user_old.getFirst_name() + " "
-                    + this.id_user_old.getLast_name() + " "
-                    + this.id_user_old.getMiddle_name();
-        }
-        catch (Exception e){
-            return " ";
-        }
-    }
 }

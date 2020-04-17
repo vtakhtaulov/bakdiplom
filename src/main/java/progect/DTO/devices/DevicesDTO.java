@@ -27,7 +27,7 @@ public class DevicesDTO {
         this.id_type_devices = dev.getId_type_devices().getId_type_dev();
         this.type_device = dev.getId_type_devices().getName_type_dev();
         this.id_user_otv = dev.getUser_otv().getUser_id();
-        this.user_otv = dev.getFIOotv();
+        this.user_otv = dev.getUser_otv().getFioUser();
         this.hostname = dev.getHostname();
         this.id_room = dev.getId_room().getId_room();
         this.room = dev.getId_room().getName_room();

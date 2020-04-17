@@ -46,9 +46,9 @@ public class ConfigurationDTO {
         this.config_last = obj.getConfig_last();
         this.deference = obj.getDeference();
         this.id_user_reg = obj.getId_user_reg().getUser_id();
-        this.user_reg = obj.getFIOReg();
+        this.user_reg = obj.getId_user_reg().getFioUser();
         this.id_user_old = obj.getId_user_old().getUser_id();
-        this.user_old = obj.getFIOOld();
+        this.user_old = obj.getId_user_old().getFioUser();
         this.date_reg = obj.getDate_reg();
         this.date_old = obj.getDate_old();
         this.actual = obj.getActual();
