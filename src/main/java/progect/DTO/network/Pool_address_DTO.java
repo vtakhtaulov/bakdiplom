@@ -34,8 +34,8 @@ public class Pool_address_DTO {
         this.ip_addres_end = pool.getIp_addres_end();
         this.date_reg = pool.getDate_reg();
         this.date_old = pool.getDate_old();
-        this.user_old = pool.getFIOOld();
-        this.user_reg = pool.getFIOReg();
+        this.user_old = pool.getId_user_old().getFioUser();
+        this.user_reg = pool.getId_user_reg().getFioUser();
         this.actual = pool.getActual();
     }
 

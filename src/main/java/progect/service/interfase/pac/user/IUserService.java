@@ -10,4 +10,5 @@ public interface IUserService {
     boolean delete(UsersDomain obj);
     List<UsersDomain> update(UsersDomain obj,UsersDomain new_obj);
     List<UsersDomain> create(UsersDomain obj);
+    UsersDomain loginUserSearch(String login, String password);
 }

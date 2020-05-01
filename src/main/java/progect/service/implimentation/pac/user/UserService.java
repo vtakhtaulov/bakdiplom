@@ -63,4 +63,13 @@ public class UserService implements IUserService {
              return null;
         }
     }
+    @Override
+    public UsersDomain loginUserSearch(String login,String password) {
+        try {
+            return userrepository.findAllByLogin(login, password);
+        }catch (Exception e){
+            return null;
+        }
+
+    }
 }

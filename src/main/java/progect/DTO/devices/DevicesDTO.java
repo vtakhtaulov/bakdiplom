@@ -14,6 +14,7 @@ public class DevicesDTO {
     private String user_otv;
 
     private String hostname;
+    private String mac_address;
 
     private Integer id_room;
     private String  room;
@@ -34,6 +35,7 @@ public class DevicesDTO {
         this.id_props_port = dev.getId_props_port().getId_props_port();
         this.countOptPort = dev.getId_props_port().getOVPort();
         this.countEthernetPort = dev.getId_props_port().getOVPort();
+        this.mac_address = dev.getMac_address();
     }
 
     @Override
@@ -45,6 +47,7 @@ public class DevicesDTO {
                 ", id_user_otv=" + id_user_otv +
                 ", user_otv='" + user_otv + '\'' +
                 ", hostname='" + hostname + '\'' +
+                ", mac_address='" + mac_address + '\'' +
                 ", id_room=" + id_room +
                 ", room='" + room + '\'' +
                 ", id_props_port=" + id_props_port +
@@ -53,3 +56,4 @@ public class DevicesDTO {
                 '}';
     }
 }
+

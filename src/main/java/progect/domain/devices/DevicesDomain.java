@@ -29,6 +29,8 @@ public class DevicesDomain {
 
     @NotNull
     private String hostname;
+    @NotNull
+    private String mac_address;
 
     @ManyToOne
     @JoinColumn(name = "id_room")
@@ -99,5 +101,13 @@ public class DevicesDomain {
 
     public void setId_network_journal(List<NetworkJournalDomain> id_network_journal) {
         this.id_network_journal = id_network_journal;
+    }
+
+    public String getMac_address() {
+        return mac_address;
+    }
+
+    public void setMac_address(String mac_address) {
+        this.mac_address = mac_address;
     }
 }

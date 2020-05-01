@@ -1,6 +1,7 @@
 package progect.controllers.user;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 import progect.domain.user.UsersDomain;
@@ -39,6 +40,11 @@ public class UserController  {
             return userservice.create(obj);
     }
 
+    @RequestMapping(value = "/loginUser", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    public UsersDomain loginUserSearch (@RequestParam(value = "user_login") String login, @RequestParam (value = "user_password") String password){
+        System.out.println(login +" "+password);
+        return userservice.loginUserSearch(login, password);
+    }
 }
 
 
