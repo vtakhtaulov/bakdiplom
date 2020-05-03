@@ -14,7 +14,7 @@ public class NodesDTO {
 
     public NodesDTO(NodesDomain nodes) {
         this.id_nodes = nodes.getId_nodes();
-        this.usert_otv = nodes.getFIOotv();
+        this.usert_otv = nodes.getUsert_otv().getFioUser();
         this.name_nodes = nodes.getName_nodes();
         this.id_user_otv = nodes.getUsert_otv().getUser_id();
     }

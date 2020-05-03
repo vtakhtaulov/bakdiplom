@@ -31,12 +31,8 @@ public class RoomDomain {
     private String type_room;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_nodes")
+    @JoinColumn(name = "id_nodes", referencedColumnName = "id_nodes")
     private NodesDomain id_nodes;
-
-
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "id_room")
-    private List<DevicesDomain> id_devices;
 
 
     public RoomDomain(){}
@@ -81,11 +77,14 @@ public class RoomDomain {
         this.id_nodes = id_nodes;
     }
 
-    public List<DevicesDomain> getId_devices() {
-        return id_devices;
-    }
-
-    public void setId_devices(List<DevicesDomain> id_devices) {
-        this.id_devices = id_devices;
+    @Override
+    public String toString() {
+        return "RoomDomain{" +
+                "id_room=" + id_room +
+                ", name_room='" + name_room + '\'' +
+                ", user_otv=" + user_otv +
+                ", type_room='" + type_room + '\'' +
+                ", id_nodes=" + id_nodes +
+                '}';
     }
 }

@@ -20,11 +20,11 @@ public class DevicesDomain {
     private Integer id_devices;
 
     @ManyToOne
-    @JoinColumn(name = "id_type_devices")
+    @JoinColumn(name = "id_type_devices", referencedColumnName = "id_type_dev")
     private TypeDeviceDomain id_type_devices;
 
     @ManyToOne
-    @JoinColumn(name = "user_otv",referencedColumnName = "user_id")
+    @JoinColumn(name = "user_otv", referencedColumnName = "user_id")
     private UsersDomain user_otv;
 
     @NotNull
@@ -33,7 +33,7 @@ public class DevicesDomain {
     private String mac_address;
 
     @ManyToOne
-    @JoinColumn(name = "id_room")
+    @JoinColumn(name = "id_room", referencedColumnName = "id_room")
     private RoomDomain id_room;
 
 
@@ -41,8 +41,6 @@ public class DevicesDomain {
     @JoinColumn(name = "id_props_port")
     private PropsPortDomain id_props_port;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "id_network_journal")
-    private List<NetworkJournalDomain> id_network_journal;
 
 
     public DevicesDomain(){}
@@ -93,14 +91,6 @@ public class DevicesDomain {
 
     public void setId_props_port(PropsPortDomain id_props_port) {
         this.id_props_port = id_props_port;
-    }
-
-    public List<NetworkJournalDomain> getId_network_journal() {
-        return id_network_journal;
-    }
-
-    public void setId_network_journal(List<NetworkJournalDomain> id_network_journal) {
-        this.id_network_journal = id_network_journal;
     }
 
     public String getMac_address() {

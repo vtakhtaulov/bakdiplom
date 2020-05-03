@@ -2,9 +2,7 @@ package progect.service.implimentation.pac.room;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import progect.DTO.journal.NetworkJournalDTO;
 import progect.DTO.room.RoomDTO;
-import progect.domain.journal.NetworkJournalDomain;
 import progect.domain.room.RoomDomain;
 import progect.repository.room.RoomRepository;
 import progect.service.interfase.pac.room.IRoomService;
@@ -46,7 +44,7 @@ public class RoomService implements IRoomService {
     {
         List<RoomDTO> listDTO = new ArrayList<>();
         List<RoomDomain> listDom = roomRepository.findAll();
-        for(int i = 0; i<listDom.size(); i++) {
+        for(int i = 0; i < listDom.size(); i++) {
             RoomDomain obj_dom = listDom.get(i);
             listDTO.add(new RoomDTO(obj_dom));
         }

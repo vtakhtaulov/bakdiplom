@@ -18,9 +18,8 @@ public class PropsPortDomain {
 
     private String OVPort;
 
+    private Integer id_devices;
 
-    @OneToOne(mappedBy = "id_props_port", cascade = CascadeType.ALL)
-    private DevicesDomain id_devices;
     public PropsPortDomain() {
     }
 
@@ -48,11 +47,11 @@ public class PropsPortDomain {
         this.OVPort = OVPort;
     }
 
-    public DevicesDomain getId_devices() {
+    public Integer getId_devices() {
         return id_devices;
     }
 
-    public void setId_devices(DevicesDomain id_devices) {
+    public void setId_devices(Integer id_devices) {
         this.id_devices = id_devices;
     }
 }

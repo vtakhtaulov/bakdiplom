@@ -25,8 +25,6 @@ public class NodesDomain {
     @NotNull
     private String name_nodes;
 
-    @OneToMany( mappedBy = "id_nodes")
-    private List<RoomDomain> id_nodes_RoomDomain;
 
     public NodesDomain() {
     }
@@ -55,20 +53,4 @@ public class NodesDomain {
         this.name_nodes = name_nodes;
     }
 
-    public List<RoomDomain> getId_nodes_RoomDomain() {
-        return id_nodes_RoomDomain;
-    }
-
-    public void setId_nodes_RoomDomain(List<RoomDomain> id_nodes_RoomDomain) {
-        this.id_nodes_RoomDomain = id_nodes_RoomDomain;
-    }
-    public String getFIOotv() {
-        try {
-            return this.usert_otv.getFirst_name() + " "
-                    + this.usert_otv.getLast_name() + " "
-                    + this.usert_otv.getMiddle_name();
-        }catch (Exception e){
-            return "";
-        }
-    }
 }
