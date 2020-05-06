@@ -34,7 +34,7 @@ public class DevicesDTO {
         this.room = dev.getId_room().getName_room();
         this.id_props_port = dev.getId_props_port().getId_props_port();
         this.countOptPort = dev.getId_props_port().getOVPort();
-        this.countEthernetPort = dev.getId_props_port().getOVPort();
+        this.countEthernetPort = dev.getId_props_port().getEthernetPort();
         this.mac_address = dev.getMac_address();
     }
 

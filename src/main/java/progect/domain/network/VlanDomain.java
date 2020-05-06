@@ -20,9 +20,6 @@ public class VlanDomain {
     @NotNull
     private String vlan_number;
 
-    @OneToOne(optional=false)
-    @JoinColumn(name = "id_vlan")
-    private NetworkDomain id_network;
 
     public VlanDomain(){}
 
@@ -50,11 +47,5 @@ public class VlanDomain {
         this.vlan_number = vlan_number;
     }
 
-    public NetworkDomain getId_network() {
-        return id_network;
-    }
 
-    public void setId_network(NetworkDomain id_network) {
-        this.id_network = id_network;
-    }
 }
