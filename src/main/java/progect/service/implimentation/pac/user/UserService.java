@@ -36,13 +36,13 @@ public class UserService implements IUserService {
     }
 
     @Override
-    public boolean delete(UsersDomain obj) {
+    public List<UsersDomain> delete(Integer obj) {
         try {
             userrepository.delete(obj);
-            return true;
+            return userrepository.findAll();
         }catch (Exception e){
             System.out.println(e.getMessage());
-            return false;
+            return userrepository.findAll();
         }
     }
 
@@ -55,8 +55,14 @@ public class UserService implements IUserService {
     @Override
     public List<UsersDomain> create(UsersDomain obj) {
         try {
-            userrepository.save(obj);
-            return userrepository.findAll();
+            if(obj.getFioUser().length() > 0 && obj.getUser_login().length()>0
+                && obj.getUser_password().length()>3 && obj.getPhone().length()>0 && obj.getEmail().length()>0) {
+                userrepository.save(obj);
+                return userrepository.findAll();
+            }
+            else {
+                return userrepository.findAll();
+            }
         }
         catch (Exception e) {
              System.out.println(e.getMessage());

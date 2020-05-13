@@ -47,7 +47,7 @@ public class CrossDevicesDomain {
 
     private Date date_old;
 
-    @OneToOne(optional=false)
+    @OneToOne(optional = false)
     @JoinColumn(name = "id_vlan")
     private VlanDomain id_vlan;
 

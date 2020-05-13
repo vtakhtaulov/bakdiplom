@@ -21,9 +21,7 @@ public class Dhcp_poolDomain {
     @NotNull
     private String address_end;
 
-    @OneToOne
-    @JoinColumn(name = "id_DHСP_pool", referencedColumnName = "id_network")
-    private NetworkDomain id_network;
+
 
     public Dhcp_poolDomain(){}
 
@@ -51,11 +49,4 @@ public class Dhcp_poolDomain {
         this.address_end = address_end;
     }
 
-    public NetworkDomain getId_network() {
-        return id_network;
-    }
-
-    public void setId_network(NetworkDomain id_network) {
-        this.id_network = id_network;
-    }
 }

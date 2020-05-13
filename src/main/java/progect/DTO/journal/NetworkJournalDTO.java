@@ -10,7 +10,7 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.Date;
 
-@Data
+
 public class NetworkJournalDTO {
 
     private Integer id_network_journal;
@@ -32,7 +32,7 @@ public class NetworkJournalDTO {
     private Integer id_user_old;
     private String user_old;
 
-    private DevicesDomain id_devices;
+    private Integer id_devices;
     private String devices;
 
     private Integer actual;
@@ -50,9 +50,121 @@ public class NetworkJournalDTO {
         this.user_reg = obj.getId_user_reg().getFioUser();
         this.id_user_old = obj.getId_user_old().getUser_id();
         this.user_old = obj.getId_user_old().getFioUser();
-        this.id_devices = obj.getId_devices();
+        this.id_devices = obj.getId_devices().getId_devices();
         this.devices = obj.getId_devices().getHostname();
         this.actual = obj.getActual();
+    }
+
+    public Integer getId_network_journal() {
+        return id_network_journal;
+    }
+
+    public void setId_network_journal(Integer id_network_journal) {
+        this.id_network_journal = id_network_journal;
+    }
+
+    public Integer getId_network() {
+        return id_network;
+    }
+
+    public void setId_network(Integer id_network) {
+        this.id_network = id_network;
+    }
+
+    public String getNetwork() {
+        return network;
+    }
+
+    public void setNetwork(String network) {
+        this.network = network;
+    }
+
+    public String getDNS_zone() {
+        return DNS_zone;
+    }
+
+    public void setDNS_zone(String DNS_zone) {
+        this.DNS_zone = DNS_zone;
+    }
+
+    public Date getDate_reg() {
+        return date_reg;
+    }
+
+    public void setDate_reg(Date date_reg) {
+        this.date_reg = date_reg;
+    }
+
+    public Date getDate_old() {
+        return date_old;
+    }
+
+    public void setDate_old(Date date_old) {
+        this.date_old = date_old;
+    }
+
+    public String getIp_address() {
+        return ip_address;
+    }
+
+    public void setIp_address(String ip_address) {
+        this.ip_address = ip_address;
+    }
+
+    public Integer getId_user_reg() {
+        return id_user_reg;
+    }
+
+    public void setId_user_reg(Integer id_user_reg) {
+        this.id_user_reg = id_user_reg;
+    }
+
+    public String getUser_reg() {
+        return user_reg;
+    }
+
+    public void setUser_reg(String user_reg) {
+        this.user_reg = user_reg;
+    }
+
+    public Integer getId_user_old() {
+        return id_user_old;
+    }
+
+    public void setId_user_old(Integer id_user_old) {
+        this.id_user_old = id_user_old;
+    }
+
+    public String getUser_old() {
+        return user_old;
+    }
+
+    public void setUser_old(String user_old) {
+        this.user_old = user_old;
+    }
+
+    public Integer getId_devices() {
+        return id_devices;
+    }
+
+    public void setId_devices(Integer id_devices) {
+        this.id_devices = id_devices;
+    }
+
+    public String getDevices() {
+        return devices;
+    }
+
+    public void setDevices(String devices) {
+        this.devices = devices;
+    }
+
+    public Integer getActual() {
+        return actual;
+    }
+
+    public void setActual(Integer actual) {
+        this.actual = actual;
     }
 
     @Override

@@ -45,8 +45,8 @@ public class NetworkJournalDomain {
     private UsersDomain id_user_old;
 
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_devices")
+    @ManyToOne
+    @JoinColumn(name = "id_devices", referencedColumnName = "id_devices")
     private DevicesDomain id_devices;
 
     @Column(name = "actual")

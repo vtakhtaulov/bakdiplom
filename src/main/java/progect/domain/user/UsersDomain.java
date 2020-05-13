@@ -127,4 +127,19 @@ public class UsersDomain {
     public String getFioUser(){
         return this.last_name+" "+this.first_name+" "+this.middle_name;
     }
+
+    @Override
+    public String toString() {
+        return "UsersDomain{" +
+                "user_id=" + user_id +
+                ", last_name='" + last_name + '\'' +
+                ", first_name='" + first_name + '\'' +
+                ", middle_name='" + middle_name + '\'' +
+                ", email='" + email + '\'' +
+                ", phone='" + phone + '\'' +
+                ", user_login='" + user_login + '\'' +
+                ", user_password='" + user_password + '\'' +
+                ", user_role='" + user_role + '\'' +
+                '}';
+    }
 }

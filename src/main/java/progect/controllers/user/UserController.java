@@ -27,8 +27,13 @@ public class UserController  {
     }
 
     @RequestMapping(value = "/DeleteUser/{user_id}", method = RequestMethod.DELETE, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-    public boolean delete(@PathVariable("user_id") UsersDomain obj) {
-           return userservice.delete(obj);
+    public List<UsersDomain> delete(@PathVariable("user_id") Integer obj) {
+        try {
+            return userservice.delete(obj);
+        }
+        catch (Exception e){
+            return  userservice.findAll();
+        }
     }
 
     @RequestMapping(value = "/UpdateUser/{user_id}", method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
@@ -37,7 +42,13 @@ public class UserController  {
     }
     @RequestMapping(value = "/AddUser", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public List<UsersDomain> create (@RequestBody UsersDomain obj){
+        try {
+
             return userservice.create(obj);
+        }
+        catch (Exception e){
+            return userservice.findAll();
+        }
     }
 
     @RequestMapping(value = "/loginUser", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)

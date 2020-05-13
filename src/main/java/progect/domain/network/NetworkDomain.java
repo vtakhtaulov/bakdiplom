@@ -46,13 +46,11 @@ public class NetworkDomain {
 
     private Integer number_mstp;
 
-    @NotNull
     private Integer defaultGeteway;
 
     @NotNull
     private Date date_reg;
 
-    @NotNull
     private Date date_old;
 
     @NotNull
