@@ -26,16 +26,19 @@ public class TypeDeviceController {
     }
 
     @RequestMapping(value = "/DeleteTypeDevices/{id_type_dev}", method = RequestMethod.DELETE, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-    public boolean delete(@PathVariable("id_type_dev") TypeDeviceDomain obj) {
+    public List<TypeDeviceDomain> delete(@PathVariable("id_type_dev") Integer obj) {
+
         return typeDeviceService.delete(obj);
     }
 
-    @RequestMapping(value = "/UpdateTypeDevices/{id_devices}", method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-    public List<TypeDeviceDomain> update(@PathVariable("id_type_dev") TypeDeviceDomain obj, @RequestBody TypeDeviceDomain new_obj) {
-        return typeDeviceService.update(obj, new_obj);
+    @RequestMapping(value = "/UpdateTypeDevices/{id_type_dev}", method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    public List<TypeDeviceDomain> update(@RequestBody TypeDeviceDomain obj,
+                                         @PathVariable("id_type_dev")  Integer id_type_dev) {
+        return typeDeviceService.update(obj, id_type_dev);
     }
-    @RequestMapping(value = "/CreateDTypeDevices", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    @RequestMapping(value = "/CreateTypeDevices", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public List<TypeDeviceDomain> create(@RequestBody TypeDeviceDomain obj){
+        System.out.println(obj);
         return typeDeviceService.create(obj);
     }
 

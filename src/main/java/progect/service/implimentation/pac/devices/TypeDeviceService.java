@@ -25,17 +25,22 @@ public class TypeDeviceService implements ITypeDeviceService {
     }
 
     @Override
-    public boolean delete(TypeDeviceDomain obj) {
-        return false;
+    public List<TypeDeviceDomain> delete(Integer id) {
+        return typeDeviceRepository.findAll();
     }
 
     @Override
-    public List<TypeDeviceDomain> update(TypeDeviceDomain obj, TypeDeviceDomain new_obj) {
+    public List<TypeDeviceDomain> update(TypeDeviceDomain obj, Integer id) {
+        typeDeviceRepository.findById(id).map(element->{
+            element.setName_type_dev(obj.getName_type_dev());
+            return typeDeviceRepository.save(element);
+        });
         return typeDeviceRepository.findAll();
     }
 
     @Override
     public List<TypeDeviceDomain> create(TypeDeviceDomain obj) {
+        typeDeviceRepository.save(obj);
         return typeDeviceRepository.findAll();
     }
 }

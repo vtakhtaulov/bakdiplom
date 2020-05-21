@@ -2,32 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ec4e63fb-d68d-42ba-bb80-fe8deeb5cfcc" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/progect/controllers/status_controller.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/progect/domain/RefStatusDomain.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/progect/repository/RefStatusRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/progect/DTO/devices/DevicesDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/progect/DTO/devices/DevicesDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/progect/DTO/journal/ConfigurationDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/progect/DTO/journal/ConfigurationDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/progect/DTO/journal/CrossDevicesDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/progect/DTO/journal/CrossDevicesDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/progect/DTO/journal/NetworkJournalDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/progect/DTO/journal/NetworkJournalDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/progect/DTO/network/NetworkDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/progect/DTO/network/NetworkDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/progect/DTO/network/Pool_address_DTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/progect/DTO/network/Pool_address_DTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/progect/controllers/devices/DevicesController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/progect/controllers/devices/DevicesController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/progect/controllers/room/RoomController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/progect/controllers/room/RoomController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/progect/controllers/user/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/progect/controllers/user/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/progect/domain/devices/DevicesDomain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/progect/domain/devices/DevicesDomain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/progect/domain/devices/PropsPortDomain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/progect/domain/devices/PropsPortDomain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/progect/domain/journal/ConfigurationDomain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/progect/domain/journal/ConfigurationDomain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/progect/domain/journal/CrossDevicesDomain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/progect/domain/journal/CrossDevicesDomain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/progect/domain/journal/NetworkJournalDomain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/progect/domain/journal/NetworkJournalDomain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/progect/domain/network/NetworkDomain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/progect/domain/network/NetworkDomain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/progect/domain/network/Pool_address_Domain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/progect/domain/network/Pool_address_Domain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/progect/repository/devices/DevicesRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/progect/repository/devices/DevicesRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/progect/repository/user/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/progect/repository/user/UserRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/progect/service/implimentation/pac/devices/DevicesService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/progect/service/implimentation/pac/devices/DevicesService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/progect/service/implimentation/pac/user/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/progect/service/implimentation/pac/user/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/progect/service/interfase/pac/device/IDeviceService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/progect/service/interfase/pac/device/IDeviceService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/progect/service/interfase/pac/user/IUserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/progect/service/interfase/pac/user/IUserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/progect/controllers/devices/TypeDeviceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/progect/controllers/devices/TypeDeviceController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/progect/repository/devices/TypeDeviceRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/progect/repository/devices/TypeDeviceRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/progect/service/implimentation/pac/devices/TypeDeviceService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/progect/service/implimentation/pac/devices/TypeDeviceService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/progect/service/interfase/pac/device/ITypeDeviceService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/progect/service/interfase/pac/device/ITypeDeviceService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -295,7 +274,7 @@
       <workItem from="1589725401812" duration="1823000" />
       <workItem from="1589804104321" duration="11072000" />
       <workItem from="1589913225269" duration="645000" />
-      <workItem from="1589954893272" duration="27105000" />
+      <workItem from="1589954893272" duration="31473000" />
     </task>
     <task id="LOCAL-00001" summary="appgrade progect">
       <created>1585069886791</created>
@@ -402,7 +381,14 @@
       <option name="project" value="LOCAL" />
       <updated>1589379541733</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="appgrade progect">
+      <created>1590080091061</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1590080091061</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -472,10 +458,10 @@
       <screen x="0" y="40" width="1920" height="1040" />
     </state>
     <state x="703" y="440" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.40.1920.1040@0.40.1920.1040" timestamp="1587187274163" />
-    <state x="367" y="144" key="CommitChangelistDialog2" timestamp="1589379540758">
+    <state x="367" y="144" key="CommitChangelistDialog2" timestamp="1590080090071">
       <screen x="0" y="40" width="1920" height="1040" />
     </state>
-    <state x="367" y="144" key="CommitChangelistDialog2/0.40.1920.1040@0.40.1920.1040" timestamp="1589379540758" />
+    <state x="367" y="144" key="CommitChangelistDialog2/0.40.1920.1040@0.40.1920.1040" timestamp="1590080090071" />
     <state x="570" y="315" key="FileChooserDialogImpl" timestamp="1587976523569">
       <screen x="0" y="40" width="1920" height="1040" />
     </state>
@@ -484,29 +470,33 @@
       <screen x="0" y="40" width="1920" height="1040" />
     </state>
     <state x="836" y="453" width="260" height="214" key="Github.ShareDialog/0.40.1920.1040@0.40.1920.1040" timestamp="1589379803091" />
-    <state width="1877" height="282" key="GridCell.Tab.0.bottom" timestamp="1590074285464">
-      <screen x="0" y="40" width="1920" height="1040" />
+    <state width="1877" height="282" key="GridCell.Tab.0.bottom" timestamp="1590090984906">
+      <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state width="1293" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1583422005687" />
     <state width="1877" height="282" key="GridCell.Tab.0.bottom/0.40.1920.1040/1920.0.1920.1040@0.40.1920.1040" timestamp="1589705121185" />
+    <state width="1877" height="282" key="GridCell.Tab.0.bottom/0.40.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1590090984906" />
     <state width="1877" height="282" key="GridCell.Tab.0.bottom/0.40.1920.1040@0.40.1920.1040" timestamp="1590074285464" />
-    <state width="1877" height="282" key="GridCell.Tab.0.center" timestamp="1590074285464">
-      <screen x="0" y="40" width="1920" height="1040" />
+    <state width="1877" height="282" key="GridCell.Tab.0.center" timestamp="1590090984906">
+      <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state width="1293" height="282" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1583422005687" />
     <state width="1877" height="282" key="GridCell.Tab.0.center/0.40.1920.1040/1920.0.1920.1040@0.40.1920.1040" timestamp="1589705121184" />
+    <state width="1877" height="282" key="GridCell.Tab.0.center/0.40.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1590090984906" />
     <state width="1877" height="282" key="GridCell.Tab.0.center/0.40.1920.1040@0.40.1920.1040" timestamp="1590074285464" />
-    <state width="1877" height="282" key="GridCell.Tab.0.left" timestamp="1590074285464">
-      <screen x="0" y="40" width="1920" height="1040" />
+    <state width="1877" height="282" key="GridCell.Tab.0.left" timestamp="1590090984906">
+      <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state width="1293" height="282" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1583422005686" />
     <state width="1877" height="282" key="GridCell.Tab.0.left/0.40.1920.1040/1920.0.1920.1040@0.40.1920.1040" timestamp="1589705121184" />
+    <state width="1877" height="282" key="GridCell.Tab.0.left/0.40.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1590090984906" />
     <state width="1877" height="282" key="GridCell.Tab.0.left/0.40.1920.1040@0.40.1920.1040" timestamp="1590074285464" />
-    <state width="1877" height="282" key="GridCell.Tab.0.right" timestamp="1590074285464">
-      <screen x="0" y="40" width="1920" height="1040" />
+    <state width="1877" height="282" key="GridCell.Tab.0.right" timestamp="1590090984906">
+      <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state width="1293" height="282" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1583422005687" />
     <state width="1877" height="282" key="GridCell.Tab.0.right/0.40.1920.1040/1920.0.1920.1040@0.40.1920.1040" timestamp="1589705121185" />
+    <state width="1877" height="282" key="GridCell.Tab.0.right/0.40.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1590090984906" />
     <state width="1877" height="282" key="GridCell.Tab.0.right/0.40.1920.1040@0.40.1920.1040" timestamp="1590074285464" />
     <state width="1504" height="365" key="GridCell.Tab.1.bottom" timestamp="1589126287972">
       <screen x="0" y="40" width="1920" height="1040" />
