@@ -22,7 +22,9 @@ public class Pool_address_DTO {
     private Date date_old;
     private String user_old;
     private String user_reg;
-    private Integer actual;
+
+    private Integer id_status;
+    private String name_status;
 
     public Pool_address_DTO() {
     }
@@ -36,7 +38,8 @@ public class Pool_address_DTO {
         this.date_old = pool.getDate_old();
         this.user_old = pool.getId_user_old().getFioUser();
         this.user_reg = pool.getId_user_reg().getFioUser();
-        this.actual = pool.getActual();
+        this.id_status = pool.getIs_status().getId_status();
+        this.name_status = pool.getIs_status().getName_status();
     }
 
     public Integer getId_pool_address() {
@@ -103,12 +106,20 @@ public class Pool_address_DTO {
         this.user_reg = user_reg;
     }
 
-    public Integer getActual() {
-        return actual;
+    public Integer getId_status() {
+        return id_status;
     }
 
-    public void setActual(Integer actual) {
-        this.actual = actual;
+    public void setId_status(Integer id_status) {
+        this.id_status = id_status;
+    }
+
+    public String getName_status() {
+        return name_status;
+    }
+
+    public void setName_status(String name_status) {
+        this.name_status = name_status;
     }
 
     @Override
@@ -122,7 +133,8 @@ public class Pool_address_DTO {
                 ", date_old=" + date_old +
                 ", user_old='" + user_old + '\'' +
                 ", user_reg='" + user_reg + '\'' +
-                ", actual=" + actual +
+                ", id_status=" + id_status +
+                ", name_status='" + name_status + '\'' +
                 '}';
     }
 }

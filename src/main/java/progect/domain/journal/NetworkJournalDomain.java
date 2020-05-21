@@ -1,6 +1,7 @@
 package progect.domain.journal;
 
 import lombok.Data;
+import progect.domain.RefStatusDomain;
 import progect.domain.user.UsersDomain;
 import progect.domain.devices.DevicesDomain;
 import progect.domain.network.NetworkDomain;
@@ -49,9 +50,10 @@ public class NetworkJournalDomain {
     @JoinColumn(name = "id_devices", referencedColumnName = "id_devices")
     private DevicesDomain id_devices;
 
-    @Column(name = "actual")
-    @NotNull
-    private Integer actual;
+
+    @ManyToOne
+    @JoinColumn(name = "is_status",referencedColumnName ="id_status" )
+    private RefStatusDomain is_status;
 
 
     public NetworkJournalDomain() {
@@ -129,11 +131,11 @@ public class NetworkJournalDomain {
         this.id_devices = id_devices;
     }
 
-    public Integer getActual() {
-        return actual;
+    public RefStatusDomain getIs_status() {
+        return is_status;
     }
 
-    public void setActual(Integer actual) {
-        this.actual = actual;
+    public void setIs_status(RefStatusDomain is_status) {
+        this.is_status = is_status;
     }
 }

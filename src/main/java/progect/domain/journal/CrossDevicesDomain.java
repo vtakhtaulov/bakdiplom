@@ -1,6 +1,7 @@
 package progect.domain.journal;
 
 import lombok.Data;
+import progect.domain.RefStatusDomain;
 import progect.domain.devices.DevicesDomain;
 import progect.domain.network.CrossesDomain;
 import progect.domain.network.VlanDomain;
@@ -55,8 +56,9 @@ public class CrossDevicesDomain {
     @JoinColumn(name = "id_crosses")
     private CrossesDomain id_crosses;
 
-    @NotNull
-    private Integer actual;
+    @ManyToOne
+    @JoinColumn(name = "is_status",referencedColumnName ="id_status" )
+    private RefStatusDomain is_status;
 
     public CrossDevicesDomain() {
     }
@@ -149,11 +151,11 @@ public class CrossDevicesDomain {
         this.id_crosses = id_crosses;
     }
 
-    public Integer getActual() {
-        return actual;
+    public RefStatusDomain getIs_status() {
+        return is_status;
     }
 
-    public void setActual(Integer actual) {
-        this.actual = actual;
+    public void setIs_status(RefStatusDomain is_status) {
+        this.is_status = is_status;
     }
 }

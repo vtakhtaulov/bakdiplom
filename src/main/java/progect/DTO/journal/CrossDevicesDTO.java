@@ -45,7 +45,8 @@ public class CrossDevicesDTO {
     private Integer id_crosses;
     private String info_crosses;
 
-    private Integer actual;
+    private Integer id_status;
+    private String name_status;
 
     public CrossDevicesDTO() {
     }
@@ -68,7 +69,160 @@ public class CrossDevicesDTO {
         this.name_vlan = obj.getId_vlan().getVlan_name();
         this.id_crosses = obj.getId_crosses().getId_crosses_first();
         this.info_crosses = obj.getId_crosses().getInfoCrosses();
-        this.actual = obj.getActual();
+        this.id_status = obj.getIs_status().getId_status();
+        this.name_status = obj.getIs_status().getName_status();
+    }
+
+    public Integer getId_crossdevices() {
+        return Id_crossdevices;
+    }
+
+    public void setId_crossdevices(Integer id_crossdevices) {
+        Id_crossdevices = id_crossdevices;
+    }
+
+    public Integer getId_devices_first() {
+        return id_devices_first;
+    }
+
+    public void setId_devices_first(Integer id_devices_first) {
+        this.id_devices_first = id_devices_first;
+    }
+
+    public String getHost_name_start() {
+        return host_name_start;
+    }
+
+    public void setHost_name_start(String host_name_start) {
+        this.host_name_start = host_name_start;
+    }
+
+    public Integer getId_devices_end() {
+        return id_devices_end;
+    }
+
+    public void setId_devices_end(Integer id_devices_end) {
+        this.id_devices_end = id_devices_end;
+    }
+
+    public String getHost_name_end() {
+        return host_name_end;
+    }
+
+    public void setHost_name_end(String host_name_end) {
+        this.host_name_end = host_name_end;
+    }
+
+    public Integer getId_user_otv() {
+        return id_user_otv;
+    }
+
+    public void setId_user_otv(Integer id_user_otv) {
+        this.id_user_otv = id_user_otv;
+    }
+
+    public String getUser_otv() {
+        return user_otv;
+    }
+
+    public void setUser_otv(String user_otv) {
+        this.user_otv = user_otv;
+    }
+
+    public Integer getId_user_old() {
+        return id_user_old;
+    }
+
+    public void setId_user_old(Integer id_user_old) {
+        this.id_user_old = id_user_old;
+    }
+
+    public String getUser_old() {
+        return user_old;
+    }
+
+    public void setUser_old(String user_old) {
+        this.user_old = user_old;
+    }
+
+    public Integer getId_network_journal() {
+        return id_network_journal;
+    }
+
+    public void setId_network_journal(Integer id_network_journal) {
+        this.id_network_journal = id_network_journal;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public Date getDate_reg() {
+        return date_reg;
+    }
+
+    public void setDate_reg(Date date_reg) {
+        this.date_reg = date_reg;
+    }
+
+    public Date getDate_old() {
+        return date_old;
+    }
+
+    public void setDate_old(Date date_old) {
+        this.date_old = date_old;
+    }
+
+    public Integer getId_vlan() {
+        return id_vlan;
+    }
+
+    public void setId_vlan(Integer id_vlan) {
+        this.id_vlan = id_vlan;
+    }
+
+    public String getName_vlan() {
+        return name_vlan;
+    }
+
+    public void setName_vlan(String name_vlan) {
+        this.name_vlan = name_vlan;
+    }
+
+    public Integer getId_crosses() {
+        return id_crosses;
+    }
+
+    public void setId_crosses(Integer id_crosses) {
+        this.id_crosses = id_crosses;
+    }
+
+    public String getInfo_crosses() {
+        return info_crosses;
+    }
+
+    public void setInfo_crosses(String info_crosses) {
+        this.info_crosses = info_crosses;
+    }
+
+    public Integer getId_status() {
+        return id_status;
+    }
+
+    public void setId_status(Integer id_status) {
+        this.id_status = id_status;
+    }
+
+    public String getName_status() {
+        return name_status;
+    }
+
+    public void setName_status(String name_status) {
+        this.name_status = name_status;
     }
 
     @Override
@@ -91,7 +245,8 @@ public class CrossDevicesDTO {
                 ", name_vlan='" + name_vlan + '\'' +
                 ", id_crosses=" + id_crosses +
                 ", info_crosses='" + info_crosses + '\'' +
-                ", actual=" + actual +
+                ", id_status=" + id_status +
+                ", name_status='" + name_status + '\'' +
                 '}';
     }
 }

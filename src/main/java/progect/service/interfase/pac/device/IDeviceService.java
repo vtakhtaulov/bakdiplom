@@ -8,7 +8,7 @@ import java.util.List;
 public interface IDeviceService {
     List<DevicesDTO> findAll();
     DevicesDTO read(DevicesDTO obj);
-    boolean delete(DevicesDTO obj);
-    List<DevicesDTO> update(DevicesDTO obj,DevicesDTO new_obj);
+    List<DevicesDTO> delete(Integer id_devices);
+    List<DevicesDTO> update(DevicesDTO obj,Integer id_devices);
     List<DevicesDTO> create(DevicesDTO obj);
 }

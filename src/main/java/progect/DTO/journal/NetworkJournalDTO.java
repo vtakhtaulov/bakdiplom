@@ -35,7 +35,8 @@ public class NetworkJournalDTO {
     private Integer id_devices;
     private String devices;
 
-    private Integer actual;
+    private Integer id_status;
+    private String name_status;
 
 
     public NetworkJournalDTO(NetworkJournalDomain obj) {
@@ -52,7 +53,8 @@ public class NetworkJournalDTO {
         this.user_old = obj.getId_user_old().getFioUser();
         this.id_devices = obj.getId_devices().getId_devices();
         this.devices = obj.getId_devices().getHostname();
-        this.actual = obj.getActual();
+        this.id_status = obj.getIs_status().getId_status();
+        this.name_status = obj.getIs_status().getName_status();
     }
 
     public Integer getId_network_journal() {
@@ -159,12 +161,20 @@ public class NetworkJournalDTO {
         this.devices = devices;
     }
 
-    public Integer getActual() {
-        return actual;
+    public Integer getId_status() {
+        return id_status;
     }
 
-    public void setActual(Integer actual) {
-        this.actual = actual;
+    public void setId_status(Integer id_status) {
+        this.id_status = id_status;
+    }
+
+    public String getName_status() {
+        return name_status;
+    }
+
+    public void setName_status(String name_status) {
+        this.name_status = name_status;
     }
 
     @Override
@@ -183,7 +193,8 @@ public class NetworkJournalDTO {
                 ", user_old='" + user_old + '\'' +
                 ", id_devices=" + id_devices +
                 ", devices='" + devices + '\'' +
-                ", actual=" + actual +
+                ", id_status=" + id_status +
+                ", name_status='" + name_status + '\'' +
                 '}';
     }
 }

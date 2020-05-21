@@ -2,6 +2,7 @@ package progect.domain.network;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
+import progect.domain.RefStatusDomain;
 import progect.domain.user.UsersDomain;
 
 import javax.persistence.*;
@@ -46,9 +47,9 @@ public class Pool_address_Domain {
     @JoinColumn(name = "id_user_reg",referencedColumnName = "user_id")
     private UsersDomain id_user_reg;
 
-    @Column(name = "actual")
-    @NotNull
-    private Integer actual;
+    @ManyToOne
+    @JoinColumn(name = "is_status",referencedColumnName ="id_status" )
+    private RefStatusDomain is_status;
 
     public Pool_address_Domain(){
 
@@ -118,12 +119,12 @@ public class Pool_address_Domain {
         this.id_user_reg = id_user_reg;
     }
 
-    public Integer getActual() {
-        return actual;
+    public RefStatusDomain getIs_status() {
+        return is_status;
     }
 
-    public void setActual(Integer actual) {
-        this.actual = actual;
+    public void setIs_status(RefStatusDomain is_status) {
+        this.is_status = is_status;
     }
 
     public String getFIOReg(){

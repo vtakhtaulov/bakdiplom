@@ -8,7 +8,7 @@ public interface IUserService {
     List<UsersDomain> findAll();
     UsersDomain read(UsersDomain obj);
     List<UsersDomain> delete(Integer obj);
-    List<UsersDomain> update(UsersDomain obj,UsersDomain new_obj);
+    List<UsersDomain> update(UsersDomain obj, Integer user_id);
     List<UsersDomain> create(UsersDomain obj);
     UsersDomain loginUserSearch(String login, String password);
 }

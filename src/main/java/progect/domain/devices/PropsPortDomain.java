@@ -14,11 +14,16 @@ public class PropsPortDomain {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id_props_port;
 
-    private String EthernetPort;
+    private Integer EthernetPort;
 
-    private String OVPort;
+    private Integer OVPort;
 
-    private Integer id_devices;
+
+
+    public PropsPortDomain( Integer EthernetPort, Integer OVPort) {
+        this.EthernetPort = EthernetPort;
+        this.OVPort = OVPort;
+    }
 
     public PropsPortDomain() {
     }
@@ -31,27 +36,20 @@ public class PropsPortDomain {
         this.id_props_port = id_props_port;
     }
 
-    public String getEthernetPort() {
+    public Integer getEthernetPort() {
         return EthernetPort;
     }
 
-    public void setEthernetPort(String ethernetPort) {
+    public void setEthernetPort(Integer ethernetPort) {
         EthernetPort = ethernetPort;
     }
 
-    public String getOVPort() {
+    public Integer getOVPort() {
         return OVPort;
     }
 
-    public void setOVPort(String OVPort) {
+    public void setOVPort(Integer OVPort) {
         this.OVPort = OVPort;
     }
 
-    public Integer getId_devices() {
-        return id_devices;
-    }
-
-    public void setId_devices(Integer id_devices) {
-        this.id_devices = id_devices;
-    }
 }

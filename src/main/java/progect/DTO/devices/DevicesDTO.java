@@ -1,8 +1,10 @@
 package progect.DTO.devices;
 
 
+import lombok.Data;
 import progect.domain.devices.DevicesDomain;
 
+@Data
 public class DevicesDTO {
 
     private Integer id_devices;
@@ -15,14 +17,19 @@ public class DevicesDTO {
 
     private String hostname;
     private String mac_address;
+    private String inventar_number;
 
     private Integer id_room;
     private String  room;
 
     private Integer id_props_port;
-    private String countOptPort;
-    private String countEthernetPort;
+    private Integer countOptPort;
+    private Integer countEthernetPort;
 
+    private Integer id_status;
+    private String name_status;
+
+    public DevicesDTO(){}
     public DevicesDTO(DevicesDomain dev) {
         this.id_devices = dev.getId_devices();
         this.id_type_devices = dev.getId_type_devices().getId_type_dev();
@@ -36,6 +43,35 @@ public class DevicesDTO {
         this.countOptPort = dev.getId_props_port().getOVPort();
         this.countEthernetPort = dev.getId_props_port().getEthernetPort();
         this.mac_address = dev.getMac_address();
+        this.inventar_number = dev.getInventar_number();
+        this.id_status = dev.getIs_status().getId_status();
+        this.name_status = dev.getIs_status().getName_status();
+    }
+
+    public DevicesDTO(DevicesDTO dev) {
+        this.id_devices = dev.id_devices;
+        this.id_type_devices = dev.id_type_devices;
+        this.type_device = dev.type_device;
+        this.id_user_otv = dev.id_user_otv;
+        this.user_otv = dev.user_otv;
+        this.hostname = dev.hostname;
+        this.id_room = dev.id_room;
+        this.room = dev.room;
+        this.id_props_port = dev.id_props_port;
+        this.countOptPort = dev.countOptPort;
+        this.countEthernetPort = dev.countEthernetPort;
+        this.mac_address = dev.mac_address;
+        this.inventar_number = dev.inventar_number;
+        this.id_status = dev.id_status;
+        this.name_status = dev.name_status;
+    }
+
+    public String getInventar_number() {
+        return inventar_number;
+    }
+
+    public void setInventar_number(String invertar_number) {
+        this.inventar_number = invertar_number;
     }
 
     public Integer getId_devices() {
@@ -118,20 +154,36 @@ public class DevicesDTO {
         this.id_props_port = id_props_port;
     }
 
-    public String getCountOptPort() {
+    public Integer getCountOptPort() {
         return countOptPort;
     }
 
-    public void setCountOptPort(String countOptPort) {
+    public void setCountOptPort(Integer countOptPort) {
         this.countOptPort = countOptPort;
     }
 
-    public String getCountEthernetPort() {
+    public Integer getCountEthernetPort() {
         return countEthernetPort;
     }
 
-    public void setCountEthernetPort(String countEthernetPort) {
+    public void setCountEthernetPort(Integer countEthernetPort) {
         this.countEthernetPort = countEthernetPort;
+    }
+
+    public Integer getId_status() {
+        return id_status;
+    }
+
+    public void setId_status(Integer id_status) {
+        this.id_status = id_status;
+    }
+
+    public String getName_status() {
+        return name_status;
+    }
+
+    public void setName_status(String name_status) {
+        this.name_status = name_status;
     }
 
     @Override
@@ -144,11 +196,14 @@ public class DevicesDTO {
                 ", user_otv='" + user_otv + '\'' +
                 ", hostname='" + hostname + '\'' +
                 ", mac_address='" + mac_address + '\'' +
+                ", inventar_number='" + inventar_number + '\'' +
                 ", id_room=" + id_room +
                 ", room='" + room + '\'' +
                 ", id_props_port=" + id_props_port +
-                ", countOptPort='" + countOptPort + '\'' +
-                ", countEthernetPort='" + countEthernetPort + '\'' +
+                ", countOptPort=" + countOptPort +
+                ", countEthernetPort=" + countEthernetPort +
+                ", id_status=" + id_status +
+                ", name_status='" + name_status + '\'' +
                 '}';
     }
 }

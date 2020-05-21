@@ -1,6 +1,7 @@
 package progect.domain.network;
 
 import lombok.Data;
+import progect.domain.RefStatusDomain;
 import progect.domain.user.UsersDomain;
 
 import javax.persistence.*;
@@ -53,8 +54,9 @@ public class NetworkDomain {
 
     private Date date_old;
 
-    @NotNull
-    private Integer actual;
+    @ManyToOne
+    @JoinColumn(name = "is_status",referencedColumnName ="id_status" )
+    private RefStatusDomain is_status;
 
     public NetworkDomain(){}
 
@@ -154,10 +156,13 @@ public class NetworkDomain {
         this.date_old = date_old;
     }
 
-    public Integer getActual() {
-        return actual;
+    public RefStatusDomain getIs_status() {
+        return is_status;
     }
 
+    public void setIs_status(RefStatusDomain is_status) {
+        this.is_status = is_status;
+    }
 
     public String getPoolIpAddress (){
         try {

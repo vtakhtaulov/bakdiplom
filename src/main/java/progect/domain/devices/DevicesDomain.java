@@ -2,6 +2,7 @@ package progect.domain.devices;
 
 
 import lombok.Data;
+import progect.domain.RefStatusDomain;
 import progect.domain.journal.NetworkJournalDomain;
 import progect.domain.room.RoomDomain;
 import progect.domain.user.UsersDomain;
@@ -9,6 +10,7 @@ import progect.domain.user.UsersDomain;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.List;
+import java.util.Optional;
 
 @Entity
 @Data
@@ -28,22 +30,42 @@ public class DevicesDomain {
     private UsersDomain user_otv;
 
     @NotNull
+    @Column(unique = true)
     private String hostname;
     @NotNull
+    @Column(unique = true)
     private String mac_address;
+    @NotNull
+    @Column(unique = true)
+    private String inventar_number;
 
     @ManyToOne
     @JoinColumn(name = "id_room", referencedColumnName = "id_room")
     private RoomDomain id_room;
 
-
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "id_props_port")
+    @JoinColumn(name = "id_props_port",referencedColumnName ="id_props_port" )
     private PropsPortDomain id_props_port;
 
+    @ManyToOne
+    @JoinColumn(name = "is_status",referencedColumnName ="id_status" )
+    private RefStatusDomain is_status;
 
+    public DevicesDomain() {
+    }
 
-    public DevicesDomain(){}
+    public DevicesDomain(TypeDeviceDomain id_type_devices,
+                         UsersDomain user_otv, String hostname, String mac_address, String inventar_number,
+                         RoomDomain id_room, PropsPortDomain id_props_port, RefStatusDomain is_status) {
+        this.id_type_devices = id_type_devices;
+        this.user_otv = user_otv;
+        this.hostname = hostname;
+        this.mac_address = mac_address;
+        this.inventar_number = inventar_number;
+        this.id_room = id_room;
+        this.id_props_port = id_props_port;
+        this.is_status = is_status;
+    }
 
     public Integer getId_devices() {
         return id_devices;
@@ -77,6 +99,22 @@ public class DevicesDomain {
         this.hostname = hostname;
     }
 
+    public String getMac_address() {
+        return mac_address;
+    }
+
+    public void setMac_address(String mac_address) {
+        this.mac_address = mac_address;
+    }
+
+    public String getInventar_number() {
+        return inventar_number;
+    }
+
+    public void setInventar_number(String inventar_number) {
+        this.inventar_number = inventar_number;
+    }
+
     public RoomDomain getId_room() {
         return id_room;
     }
@@ -93,11 +131,11 @@ public class DevicesDomain {
         this.id_props_port = id_props_port;
     }
 
-    public String getMac_address() {
-        return mac_address;
+    public RefStatusDomain getIs_status() {
+        return is_status;
     }
 
-    public void setMac_address(String mac_address) {
-        this.mac_address = mac_address;
+    public void setIs_status(RefStatusDomain is_status) {
+        this.is_status = is_status;
     }
 }

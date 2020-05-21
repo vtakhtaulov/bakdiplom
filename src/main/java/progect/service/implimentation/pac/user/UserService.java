@@ -1,6 +1,8 @@
 package progect.service.implimentation.pac.user;
 
 
+import org.apache.catalina.User;
+import org.apache.catalina.UserDatabase;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -9,6 +11,7 @@ import progect.repository.user.UserRepository;
 import progect.service.interfase.pac.user.IUserService;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class UserService implements IUserService {
@@ -44,12 +47,28 @@ public class UserService implements IUserService {
             System.out.println(e.getMessage());
             return userrepository.findAll();
         }
-    }
+    }@Override
+    public List<UsersDomain> update(UsersDomain obj, Integer user_id) {
+        try {
 
-    @Override
-    public List<UsersDomain> update(UsersDomain obj, UsersDomain new_obj) {
-        BeanUtils.copyProperties(new_obj, obj,"user_id" );
-        return userrepository.findAll();
+            userrepository.findById(user_id).map(employee -> {
+                employee.setEmail(obj.getEmail());
+                employee.setPhone(obj.getPhone());
+                employee.setFirst_name(obj.getFirst_name());
+                employee.setLast_name(obj.getLast_name());
+                employee.setMiddle_name(obj.getMiddle_name());
+                employee.setUser_login(obj.getUser_login());
+                employee.setUser_role(obj.getUser_role());
+                return userrepository.save(employee);
+            }).orElseGet(() -> {
+                        obj.setUser_id(user_id);
+                        return userrepository.save(obj);
+                    });
+            return userrepository.findAll();
+        }
+        catch (Exception e){
+            return userrepository.findAll();
+        }
     }
 
     @Override

@@ -26,17 +26,22 @@ public class DevicesController {
     }
 
     @RequestMapping(value = "/DeleteDevices/{id_devices}", method = RequestMethod.DELETE, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-    public boolean delete(@PathVariable("id_devices") DevicesDTO obj) {
-        return deviceService.delete(obj);
+    public List<DevicesDTO> delete(@PathVariable("id_devices") Integer id_devices) {
+        return deviceService.delete(id_devices);
     }
 
     @RequestMapping(value = "/UpdateDevices/{id_devices}", method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-    public List<DevicesDTO> update(@PathVariable("id_devices") DevicesDTO obj, @RequestBody DevicesDTO new_obj) {
-        return deviceService.update(obj, new_obj);
+    public List<DevicesDTO> update(@RequestBody DevicesDTO obj,
+                                   @PathVariable("id_devices")  Integer id_devices) {
+        return deviceService.update(obj, id_devices);
     }
     @RequestMapping(value = "/CreateDevices", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public List<DevicesDTO> create(@RequestBody DevicesDTO obj){
-        return deviceService.create(obj);
+        try {
+            return deviceService.create(obj);
+        }catch (Exception e){
+            return deviceService.findAll();
+        }
     }
 
 }

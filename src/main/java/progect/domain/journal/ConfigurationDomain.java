@@ -3,6 +3,7 @@ package progect.domain.journal;
 import lombok.Data;
 import org.hibernate.annotations.GeneratorType;
 import org.hibernate.annotations.ValueGenerationType;
+import progect.domain.RefStatusDomain;
 import progect.domain.devices.DevicesDomain;
 import progect.domain.devices.PropsPortDomain;
 import progect.domain.user.UsersDomain;
@@ -43,7 +44,20 @@ public class ConfigurationDomain {
 
     private Date date_old;
 
-    private Integer actual;
+    @ManyToOne
+    @JoinColumn(name = "is_status",referencedColumnName ="id_status" )
+    private RefStatusDomain is_status;
+
+    public ConfigurationDomain() {
+    }
+
+    public RefStatusDomain getIs_status() {
+        return is_status;
+    }
+
+    public void setIs_status(RefStatusDomain is_status) {
+        this.is_status = is_status;
+    }
 
     public Integer getId_config() {
         return id_config;
@@ -117,12 +131,6 @@ public class ConfigurationDomain {
         this.date_old = date_old;
     }
 
-    public Integer getActual() {
-        return actual;
-    }
 
-    public void setActual(Integer actual) {
-        this.actual = actual;
-    }
 
 }

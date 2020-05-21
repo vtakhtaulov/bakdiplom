@@ -36,7 +36,8 @@ public class ConfigurationDTO {
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd.MM.yyyy")
     private Date date_old;
 
-    private Integer actual;
+    private Integer id_status;
+    private String name_status;
 
     public ConfigurationDTO(ConfigurationDomain obj) {
         this.id_config = obj.getId_config();
@@ -51,7 +52,8 @@ public class ConfigurationDTO {
         this.user_old = obj.getId_user_old().getFioUser();
         this.date_reg = obj.getDate_reg();
         this.date_old = obj.getDate_old();
-        this.actual = obj.getActual();
+        this.id_status = obj.getIs_status().getId_status();
+        this.name_status = obj.getIs_status().getName_status();
     }
 
     public Integer getId_config() {
@@ -150,12 +152,20 @@ public class ConfigurationDTO {
         this.date_old = date_old;
     }
 
-    public Integer getActual() {
-        return actual;
+    public Integer getId_status() {
+        return id_status;
     }
 
-    public void setActual(Integer actual) {
-        this.actual = actual;
+    public void setId_status(Integer id_status) {
+        this.id_status = id_status;
+    }
+
+    public String getName_status() {
+        return name_status;
+    }
+
+    public void setName_status(String name_status) {
+        this.name_status = name_status;
     }
 
     @Override
@@ -173,7 +183,8 @@ public class ConfigurationDTO {
                 ", user_old='" + user_old + '\'' +
                 ", date_reg=" + date_reg +
                 ", date_old=" + date_old +
-                ", actual=" + actual +
+                ", id_status=" + id_status +
+                ", name_status='" + name_status + '\'' +
                 '}';
     }
 }

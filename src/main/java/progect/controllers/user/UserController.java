@@ -37,13 +37,13 @@ public class UserController  {
     }
 
     @RequestMapping(value = "/UpdateUser/{user_id}", method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-    public List<UsersDomain> update(@PathVariable("user_id") UsersDomain obj, @RequestBody UsersDomain new_obj) {
-        return userservice.update(obj, new_obj);
+    public List<UsersDomain> update(@RequestBody UsersDomain obj,
+                                    @PathVariable("user_id") Integer user_id) {
+        return userservice.update(obj, user_id);
     }
     @RequestMapping(value = "/AddUser", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public List<UsersDomain> create (@RequestBody UsersDomain obj){
         try {
-
             return userservice.create(obj);
         }
         catch (Exception e){
@@ -53,7 +53,6 @@ public class UserController  {
 
     @RequestMapping(value = "/loginUser", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public UsersDomain loginUserSearch (@RequestParam(value = "user_login") String login, @RequestParam (value = "user_password") String password){
-        System.out.println(login +" "+password);
         return userservice.loginUserSearch(login, password);
     }
 }

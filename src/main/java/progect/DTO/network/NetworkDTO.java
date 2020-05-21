@@ -33,13 +33,15 @@ public class NetworkDTO {
 
     private Integer defaultGeteway;
 
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd.MM.yyyy")
     private Date date_reg;
 
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd.MM.yyyy")
     private Date date_old;
 
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd.MM.yyyy")
-    private Integer actual;
+    private Integer id_status;
+    private String name_status;
+
 
     public NetworkDTO(NetworkDomain net) {
         this.id_network = net.getId_network();
@@ -59,7 +61,8 @@ public class NetworkDTO {
         this.defaultGeteway = net.getDefaultGeteway();
         this.date_reg = net.getDate_reg();
         this.date_old = net.getDate_old();
-        this.actual = net.getActual();
+        this.id_status = net.getIs_status().getId_status();
+        this.name_status = net.getIs_status().getName_status();
     }
 
     public Integer getId_network() {
@@ -198,12 +201,20 @@ public class NetworkDTO {
         this.date_old = date_old;
     }
 
-    public Integer getActual() {
-        return actual;
+    public Integer getId_status() {
+        return id_status;
     }
 
-    public void setActual(Integer actual) {
-        this.actual = actual;
+    public void setId_status(Integer id_status) {
+        this.id_status = id_status;
+    }
+
+    public String getName_status() {
+        return name_status;
+    }
+
+    public void setName_status(String name_status) {
+        this.name_status = name_status;
     }
 
     @Override
@@ -226,7 +237,9 @@ public class NetworkDTO {
                 ", defaultGeteway=" + defaultGeteway +
                 ", date_reg=" + date_reg +
                 ", date_old=" + date_old +
-                ", actual=" + actual +
+                ", id_status=" + id_status +
+                ", name_status='" + name_status + '\'' +
                 '}';
     }
 }
+

@@ -20,7 +20,6 @@ public class RoomController  {
 
     @RequestMapping(value = "/RoomlAll", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public List<RoomDTO> findAll() {
-        System.out.println(roomService.findAll());
         return roomService.findAll();
     }
 

@@ -16,4 +16,5 @@ public interface UserRepository extends JpaRepository<UsersDomain, Integer> {
     @Query(value = "DELETE FROM auth.users\n" +
             "WHERE user_id=?1\n", nativeQuery = true)
     boolean delete(Integer obj);
+
 }
