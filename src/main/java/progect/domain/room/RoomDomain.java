@@ -37,6 +37,13 @@ public class RoomDomain {
 
     public RoomDomain(){}
 
+    public RoomDomain( String name_room, UsersDomain user_otv, String type_room, NodesDomain id_nodes){
+        this.name_room = name_room;
+        this.user_otv = user_otv;
+        this.type_room = type_room;
+        this.id_nodes = id_nodes;
+    }
+
     public Integer getId_room() {
         return id_room;
     }

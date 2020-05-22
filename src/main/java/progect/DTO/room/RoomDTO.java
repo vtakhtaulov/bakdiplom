@@ -22,8 +22,10 @@ public class RoomDTO {
     private String type_room;
 
     private Integer id_nodes;
-    private String nodes_name;
+    private String name_nodes;
 
+
+    RoomDTO(){}
     public RoomDTO(RoomDomain obj) {
         this.id_room = obj.getId_room();
         this.name_room = obj.getName_room();
@@ -31,7 +33,7 @@ public class RoomDTO {
         this.user_otv = obj.getUser_otv().getFioUser();
         this.type_room = obj.getType_room();
         this.id_nodes = obj.getId_nodes().getId_nodes();
-        this.nodes_name = obj.getId_nodes().getName_nodes();
+        this.name_nodes = obj.getId_nodes().getName_nodes();
     }
 
     public Integer getId_room() {
@@ -82,12 +84,12 @@ public class RoomDTO {
         this.id_nodes = id_nodes;
     }
 
-    public String getNodes_name() {
-        return nodes_name;
+    public String getName_nodes() {
+        return name_nodes;
     }
 
-    public void setNodes_name(String nodes_name) {
-        this.nodes_name = nodes_name;
+    public void setName_nodes(String name_nodes) {
+        this.name_nodes = name_nodes;
     }
 
     @Override
@@ -99,7 +101,7 @@ public class RoomDTO {
                 ", user_otv='" + user_otv + '\'' +
                 ", type_room='" + type_room + '\'' +
                 ", id_nodes=" + id_nodes +
-                ", nodes_name='" + nodes_name + '\'' +
+                ", name_nodes='" + name_nodes + '\'' +
                 '}';
     }
 }

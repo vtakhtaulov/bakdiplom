@@ -9,6 +9,7 @@ import progect.DTO.room.RoomDTO;
 import progect.service.interfase.pac.journal.INetworkJournalService;
 import progect.service.interfase.pac.room.IRoomService;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -29,13 +30,13 @@ public class RoomController  {
     }
 
     @RequestMapping(value = "/DeleteRoom/{id_room}", method = RequestMethod.DELETE, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-    public boolean delete(@PathVariable("id_room") RoomDTO obj) {
+    public List<RoomDTO>  delete(@PathVariable("id_room") Integer obj) {
         return roomService.delete(obj);
     }
 
     @RequestMapping(value = "/UpdateRoom/{id_room}", method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-    public List<RoomDTO> update(@PathVariable("id_room") RoomDTO obj, @RequestBody RoomDTO new_obj) {
-        return roomService.update(obj, new_obj);
+    public List<RoomDTO> update(@PathVariable("id_room") Integer id_room, @RequestBody RoomDTO new_obj) {
+        return roomService.update(id_room, new_obj);
     }
     @RequestMapping(value = "/CreateRoom", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public List<RoomDTO> create(@RequestBody RoomDTO obj){

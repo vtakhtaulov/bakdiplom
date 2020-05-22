@@ -38,7 +38,6 @@ public class TypeDeviceController {
     }
     @RequestMapping(value = "/CreateTypeDevices", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public List<TypeDeviceDomain> create(@RequestBody TypeDeviceDomain obj){
-        System.out.println(obj);
         return typeDeviceService.create(obj);
     }
 

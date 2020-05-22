@@ -1,13 +1,10 @@
 package progect.domain.network;
 
 import lombok.Data;
-import progect.domain.devices.DevicesDomain;
-import progect.domain.room.RoomDomain;
 import progect.domain.user.UsersDomain;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
-import java.util.List;
 
 @Entity
 @Data
@@ -27,10 +24,6 @@ public class NodesDomain {
 
 
     public NodesDomain() {
-    }
-
-    public Integer getId_nodes() {
-        return id_nodes;
     }
 
     public void setId_nodes(Integer id_nodes) {
@@ -53,4 +46,7 @@ public class NodesDomain {
         this.name_nodes = name_nodes;
     }
 
+    public Integer getId_nodes() {
+        return id_nodes;
+    }
 }
