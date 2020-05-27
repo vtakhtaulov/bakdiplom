@@ -23,7 +23,7 @@ public class ConfigurationDomain {
 
     @OneToOne
     @JoinColumn(name = "id_device")
-    private DevicesDomain id_divice;
+    private DevicesDomain id_device;
 
     private String config_first;
 
@@ -51,6 +51,19 @@ public class ConfigurationDomain {
     public ConfigurationDomain() {
     }
 
+    public void setConfiguration(DevicesDomain device,String config_first, String config_last, String deference,
+                                 UsersDomain user_reg, UsersDomain user_old,Date date_reg, Date date_old,RefStatusDomain is_status ) {
+        this.id_device = device;
+        this.config_first = config_first;
+        this.config_last = config_last;
+        this.deference = deference;
+        this.id_user_reg = user_reg;
+        this.id_user_old = user_old;
+        this.date_reg = date_reg;
+        this.date_old = date_old;
+        this.is_status = is_status;
+    }
+
     public RefStatusDomain getIs_status() {
         return is_status;
     }
@@ -67,12 +80,12 @@ public class ConfigurationDomain {
         this.id_config = id_config;
     }
 
-    public DevicesDomain getId_divice() {
-        return id_divice;
+    public DevicesDomain getId_device() {
+        return id_device;
     }
 
-    public void setId_divice(DevicesDomain id_divice) {
-        this.id_divice = id_divice;
+    public void setId_device(DevicesDomain id_device) {
+        this.id_device = id_device;
     }
 
     public String getConfig_first() {

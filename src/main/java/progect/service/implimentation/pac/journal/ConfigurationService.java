@@ -4,16 +4,29 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import progect.DTO.journal.ConfigurationDTO;
 import progect.domain.journal.ConfigurationDomain;
+import progect.repository.RefStatusRepository;
+import progect.repository.devices.DevicesRepository;
 import progect.repository.journal.ConfigurationRepository;
+import progect.repository.user.UserRepository;
 import progect.service.interfase.pac.journal.IConfigurationService;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Service
 public class ConfigurationService implements IConfigurationService {
    @Autowired
    private ConfigurationRepository configurationRepository;
+   @Autowired
+   private UserRepository userRepository;
+   @Autowired
+   private RefStatusRepository refStatusRepository;
+   @Autowired
+   private DevicesRepository devicesRepository;
+
 
     @Override
     public List<ConfigurationDTO> findAll() {
@@ -26,17 +39,63 @@ public class ConfigurationService implements IConfigurationService {
     }
 
     @Override
-    public boolean delete(ConfigurationDTO obj) {
-        return false;
-    }
-
-    @Override
-    public List<ConfigurationDTO> update(ConfigurationDTO obj, ConfigurationDTO new_obj) {
+    public List<ConfigurationDTO> delete(Integer id_config, Integer user_id) {
+        configurationRepository.findById(id_config).map(deleteConfig->{
+            deleteConfig.setId_user_old(userRepository.findById(user_id).get());
+            deleteConfig.setDate_old(new Date());
+            deleteConfig.setIs_status(refStatusRepository.findById(2).get());
+            return configurationRepository.save(deleteConfig);
+        });
         return mapperEntityToDTO();
     }
 
     @Override
+    public List<ConfigurationDTO> update(Integer id_config, ConfigurationDTO new_obj) {
+
+        configurationRepository.findById(id_config).map(configurationDomain -> {
+                configurationDomain
+                        .setConfiguration(
+                                devicesRepository.findById(new_obj.getId_device()).get(),
+                                new_obj.getConfig_first(),
+                                new_obj.getConfig_last(),
+                                new_obj.getDeference(),
+                                userRepository.findById(new_obj.getId_user_reg()).get(),
+                                userRepository.findById(new_obj.getId_user_old()).get(),
+                                new Date(),
+                                new Date(),
+                                refStatusRepository.findById(2).get()
+                        );
+                return configurationRepository.save(configurationDomain);
+           });
+
+           ConfigurationDomain configDom = new ConfigurationDomain();
+           configDom.setConfiguration(devicesRepository.findById(new_obj.getId_device()).get(),
+                    new_obj.getConfig_last(),
+                   null,
+                    null,
+                    userRepository.findById(new_obj.getId_user_reg()).get(),
+                    userRepository.findById(0).get(),
+                    new Date(),
+                    null,
+                    refStatusRepository.findById(1).get());
+                configurationRepository.save(configDom);
+            return mapperEntityToDTO();
+    }
+
+    @Override
     public List<ConfigurationDTO> create(ConfigurationDTO obj) {
+        ConfigurationDomain createConfigDom = new ConfigurationDomain();
+        createConfigDom.setConfiguration(
+                devicesRepository.findById(obj.getId_device()).get(),
+                obj.getConfig_first(),
+                null,
+                null,
+                userRepository.findById(obj.getId_user_reg()).get(),
+                userRepository.findById(0).get(),
+                new Date(),
+                null,
+                refStatusRepository.findById(1).get());
+        configurationRepository.save(createConfigDom);
         return mapperEntityToDTO();
     }
 

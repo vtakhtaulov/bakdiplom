@@ -8,7 +8,7 @@ import java.util.List;
 public interface IConfigurationService {
     List<ConfigurationDTO> findAll();
     ConfigurationDTO read(ConfigurationDTO obj);
-    boolean delete(ConfigurationDTO obj);
-    List<ConfigurationDTO> update(ConfigurationDTO obj, ConfigurationDTO new_obj);
+    List<ConfigurationDTO> delete(Integer id_config, Integer user_id);
+    List<ConfigurationDTO> update(Integer id_config, ConfigurationDTO new_obj);
     List<ConfigurationDTO> create(ConfigurationDTO obj);
 }

@@ -8,6 +8,7 @@ import progect.domain.user.UsersDomain;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 
@@ -15,7 +16,7 @@ public class ConfigurationDTO {
 
     private Integer id_config;
 
-    private Integer id_divice;
+    private Integer id_device;
     private String host_name;
 
     private String config_first;
@@ -31,29 +32,46 @@ public class ConfigurationDTO {
     private String user_old;
 
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd.MM.yyyy")
-    private Date date_reg;
+    private String date_reg;
 
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd.MM.yyyy")
-    private Date date_old;
+    private String date_old;
 
     private Integer id_status;
     private String name_status;
 
+    public ConfigurationDTO(){}
     public ConfigurationDTO(ConfigurationDomain obj) {
-        this.id_config = obj.getId_config();
-        this.id_divice = obj.getId_divice().getId_devices();
-        this.host_name = obj.getId_divice().getHostname();
-        this.config_first = obj.getConfig_first();
-        this.config_last = obj.getConfig_last();
-        this.deference = obj.getDeference();
-        this.id_user_reg = obj.getId_user_reg().getUser_id();
-        this.user_reg = obj.getId_user_reg().getFioUser();
-        this.id_user_old = obj.getId_user_old().getUser_id();
-        this.user_old = obj.getId_user_old().getFioUser();
-        this.date_reg = obj.getDate_reg();
-        this.date_old = obj.getDate_old();
-        this.id_status = obj.getIs_status().getId_status();
-        this.name_status = obj.getIs_status().getName_status();
+            this.id_config = obj.getId_config();
+            this.id_device = obj.getId_device().getId_devices();
+            this.host_name = obj.getId_device().getHostname();
+            this.config_first = obj.getConfig_first();
+            this.id_user_reg = obj.getId_user_reg().getUser_id();
+            this.user_reg = obj.getId_user_reg().getFioUser();
+            this.id_user_old = obj.getId_user_old().getUser_id();
+            this.user_old = obj.getId_user_old().getFioUser();
+            this.date_reg = obj.getDate_reg().toString();
+            this.id_status = obj.getIs_status().getId_status();
+            this.name_status = obj.getIs_status().getName_status();
+
+            try {
+                this.date_old = obj.getDate_old().toString();
+            }
+            catch (Exception e){
+                this.date_old = "";
+            }
+            try {
+                this.deference = obj.getDeference();
+            }
+            catch (Exception e){
+                this.deference = "";
+            }
+            try {
+                this.config_last = obj.getConfig_last();
+            }
+            catch (Exception e){
+                this.config_last = "";
+            }
     }
 
     public Integer getId_config() {
@@ -64,12 +82,12 @@ public class ConfigurationDTO {
         this.id_config = id_config;
     }
 
-    public Integer getId_divice() {
-        return id_divice;
+    public Integer getId_device() {
+        return id_device;
     }
 
-    public void setId_divice(Integer id_divice) {
-        this.id_divice = id_divice;
+    public void setId_device(Integer id_device) {
+        this.id_device = id_device;
     }
 
     public String getHost_name() {
@@ -136,19 +154,19 @@ public class ConfigurationDTO {
         this.user_old = user_old;
     }
 
-    public Date getDate_reg() {
+    public String getDate_reg() {
         return date_reg;
     }
 
-    public void setDate_reg(Date date_reg) {
+    public void setDate_reg(String date_reg) {
         this.date_reg = date_reg;
     }
 
-    public Date getDate_old() {
+    public String getDate_old() {
         return date_old;
     }
 
-    public void setDate_old(Date date_old) {
+    public void setDate_old(String date_old) {
         this.date_old = date_old;
     }
 
@@ -172,7 +190,7 @@ public class ConfigurationDTO {
     public String toString() {
         return "ConfigurationDTO{" +
                 "id_config=" + id_config +
-                ", id_divice=" + id_divice +
+                ", id_device=" + id_device +
                 ", host_name='" + host_name + '\'' +
                 ", config_first='" + config_first + '\'' +
                 ", config_last='" + config_last + '\'' +

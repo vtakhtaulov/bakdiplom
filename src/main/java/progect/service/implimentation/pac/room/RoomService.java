@@ -20,6 +20,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.swing.text.html.parser.Entity;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Optional;
 
@@ -34,6 +35,8 @@ public class RoomService implements IRoomService {
     private NodesRepository nodesRepository;
     @Autowired
     private DevicesRepository devicesRepository;
+    @Autowired
+    private RefStatusRepository refStatusRepository;
 
     @PersistenceContext
     private EntityManager entityManager;
@@ -51,11 +54,14 @@ public class RoomService implements IRoomService {
     @Override
     public List<RoomDTO> delete(Integer id_room) {
             try {
-                devicesRepository.deleteRoom(id_room);
+                 devicesRepository.findById_room(id_room).map(
+                         element->{
+                             element.setId_room(roomRepository.findById(0).get());
+                             return devicesRepository.save(element);
+                         }
+                 );
+                 roomRepository.delete(id_room);
 
-                Optional<RoomDomain> roomDomain = roomRepository.findById(id_room);
-
-                entityManager.remove(roomDomain.get());
 
                 return mapperEntityToDTO();
             }catch (Exception e){

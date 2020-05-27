@@ -26,14 +26,14 @@ public class ConfigurationController  {
         return configurationService.read(obj);
     }
 
-    @RequestMapping(value = "/DeleteConfiguration/{id_config}", method = RequestMethod.DELETE, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-    public boolean delete(@PathVariable("id_config") ConfigurationDTO obj) {
-        return configurationService.delete(obj);
+    @RequestMapping(value = "/DeleteConfiguration/{id_config}", method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    public List<ConfigurationDTO> delete(@PathVariable("id_config") Integer id_config, @RequestBody ConfigurationDTO config) {
+        return configurationService.delete(id_config, config.getId_user_old());
     }
 
     @RequestMapping(value = "/UpdateConfiguration/{id_config}", method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-    public List<ConfigurationDTO> update(@PathVariable("id_config") ConfigurationDTO obj, @RequestBody ConfigurationDTO new_obj) {
-        return configurationService.update(obj, new_obj);
+    public List<ConfigurationDTO> update(@PathVariable("id_config") Integer id_config, @RequestBody ConfigurationDTO new_obj) {
+        return configurationService.update(id_config, new_obj);
     }
     @RequestMapping(value = "/CreateConfiguration", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public List<ConfigurationDTO> create(@RequestBody ConfigurationDTO obj){

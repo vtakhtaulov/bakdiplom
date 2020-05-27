@@ -7,7 +7,7 @@ import progect.domain.room.RoomDomain;
 
 public interface RoomRepository extends JpaRepository<RoomDomain,Integer> {
 
-    @Query(value = "delete from network.room where cast (id_room as integer) = cast(?1 as integer)",
+    @Query(value = "delete from network.room where cast (id_room as varchar) = cast(?1 as varchar)",
         nativeQuery = true)
     boolean delete(Integer id_room);
 }
