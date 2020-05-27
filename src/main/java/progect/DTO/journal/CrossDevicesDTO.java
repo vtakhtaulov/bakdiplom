@@ -30,14 +30,15 @@ public class CrossDevicesDTO {
     private String user_old;
 
     private Integer id_network_journal;
+    private String ip_address_network;
 
     private String description;
 
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd.MM.yyyy")
-    private Date date_reg;
+    private String date_reg;
 
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd.MM.yyyy")
-    private Date date_old;
+    private String date_old;
 
     private Integer id_vlan;
     private String name_vlan;
@@ -62,9 +63,14 @@ public class CrossDevicesDTO {
         this.id_user_old = obj.getId_user_old().getUser_id();
         this.user_old = obj.getId_user_old().getFioUser();
         this.id_network_journal = obj.getId_network_journal().getId_network_journal();
+        this.ip_address_network = obj.getId_network_journal().getIp_address();
         this.description = obj.getDescription();
-        this.date_reg = obj.getDate_reg();
-        this.date_old = obj.getDate_old();
+        this.date_reg = obj.getDate_reg().toString();
+        try {
+            this.date_old = obj.getDate_old().toString();
+        }catch (Exception e){
+            this.date_old = "";
+        }
         this.id_vlan = obj.getId_vlan().getId_vlan();
         this.name_vlan = obj.getId_vlan().getVlan_name();
         this.id_crosses = obj.getId_crosses().getId_crosses_first();
@@ -153,6 +159,14 @@ public class CrossDevicesDTO {
         this.id_network_journal = id_network_journal;
     }
 
+    public String getIp_address_network() {
+        return ip_address_network;
+    }
+
+    public void setIp_address_network(String ip_address_network) {
+        this.ip_address_network = ip_address_network;
+    }
+
     public String getDescription() {
         return description;
     }
@@ -161,19 +175,19 @@ public class CrossDevicesDTO {
         this.description = description;
     }
 
-    public Date getDate_reg() {
+    public String getDate_reg() {
         return date_reg;
     }
 
-    public void setDate_reg(Date date_reg) {
+    public void setDate_reg(String date_reg) {
         this.date_reg = date_reg;
     }
 
-    public Date getDate_old() {
+    public String getDate_old() {
         return date_old;
     }
 
-    public void setDate_old(Date date_old) {
+    public void setDate_old(String date_old) {
         this.date_old = date_old;
     }
 
@@ -238,6 +252,7 @@ public class CrossDevicesDTO {
                 ", id_user_old=" + id_user_old +
                 ", user_old='" + user_old + '\'' +
                 ", id_network_journal=" + id_network_journal +
+                ", ip_address_network='" + ip_address_network + '\'' +
                 ", description='" + description + '\'' +
                 ", date_reg=" + date_reg +
                 ", date_old=" + date_old +

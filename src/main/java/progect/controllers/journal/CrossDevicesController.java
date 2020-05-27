@@ -28,13 +28,13 @@ public class CrossDevicesController  {
     }
 
     @RequestMapping(value = "/DeleteCrossDevices/{Id_crossdevices}", method = RequestMethod.DELETE, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-    public boolean delete(@PathVariable("Id_crossdevices") CrossDevicesDTO obj) {
-        return crossDevicesService.delete(obj);
+    public List<CrossDevicesDTO> delete(@PathVariable("Id_crossdevices") Integer Id_crossdevices, @RequestBody CrossDevicesDTO obj) {
+        return crossDevicesService.delete(Id_crossdevices ,obj);
     }
 
     @RequestMapping(value = "/UpdateCrossDevices/{Id_crossdevices}", method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-    public List<CrossDevicesDTO> update(@PathVariable("Id_crossdevices") CrossDevicesDTO obj, @RequestBody CrossDevicesDTO new_obj) {
-        return crossDevicesService.update(obj, new_obj);
+    public List<CrossDevicesDTO> update(@PathVariable("Id_crossdevices") Integer Id_crossdevices, @RequestBody CrossDevicesDTO new_obj) {
+        return crossDevicesService.update(Id_crossdevices, new_obj);
     }
     @RequestMapping(value = "/CreateCrossDevices", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public List<CrossDevicesDTO> create(@RequestBody CrossDevicesDTO obj){

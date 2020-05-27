@@ -8,7 +8,7 @@ import java.util.List;
 public interface ICrossDevicesService {
     List<CrossDevicesDTO> findAll();
     CrossDevicesDTO read(CrossDevicesDTO obj);
-    boolean delete(CrossDevicesDTO obj);
-    List<CrossDevicesDTO> update(CrossDevicesDTO obj, CrossDevicesDTO new_obj);
+    List<CrossDevicesDTO> delete(Integer id_cross_dev, CrossDevicesDTO obj);
+    List<CrossDevicesDTO> update(Integer id_cross_dev, CrossDevicesDTO new_obj);
     List<CrossDevicesDTO> create(CrossDevicesDTO obj);
 }
