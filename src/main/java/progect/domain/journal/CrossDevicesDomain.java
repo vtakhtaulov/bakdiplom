@@ -48,8 +48,8 @@ public class CrossDevicesDomain {
 
     private Date date_old;
 
-    @OneToOne(optional = false)
-    @JoinColumn(name = "id_vlan")
+    @ManyToOne
+    @JoinColumn(name = "id_vlan", referencedColumnName = "id_vlan")
     private VlanDomain id_vlan;
 
     @ManyToOne

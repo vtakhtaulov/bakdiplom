@@ -64,7 +64,12 @@ public class CrossDevicesDTO {
         this.user_old = obj.getId_user_old().getFioUser();
         this.id_network_journal = obj.getId_network_journal().getId_network_journal();
         this.ip_address_network = obj.getId_network_journal().getIp_address();
-        this.description = obj.getDescription();
+        try {
+            this.description = obj.getDescription();
+        }
+        catch (Exception e){
+            this.description = "";
+        }
         this.date_reg = obj.getDate_reg().toString();
         try {
             this.date_old = obj.getDate_old().toString();

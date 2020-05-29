@@ -27,7 +27,7 @@ public class CrossDevicesController  {
         return crossDevicesService.read(obj);
     }
 
-    @RequestMapping(value = "/DeleteCrossDevices/{Id_crossdevices}", method = RequestMethod.DELETE, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    @RequestMapping(value = "/DeleteCrossDevices/{Id_crossdevices}", method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public List<CrossDevicesDTO> delete(@PathVariable("Id_crossdevices") Integer Id_crossdevices, @RequestBody CrossDevicesDTO obj) {
         return crossDevicesService.delete(Id_crossdevices ,obj);
     }

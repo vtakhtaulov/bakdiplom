@@ -48,6 +48,10 @@ public class CrossDevicesService implements ICrossDevicesService {
 
     @Override
     public List<CrossDevicesDTO>  delete(Integer id_cross_dev, CrossDevicesDTO obj) {
+        if(crossDevicesRepository.findById(id_cross_dev).get().getIs_status().getId_status() == 2){
+            return mapperEntityToDTO();
+        }
+        else{
         crossDevicesRepository.findById(id_cross_dev).map(crossDevicesDomain -> {
             crossDevicesDomain.setDate_old(new Date());
             crossDevicesDomain.setId_user_old(userRepository.findById(obj.getId_user_old()).get());
@@ -56,35 +60,43 @@ public class CrossDevicesService implements ICrossDevicesService {
             return crossDevicesRepository.save(crossDevicesDomain);
         });
 
+
         return mapperEntityToDTO();
+        }
     }
 
     @Override
     public List<CrossDevicesDTO> update(Integer id_cross_dev, CrossDevicesDTO obj) {
-        crossDevicesRepository.findById(id_cross_dev).map(crossDevicesDomainDel -> {
-            crossDevicesDomainDel.setDate_old(new Date());
-            crossDevicesDomainDel.setId_user_old(userRepository.findById(obj.getId_user_old()).get());
-            crossDevicesDomainDel.setDescription(obj.getDescription());
-            crossDevicesDomainDel.setIs_status(refStatusRepository.findById(2).get());
-            return crossDevicesRepository.save(crossDevicesDomainDel);
-        });
+       if(crossDevicesRepository.findById(id_cross_dev).get().getIs_status().getId_status() == 2){
+           return mapperEntityToDTO();
+       }
+       else {
+           crossDevicesRepository.findById(id_cross_dev).map(crossDevicesDomainDel -> {
+               crossDevicesDomainDel.setDate_old(new Date());
+               crossDevicesDomainDel.setId_user_old(userRepository.findById(obj.getId_user_old()).get());
+               crossDevicesDomainDel.setDescription(obj.getDescription());
+               crossDevicesDomainDel.setIs_status(refStatusRepository.findById(2).get());
+               return crossDevicesRepository.save(crossDevicesDomainDel);
+           });
 
-        CrossDevicesDomain crossDevicesDomain = new CrossDevicesDomain();
+           CrossDevicesDomain crossDevicesDomain = new CrossDevicesDomain();
 
-        crossDevicesDomain.setCrossDevicesDomain(
-                devicesRepository.findById(obj.getId_devices_first()).get(),
-                devicesRepository.findById(obj.getId_devices_end()).get(),
-                userRepository.findById(obj.getId_user_otv()).get(),
-                userRepository.findById(obj.getId_user_old()).get(),
-                networkJournalRepository.findById(obj.getId_network_journal()).get(),
-                obj.getDescription(),
-                new Date(),
-                null,
-                vlanRepository.findById(obj.getId_vlan()).get(),
-                crossesRepository.findById(obj.getId_crosses()).get(),
-                refStatusRepository.findById(1).get()
-        );
-        return mapperEntityToDTO();
+           crossDevicesDomain.setCrossDevicesDomain(
+                   devicesRepository.findById(obj.getId_devices_first()).get(),
+                   devicesRepository.findById(obj.getId_devices_end()).get(),
+                   userRepository.findById(obj.getId_user_old()).get(),
+                   userRepository.findById(0).get(),
+                   networkJournalRepository.findById(obj.getId_network_journal()).get(),
+                   null,
+                   new Date(),
+                   null,
+                   vlanRepository.findById(obj.getId_vlan()).get(),
+                   crossesRepository.findById(obj.getId_crosses()).get(),
+                   refStatusRepository.findById(1).get()
+           );
+           crossDevicesRepository.save(crossDevicesDomain);
+           return mapperEntityToDTO();
+       }
     }
 
     @Override
@@ -97,7 +109,7 @@ public class CrossDevicesService implements ICrossDevicesService {
                userRepository.findById(obj.getId_user_otv()).get(),
                userRepository.findById(obj.getId_user_old()).get(),
                networkJournalRepository.findById(obj.getId_network_journal()).get(),
-               obj.getDescription(),
+               null,
                new Date(),
                null,
                vlanRepository.findById(obj.getId_vlan()).get(),
