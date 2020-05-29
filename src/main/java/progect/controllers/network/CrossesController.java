@@ -31,8 +31,8 @@ public class CrossesController  {
     }
 
     @RequestMapping(value = "/UpdateCrosses/{id_crosses_first}", method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-    public List<CrossesDomain> update(@PathVariable("id_crosses_first") CrossesDomain obj, @RequestBody CrossesDomain new_obj) {
-        return crossesService.update(obj, new_obj);
+    public List<CrossesDomain> update(@PathVariable("id_crosses_first") Integer id_crosses_first, @RequestBody CrossesDomain new_obj) {
+        return crossesService.update(id_crosses_first, new_obj);
     }
     @RequestMapping(value = "/CreateCrosses", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public List<CrossesDomain> create(@RequestBody CrossesDomain obj){

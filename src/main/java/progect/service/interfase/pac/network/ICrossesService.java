@@ -10,6 +10,6 @@ public interface ICrossesService {
     List<CrossesDomain> findAll();
     CrossesDomain read(CrossesDomain obj);
     boolean delete(CrossesDomain obj);
-    List<CrossesDomain> update(CrossesDomain obj, CrossesDomain new_obj);
+    List<CrossesDomain> update(Integer id, CrossesDomain new_obj);
     List<CrossesDomain> create(CrossesDomain obj);
 }

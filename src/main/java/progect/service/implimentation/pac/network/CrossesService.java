@@ -42,9 +42,15 @@ public class CrossesService implements ICrossesService {
     }
 
     @Override
-    public List<CrossesDomain> update(CrossesDomain obj, CrossesDomain new_obj) {
+    public List<CrossesDomain> update(Integer id_crosses, CrossesDomain new_obj) {
         try {
-            BeanUtils.copyProperties(new_obj, obj,"id_crosses_first" );
+            crossesRepository.findById(id_crosses).map(crossesDomain -> {
+                crossesDomain.setId_crosses_end(new_obj.getId_crosses_end());
+                crossesDomain.setPort(new_obj.getPort());
+                crossesDomain.setSlot(new_obj.getSlot());
+                crossesDomain.setShkaf(new_obj.getShkaf());
+                return crossesRepository.save(crossesDomain);
+            });
             return crossesRepository.findAll();
         }catch (RuntimeException e){
             System.out.println(e.hashCode());
