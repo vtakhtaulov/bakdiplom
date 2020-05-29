@@ -29,7 +29,6 @@ public class NetworkDTO {
 
     private String networkMask;
 
-    private Integer number_mstp;
 
     private Integer defaultGeteway;
 
@@ -57,7 +56,6 @@ public class NetworkDTO {
         this.id_dhcp_pool = net.getId_DHСP_pool().getId_DHСP_pool();
         this.ip_address_network = net.getIp_address_network();
         this.networkMask = net.getNetworkMask();
-        this.number_mstp = net.getNumber_mstp();
         this.defaultGeteway = net.getDefaultGeteway();
         this.date_reg = net.getDate_reg();
         this.date_old = net.getDate_old();
@@ -169,14 +167,6 @@ public class NetworkDTO {
         this.networkMask = networkMask;
     }
 
-    public Integer getNumber_mstp() {
-        return number_mstp;
-    }
-
-    public void setNumber_mstp(Integer number_mstp) {
-        this.number_mstp = number_mstp;
-    }
-
     public Integer getDefaultGeteway() {
         return defaultGeteway;
     }
@@ -233,7 +223,6 @@ public class NetworkDTO {
                 ", id_dhcp_pool=" + id_dhcp_pool +
                 ", ip_address_network='" + ip_address_network + '\'' +
                 ", networkMask='" + networkMask + '\'' +
-                ", number_mstp=" + number_mstp +
                 ", defaultGeteway=" + defaultGeteway +
                 ", date_reg=" + date_reg +
                 ", date_old=" + date_old +

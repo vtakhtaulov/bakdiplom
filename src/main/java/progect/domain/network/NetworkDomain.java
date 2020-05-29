@@ -34,7 +34,7 @@ public class NetworkDomain {
     private VlanDomain id_vlan;
 
     @OneToOne(optional=false)
-    @JoinColumn(name = "id_DHСP_pool")
+    @JoinColumn(name = "id_DHСP_pool", referencedColumnName = "id_DHСP_pool")
     private Dhcp_poolDomain id_DHСP_pool;
 
     @Column(name = "ip_address_network")
@@ -44,8 +44,6 @@ public class NetworkDomain {
     @Column(name = "network_mask")
     @NotNull
     private String networkMask;
-
-    private Integer number_mstp;
 
     private Integer defaultGeteway;
 
@@ -124,13 +122,6 @@ public class NetworkDomain {
         this.networkMask = networkMask;
     }
 
-    public Integer getNumber_mstp() {
-        return number_mstp;
-    }
-
-    public void setNumber_mstp(Integer number_mstp) {
-        this.number_mstp = number_mstp;
-    }
 
     public Integer getDefaultGeteway() {
         return defaultGeteway;

@@ -1,6 +1,7 @@
 package progect.domain.network;
 
 import lombok.Data;
+import progect.domain.RefStatusDomain;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -21,7 +22,9 @@ public class Dhcp_poolDomain {
     @NotNull
     private String address_end;
 
-
+    @ManyToOne
+    @JoinColumn(name = "is_status",referencedColumnName ="id_status" )
+    private RefStatusDomain is_status;
 
     public Dhcp_poolDomain(){}
 
@@ -49,4 +52,11 @@ public class Dhcp_poolDomain {
         this.address_end = address_end;
     }
 
+    public RefStatusDomain getIs_status() {
+        return is_status;
+    }
+
+    public void setIs_status(RefStatusDomain is_status) {
+        this.is_status = is_status;
+    }
 }

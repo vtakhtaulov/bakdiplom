@@ -4,6 +4,7 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import progect.domain.network.Dhcp_poolDomain;
+import progect.repository.RefStatusRepository;
 import progect.repository.network.DHСP_poolRepository;
 import progect.service.interfase.pac.network.IDHCPService;
 
@@ -13,6 +14,8 @@ import java.util.List;
 public class DHCPService implements IDHCPService {
     @Autowired
     private DHСP_poolRepository dhсp_poolRepository;
+    @Autowired
+    private RefStatusRepository refStatusRepository;
 
     @Override
     public List<Dhcp_poolDomain> findAll() {
@@ -30,8 +33,12 @@ public class DHCPService implements IDHCPService {
     }
 
     @Override
-    public boolean delete(Dhcp_poolDomain obj) {
-        return false;
+    public List<Dhcp_poolDomain> delete(Integer id_dhcp_pool) {
+        dhсp_poolRepository.findById(id_dhcp_pool).map(dhcp_poolDomain -> {
+            dhcp_poolDomain.setIs_status(refStatusRepository.findById(2).get());
+            return dhсp_poolRepository.save(dhcp_poolDomain);
+        });
+        return dhсp_poolRepository.findAll();
     }
 
     @Override

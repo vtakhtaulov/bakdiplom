@@ -53,7 +53,7 @@ public class CrossDevicesDomain {
     private VlanDomain id_vlan;
 
     @ManyToOne
-    @JoinColumn(name = "id_crosses")
+    @JoinColumn(name = "id_crosses", referencedColumnName = "id_crosses")
     private CrossesDomain id_crosses;
 
     @ManyToOne

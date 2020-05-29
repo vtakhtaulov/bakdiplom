@@ -31,13 +31,13 @@ public class CrossesService implements ICrossesService {
     }
 
     @Override
-    public boolean delete(CrossesDomain crosses) {
+    public List<CrossesDomain>  delete(Integer crosses) {
         try {
-            crossesRepository.delete(crosses);
-            return true;
+            crossesRepository.delete(crossesRepository.findById(crosses).get());
+            return crossesRepository.findAll();
         }catch (Exception e){
             System.out.println(e.getMessage());
-            return false;
+            return crossesRepository.findAll();
         }
     }
 

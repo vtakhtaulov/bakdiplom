@@ -10,7 +10,7 @@ public interface IDHCPService {
 
     List<Dhcp_poolDomain> findAll();
     Dhcp_poolDomain read(Dhcp_poolDomain pool_address);
-    boolean delete(Dhcp_poolDomain pool);
+    List<Dhcp_poolDomain> delete(Integer id_dhcp_pool);
     List<Dhcp_poolDomain> update(Dhcp_poolDomain pool,Dhcp_poolDomain new_pool);
     List<Dhcp_poolDomain> create(Dhcp_poolDomain pool);
 }

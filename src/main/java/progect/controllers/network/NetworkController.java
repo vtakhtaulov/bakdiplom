@@ -3,6 +3,7 @@ package progect.controllers.network;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
+import progect.DTO.MapperStringToEntity;
 import progect.DTO.network.NetworkDTO;
 import progect.domain.network.NetworkDomain;
 import progect.service.interfase.pac.network.INetworkService;
@@ -26,9 +27,9 @@ public class NetworkController  {
         return networkService.read(obj);
     }
 
-    @RequestMapping(value = "/DeleteNetwork/{id_network}", method = RequestMethod.DELETE, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-    public boolean delete(@PathVariable("id_network") NetworkDTO obj) {
-        return networkService.delete(obj);
+    @RequestMapping(value = "/DeleteNetwork/{id_network}", method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    public List<NetworkDTO> delete(@PathVariable("id_network") Integer id,@RequestBody NetworkDTO obj) {
+        return networkService.delete( id, obj);
     }
 
     @RequestMapping(value = "/UpdateNetwork/{id_network}", method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
@@ -38,6 +39,12 @@ public class NetworkController  {
     @RequestMapping(value = "/CreateNetwork", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public List<NetworkDTO> create(@RequestBody NetworkDTO obj){
         return networkService.create(obj);
+    }
+
+    @RequestMapping(value = "/CreateNetworkDHCP", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    public Integer createNetworkDhcp(@RequestBody MapperStringToEntity obj){
+
+        return networkService.createNetworkDhcp(obj);
     }
 
 }

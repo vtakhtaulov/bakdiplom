@@ -4,6 +4,7 @@ import lombok.Data;
 import org.omg.CORBA.INTERNAL;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Data
@@ -11,6 +12,9 @@ import javax.persistence.*;
 public class CrossesDomain {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id_crosses;
+
+    @NotNull
     private  Integer id_crosses_first;
 
     private Integer id_crosses_end;
@@ -62,6 +66,14 @@ public class CrossesDomain {
 
     public void setPort(Integer port) {
         this.port = port;
+    }
+
+    public Integer getId_crosses() {
+        return id_crosses;
+    }
+
+    public void setId_crosses(Integer id_crosses) {
+        this.id_crosses = id_crosses;
     }
 
     public String getInfoCrosses(){

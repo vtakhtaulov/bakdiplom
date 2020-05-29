@@ -26,7 +26,7 @@ public class DhcpController {
     }
 
     @RequestMapping(value = "/DeleteDHCP/{id_DHСP_pool}", method = RequestMethod.DELETE, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-    public boolean delete(@PathVariable("id_DHСP_pool") Dhcp_poolDomain obj) {
+    public List<Dhcp_poolDomain> delete(@PathVariable("id_DHСP_pool") Integer obj) {
         return pool_service.delete(obj);
     }
 

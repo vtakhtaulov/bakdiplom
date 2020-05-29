@@ -9,7 +9,7 @@ import java.util.List;
 public interface ICrossesService {
     List<CrossesDomain> findAll();
     CrossesDomain read(CrossesDomain obj);
-    boolean delete(CrossesDomain obj);
+    List<CrossesDomain> delete(Integer id);
     List<CrossesDomain> update(Integer id, CrossesDomain new_obj);
     List<CrossesDomain> create(CrossesDomain obj);
 }
