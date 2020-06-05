@@ -33,7 +33,7 @@ public class NetworkJournalDTO {
     private String user_old;
 
     private Integer id_devices;
-    private String devices;
+    private String hostname;
 
     private Integer id_status;
     private String name_status;
@@ -52,7 +52,7 @@ public class NetworkJournalDTO {
         this.id_user_old = obj.getId_user_old().getUser_id();
         this.user_old = obj.getId_user_old().getFioUser();
         this.id_devices = obj.getId_devices().getId_devices();
-        this.devices = obj.getId_devices().getHostname();
+        this.hostname = obj.getId_devices().getHostname();
         this.id_status = obj.getIs_status().getId_status();
         this.name_status = obj.getIs_status().getName_status();
     }
@@ -153,13 +153,7 @@ public class NetworkJournalDTO {
         this.id_devices = id_devices;
     }
 
-    public String getDevices() {
-        return devices;
-    }
 
-    public void setDevices(String devices) {
-        this.devices = devices;
-    }
 
     public Integer getId_status() {
         return id_status;
@@ -177,6 +171,14 @@ public class NetworkJournalDTO {
         this.name_status = name_status;
     }
 
+    public String getHostname() {
+        return hostname;
+    }
+
+    public void setHostname(String hostname) {
+        this.hostname = hostname;
+    }
+
     @Override
     public String toString() {
         return "NetworkJournalDTO{" +
@@ -192,7 +194,7 @@ public class NetworkJournalDTO {
                 ", id_user_old=" + id_user_old +
                 ", user_old='" + user_old + '\'' +
                 ", id_devices=" + id_devices +
-                ", devices='" + devices + '\'' +
+                ", hostname='" + hostname + '\'' +
                 ", id_status=" + id_status +
                 ", name_status='" + name_status + '\'' +
                 '}';

@@ -19,6 +19,8 @@ public class CrossDevicesDTO {
 
     private Integer id_devices_first;
     private String host_name_start;
+    private String inventar_number;
+    private String user_otv_dev;
 
     private Integer id_devices_end;
     private String host_name_end;
@@ -58,6 +60,8 @@ public class CrossDevicesDTO {
         this.host_name_start = obj.getId_devices_first().getHostname();
         this.id_devices_end = obj.getId_devices_end().getId_devices();
         this.host_name_end = obj.getId_devices_end().getHostname();
+        this.inventar_number = obj.getId_devices_end().getInventar_number();
+        this.user_otv_dev = obj.getId_devices_end().getUser_otv().getFioUser();
         this.id_user_otv = obj.getId_user_otv().getUser_id();
         this.user_otv = obj.getId_user_otv().getFioUser();
         this.id_user_old = obj.getId_user_old().getUser_id();
@@ -77,7 +81,7 @@ public class CrossDevicesDTO {
             this.date_old = "";
         }
         this.id_vlan = obj.getId_vlan().getId_vlan();
-        this.name_vlan = obj.getId_vlan().getVlan_name();
+        this.name_vlan = "["+obj.getId_vlan().getVlan_number()+"] "+obj.getId_vlan().getVlan_name();
         this.id_crosses = obj.getId_crosses().getId_crosses_first();
         this.info_crosses = obj.getId_crosses().getInfoCrosses();
         this.id_status = obj.getIs_status().getId_status();
@@ -205,6 +209,7 @@ public class CrossDevicesDTO {
     }
 
     public String getName_vlan() {
+
         return name_vlan;
     }
 
@@ -244,12 +249,30 @@ public class CrossDevicesDTO {
         this.name_status = name_status;
     }
 
+    public String getInventar_number() {
+        return inventar_number;
+    }
+
+    public void setInventar_number(String inventar_number) {
+        this.inventar_number = inventar_number;
+    }
+
+    public String getUser_otv_dev() {
+        return user_otv_dev;
+    }
+
+    public void setUser_otv_dev(String user_otv_dev) {
+        this.user_otv_dev = user_otv_dev;
+    }
+
     @Override
     public String toString() {
         return "CrossDevicesDTO{" +
                 "Id_crossdevices=" + Id_crossdevices +
                 ", id_devices_first=" + id_devices_first +
                 ", host_name_start='" + host_name_start + '\'' +
+                ", inventar_number='" + inventar_number + '\'' +
+                ", user_otv_dev='" + user_otv_dev + '\'' +
                 ", id_devices_end=" + id_devices_end +
                 ", host_name_end='" + host_name_end + '\'' +
                 ", id_user_otv=" + id_user_otv +
@@ -259,8 +282,8 @@ public class CrossDevicesDTO {
                 ", id_network_journal=" + id_network_journal +
                 ", ip_address_network='" + ip_address_network + '\'' +
                 ", description='" + description + '\'' +
-                ", date_reg=" + date_reg +
-                ", date_old=" + date_old +
+                ", date_reg='" + date_reg + '\'' +
+                ", date_old='" + date_old + '\'' +
                 ", id_vlan=" + id_vlan +
                 ", name_vlan='" + name_vlan + '\'' +
                 ", id_crosses=" + id_crosses +

@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 import progect.DTO.devices.DevicesDTO;
+import progect.DTO.devices.InfoCrossDeviceEndDTO;
 import progect.service.interfase.pac.device.IDeviceService;
 
 import java.util.List;
@@ -28,6 +29,16 @@ public class DevicesController {
     @RequestMapping(value = "/DeleteDevices/{id_devices}", method = RequestMethod.DELETE, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public List<DevicesDTO> delete(@PathVariable("id_devices") Integer id_devices) {
         return deviceService.delete(id_devices);
+    }
+
+    @RequestMapping(value = "/SearchCrossDevicesInfo/{id_devices}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    public InfoCrossDeviceEndDTO searchCrossDeviceInfo(@PathVariable("id_devices") Integer id_devices) {
+        return deviceService.searchCrossDeviceInfo(id_devices);
+    }
+
+    @RequestMapping(value = "/getAllCrossDevicesInfo", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    public List<InfoCrossDeviceEndDTO> getAllCrossDevicesInfo() {
+        return deviceService.getAllCrossDevicesInfo();
     }
 
     @RequestMapping(value = "/UpdateDevices/{id_devices}", method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)

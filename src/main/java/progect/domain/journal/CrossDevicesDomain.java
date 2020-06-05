@@ -63,6 +63,22 @@ public class CrossDevicesDomain {
     public CrossDevicesDomain() {
     }
 
+    public CrossDevicesDomain(DevicesDomain id_devices_first, DevicesDomain id_devices_end, UsersDomain id_user_otv,
+                                      UsersDomain id_user_old, NetworkJournalDomain id_network_journal, String description,
+                                      Date date_reg, Date date_old, VlanDomain id_vlan, CrossesDomain id_crosses, RefStatusDomain is_status){
+        this.id_devices_first = id_devices_first;
+        this.id_devices_end = id_devices_end;
+        this.id_user_otv = id_user_otv;
+        this.id_user_old = id_user_old;
+        this.id_network_journal = id_network_journal;
+        this.description = description;
+        this.date_reg = date_reg;
+        this.date_old = date_old;
+        this.id_vlan = id_vlan;
+        this.id_crosses = id_crosses;
+        this.is_status = is_status;
+    }
+
     public void setCrossDevicesDomain(DevicesDomain id_devices_first, DevicesDomain id_devices_end, UsersDomain id_user_otv,
                                       UsersDomain id_user_old, NetworkJournalDomain id_network_journal, String description,
                                       Date date_reg, Date date_old, VlanDomain id_vlan, CrossesDomain id_crosses, RefStatusDomain is_status){

@@ -3,6 +3,7 @@ package progect.service.implimentation.pac.devices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import progect.DTO.devices.DevicesDTO;
+import progect.DTO.devices.InfoCrossDeviceEndDTO;
 import progect.domain.RefStatusDomain;
 import progect.domain.devices.DevicesDomain;
 import progect.domain.devices.PropsPortDomain;
@@ -11,6 +12,7 @@ import progect.domain.room.RoomDomain;
 import progect.domain.user.UsersDomain;
 import progect.repository.RefStatusRepository;
 import progect.repository.devices.DevicesRepository;
+import progect.repository.devices.InfoCrossDeviceRepository;
 import progect.repository.devices.PropsPortRepository;
 import progect.repository.devices.TypeDeviceRepository;
 import progect.repository.room.RoomRepository;
@@ -35,7 +37,8 @@ public class DevicesService implements IDeviceService {
     private UserRepository userRepository;
     @Autowired
     private RefStatusRepository refStatusRepository;
-
+    @Autowired
+    private InfoCrossDeviceRepository infoCrossDeviceRepository;
 
     @Override
     public List<DevicesDTO> findAll() {
@@ -45,6 +48,21 @@ public class DevicesService implements IDeviceService {
     @Override
     public DevicesDTO read(DevicesDTO obj) {
         return null;
+    }
+
+    @Override
+    public InfoCrossDeviceEndDTO searchCrossDeviceInfo(Integer id_devices) {
+        try {
+            return infoCrossDeviceRepository.findById(id_devices).get();
+        }
+        catch (Exception e){
+            return null;
+        }
+    }
+
+    @Override
+    public List<InfoCrossDeviceEndDTO> getAllCrossDevicesInfo() {
+        return infoCrossDeviceRepository.allInfo();
     }
 
     @Override
@@ -96,6 +114,7 @@ public class DevicesService implements IDeviceService {
                 obj.getInventar_number(), roomDomain.get(), propsPortDomain, refStatusDomain.get());
 
         devicesRepository.save(devicesDomain);
+
         return mapperEntityToDTO();
     }
 

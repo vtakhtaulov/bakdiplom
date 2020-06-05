@@ -3,8 +3,13 @@ package progect.service.implimentation.pac.journal;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import progect.DTO.journal.CrossDevicesDTO;
+import progect.domain.RefStatusDomain;
+import progect.domain.devices.DevicesDomain;
 import progect.domain.journal.CrossDevicesDomain;
+import progect.domain.journal.NetworkJournalDomain;
 import progect.domain.network.CrossesDomain;
+import progect.domain.network.VlanDomain;
+import progect.domain.user.UsersDomain;
 import progect.repository.RefStatusRepository;
 import progect.repository.devices.DevicesRepository;
 import progect.repository.journal.CrossDevicesRepository;
@@ -67,6 +72,7 @@ public class CrossDevicesService implements ICrossDevicesService {
 
     @Override
     public List<CrossDevicesDTO> update(Integer id_cross_dev, CrossDevicesDTO obj) {
+
        if(crossDevicesRepository.findById(id_cross_dev).get().getIs_status().getId_status() == 2){
            return mapperEntityToDTO();
        }
@@ -101,23 +107,26 @@ public class CrossDevicesService implements ICrossDevicesService {
 
     @Override
     public List<CrossDevicesDTO> create(CrossDevicesDTO obj) {
-        CrossDevicesDomain crossDevicesDomain = new CrossDevicesDomain();
-
-        crossDevicesDomain.setCrossDevicesDomain(
-               devicesRepository.findById(obj.getId_devices_first()).get(),
-               devicesRepository.findById(obj.getId_devices_end()).get(),
-               userRepository.findById(obj.getId_user_otv()).get(),
-               userRepository.findById(obj.getId_user_old()).get(),
-               networkJournalRepository.findById(obj.getId_network_journal()).get(),
-               null,
-               new Date(),
-               null,
-               vlanRepository.findById(obj.getId_vlan()).get(),
-               crossesRepository.findById(obj.getId_crosses()).get(),
-               refStatusRepository.findById(1).get()
-        );
-        crossDevicesRepository.save(crossDevicesDomain);
-        return mapperEntityToDTO();
+        try {
+            CrossDevicesDomain crossDevicesDomain = new CrossDevicesDomain(
+                    devicesRepository.findById(obj.getId_devices_first()).get(),
+                    devicesRepository.findById(obj.getId_devices_end()).get(),
+                    userRepository.findById(obj.getId_user_otv()).get(),
+                    userRepository.findById(0).get(),
+                    networkJournalRepository.findById(obj.getId_network_journal()).get(),
+                    null,
+                    new Date(),
+                    null,
+                    vlanRepository.findById(obj.getId_vlan()).get(),
+                    crossesRepository.findById(obj.getId_crosses()).get(),
+                    refStatusRepository.findById(1).get()
+            );
+            crossDevicesRepository.save(crossDevicesDomain);
+            return mapperEntityToDTO();
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+            return mapperEntityToDTO();
+        }
     }
 
     private List<CrossDevicesDTO> mapperEntityToDTO()
