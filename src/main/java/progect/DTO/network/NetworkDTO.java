@@ -30,7 +30,7 @@ public class NetworkDTO {
     private String networkMask;
 
 
-    private Integer defaultGeteway;
+    private String defaultGeteway;
 
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd.MM.yyyy")
     private Date date_reg;
@@ -41,6 +41,8 @@ public class NetworkDTO {
     private Integer id_status;
     private String name_status;
 
+    public NetworkDTO() {
+    }
 
     public NetworkDTO(NetworkDomain net) {
         this.id_network = net.getId_network();
@@ -53,7 +55,7 @@ public class NetworkDTO {
         this.vlan = net.getVlan();
         this.id_vlan = net.getId_vlan().getId_vlan();
         this.dhcp_pool = net.getDHCPPoolIpAddress();
-        this.id_dhcp_pool = net.getId_DHСP_pool().getId_DHСP_pool();
+        this.id_dhcp_pool = net.getId_DHCP_pool().getId_DHCP_pool();
         this.ip_address_network = net.getIp_address_network();
         this.networkMask = net.getNetworkMask();
         this.defaultGeteway = net.getDefaultGeteway();
@@ -167,11 +169,11 @@ public class NetworkDTO {
         this.networkMask = networkMask;
     }
 
-    public Integer getDefaultGeteway() {
+    public String getDefaultGeteway() {
         return defaultGeteway;
     }
 
-    public void setDefaultGeteway(Integer defaultGeteway) {
+    public void setDefaultGeteway(String defaultGeteway) {
         this.defaultGeteway = defaultGeteway;
     }
 

@@ -1,6 +1,7 @@
 package progect.domain.network;
 
 import lombok.Data;
+import progect.DTO.network.NetworkDTO;
 import progect.domain.RefStatusDomain;
 import progect.domain.user.UsersDomain;
 
@@ -29,13 +30,13 @@ public class NetworkDomain {
     @JoinColumn(name = "id_user_old",referencedColumnName = "user_id")
     private UsersDomain id_user_old;
 
-    @OneToOne(optional=false)
+    @ManyToOne
     @JoinColumn(name = "id_vlan")
     private VlanDomain id_vlan;
 
-    @OneToOne(optional=false)
-    @JoinColumn(name = "id_DHСP_pool", referencedColumnName = "id_DHСP_pool")
-    private Dhcp_poolDomain id_DHСP_pool;
+    @ManyToOne
+    @JoinColumn(name = "id_DHCP_pool", referencedColumnName = "id_DHCP_pool")
+    private Dhcp_poolDomain id_DHCP_pool;
 
     @Column(name = "ip_address_network")
     @NotNull
@@ -45,7 +46,7 @@ public class NetworkDomain {
     @NotNull
     private String networkMask;
 
-    private Integer defaultGeteway;
+    private String defaultGeteway;
 
     @NotNull
     private Date date_reg;
@@ -56,7 +57,30 @@ public class NetworkDomain {
     @JoinColumn(name = "is_status",referencedColumnName ="id_status" )
     private RefStatusDomain is_status;
 
-    public NetworkDomain(){}
+    public NetworkDomain() {
+    }
+
+    public void setNewNetworkDomain(NetworkDTO networkDTO, Pool_address_Domain pool_address_domain,  UsersDomain user_reg, UsersDomain user_old,
+                         VlanDomain vlanDomain, Dhcp_poolDomain dhcp_poolDomain, RefStatusDomain refStatusDomain){
+        this.id_pool_address = pool_address_domain;
+        this.id_user_reg = user_reg;
+        this.id_user_old = user_old;
+        this.id_vlan = vlanDomain;
+        this.id_DHCP_pool = dhcp_poolDomain;
+        try {
+            String[] net = networkDTO.getIp_address_network().split("/");
+            this.ip_address_network = net[0];
+            this.networkMask = net[1];
+        }catch (Exception e){
+            this.ip_address_network = networkDTO.getIp_address_network();
+            this.networkMask = networkDTO.getNetworkMask();
+        }
+        this.defaultGeteway = networkDTO.getDefaultGeteway();
+        this.date_reg = new Date();
+        this.date_old = null;
+        this.is_status = refStatusDomain;
+    }
+
 
     public Integer getId_network() {
         return id_network;
@@ -98,12 +122,12 @@ public class NetworkDomain {
         this.id_vlan = id_vlan;
     }
 
-    public Dhcp_poolDomain getId_DHСP_pool() {
-        return id_DHСP_pool;
+    public Dhcp_poolDomain getId_DHCP_pool() {
+        return id_DHCP_pool;
     }
 
-    public void setId_DHСP_pool(Dhcp_poolDomain id_DHСP_pool) {
-        this.id_DHСP_pool = id_DHСP_pool;
+    public void setId_DHCP_pool(Dhcp_poolDomain id_DHCP_pool) {
+        this.id_DHCP_pool = id_DHCP_pool;
     }
 
     public String getIp_address_network() {
@@ -123,11 +147,11 @@ public class NetworkDomain {
     }
 
 
-    public Integer getDefaultGeteway() {
+    public String getDefaultGeteway() {
         return defaultGeteway;
     }
 
-    public void setDefaultGeteway(Integer defaultGeteway) {
+    public void setDefaultGeteway(String defaultGeteway) {
         this.defaultGeteway = defaultGeteway;
     }
 
@@ -166,7 +190,7 @@ public class NetworkDomain {
 
     public String getDHCPPoolIpAddress (){
         try {
-            return this.id_DHСP_pool.getAddress_start()+"-" + this.id_DHСP_pool.getAddress_end();
+            return this.id_DHCP_pool.getAddress_start()+"-" + this.id_DHCP_pool.getAddress_end();
         }
         catch (Exception e){
             return " ";

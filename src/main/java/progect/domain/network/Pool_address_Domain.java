@@ -2,8 +2,10 @@ package progect.domain.network;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
+import progect.DTO.network.Pool_address_DTO;
 import progect.domain.RefStatusDomain;
 import progect.domain.user.UsersDomain;
+import progect.repository.user.UserRepository;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -53,6 +55,17 @@ public class Pool_address_Domain {
 
     public Pool_address_Domain(){
 
+    }
+
+    public void setNewPool(Pool_address_DTO dto, UsersDomain user_reg, UsersDomain user_old, RefStatusDomain refStatusDomain, Date date_reg, Date date_old ){
+        this.name_pool = dto.getName_pool();
+        this.ip_addres_start = dto.getIp_addres_start();
+        this.ip_addres_end = dto.getIp_addres_end();
+        this.id_user_reg = user_reg;
+        this.date_reg = date_reg;
+        this.id_user_old = user_old;
+        this.date_old = date_old;
+        this.is_status = refStatusDomain;
     }
 
     public Integer getId_pool_address() {

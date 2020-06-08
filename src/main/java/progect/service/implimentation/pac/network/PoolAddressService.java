@@ -1,14 +1,18 @@
 package progect.service.implimentation.pac.network;
 
+import org.apache.catalina.User;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import progect.DTO.network.Pool_address_DTO;
 import progect.domain.network.Pool_address_Domain;
+import progect.repository.RefStatusRepository;
 import progect.repository.network.Pool_address_Repository;
+import progect.repository.user.UserRepository;
 import progect.service.interfase.pac.network.IPoolAddressService;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -16,6 +20,10 @@ public class PoolAddressService implements IPoolAddressService {
 
     @Autowired
     private Pool_address_Repository pool_address_repository;
+    @Autowired
+    private UserRepository userRepository;
+    @Autowired
+    private RefStatusRepository refStatusRepository;
 
     @Override
     public List<Pool_address_DTO> findAll() {
@@ -33,36 +41,72 @@ public class PoolAddressService implements IPoolAddressService {
     }
 
     @Override
-    public boolean delete(Pool_address_DTO obj) {
-       try {
-        //pool_address_repository.delete(pool);
-        return true;
-        } catch (Exception e){
-           System.out.println(e.getMessage());
-           return false;
+    public List<Pool_address_DTO> delete(Integer id_pool, Pool_address_DTO obj) {
+        try {
+
+            pool_address_repository.findById(id_pool).map(pool_address_domain -> {
+                pool_address_domain.setDate_old(new Date());
+                pool_address_domain.setId_user_old(userRepository.findById(obj.getId_user_old()).get());
+                pool_address_domain.setIs_status(refStatusRepository.findById(2).get());
+                return pool_address_repository.save(pool_address_domain);
+            });
+
+            return mapperEntityToDTO();
+        }
+        catch (Exception e){
+            System.out.println(e.getMessage());
+            return mapperEntityToDTO();
         }
     }
 
     @Override
-    public List<Pool_address_DTO> update(Pool_address_DTO obj, Pool_address_DTO new_obj) {
+    public List<Pool_address_DTO> update(Integer id_pool, Pool_address_DTO new_obj) {
         try {
-        BeanUtils.copyProperties(new_obj,obj, "id_pool_address");
+
+            pool_address_repository.findById(id_pool).map(pool_address_domain -> {
+                pool_address_domain.setDate_old(new Date());
+                pool_address_domain.setId_user_old(userRepository.findById(new_obj.getId_user_old()).get());
+                pool_address_domain.setIs_status(refStatusRepository.findById(2).get());
+                return pool_address_repository.save(pool_address_domain);
+            });
+
+            Pool_address_Domain pool_address_domain = new Pool_address_Domain();
+            pool_address_domain.setNewPool(
+                    new_obj,
+                    userRepository.findById(new_obj.getId_user_old()).get(),
+                    userRepository.findById(0).get(),
+                    refStatusRepository.findById(1).get(),
+                    new Date(),
+                    null
+            );
+            pool_address_repository.save(pool_address_domain);
             return mapperEntityToDTO();
-        } catch (Exception e){
+        }
+        catch (Exception e){
             System.out.println(e.getMessage());
-            return null;
+            return mapperEntityToDTO();
         }
     }
 
     @Override
     public List<Pool_address_DTO> create(Pool_address_DTO obj) {
         try {
-            //pool_address_repository.save(pool);
-           // mapperEntityToDTO();
-            return  mapperEntityToDTO();
-        }catch (Exception e) {
+
+            Pool_address_Domain pool_address_domain = new Pool_address_Domain();
+            pool_address_domain.setNewPool(
+                    obj,
+                    userRepository.findById(obj.getId_user_reg()).get(),
+                    userRepository.findById(0).get(),
+                    refStatusRepository.findById(1).get(),
+                    new Date(),
+                    null
+            );
+            pool_address_repository.save(pool_address_domain);
+            return mapperEntityToDTO();
+        }
+        catch (Exception e){
             System.out.println(e.getMessage());
-            return null;
+            return mapperEntityToDTO();
         }
     }
 

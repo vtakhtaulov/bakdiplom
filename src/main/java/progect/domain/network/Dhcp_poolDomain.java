@@ -8,12 +8,12 @@ import javax.validation.constraints.NotNull;
 
 @Entity
 @Data
-@Table(schema = "network", name = "DHСP_pool")
+@Table(schema = "network", name = "DHCP_pool")
 public class Dhcp_poolDomain {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id_DHСP_pool;
+    private Integer id_DHCP_pool;
 
     @NotNull
     private String address_start;
@@ -28,12 +28,12 @@ public class Dhcp_poolDomain {
 
     public Dhcp_poolDomain(){}
 
-    public Integer getId_DHСP_pool() {
-        return id_DHСP_pool;
+    public Integer getId_DHCP_pool() {
+        return id_DHCP_pool;
     }
 
-    public void setId_DHСP_pool(Integer id_DHСP_pool) {
-        this.id_DHСP_pool = id_DHСP_pool;
+    public void setId_DHCP_pool(Integer id_DHCP_pool) {
+        this.id_DHCP_pool = id_DHCP_pool;
     }
 
     public String getAddress_start() {

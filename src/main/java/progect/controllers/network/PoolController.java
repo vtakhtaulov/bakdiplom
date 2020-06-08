@@ -26,14 +26,14 @@ public class  PoolController  {
         return pool_service.read(obj);
     }
 
-    @RequestMapping(value = "/DeletePool/{id_pool_address}", method = RequestMethod.DELETE, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-    public boolean delete(@PathVariable("id_pool_address") Pool_address_DTO obj) {
-        return pool_service.delete(obj);
+    @RequestMapping(value = "/DeletePool/{id_pool_address}", method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    public List<Pool_address_DTO> delete(@PathVariable("id_pool_address") Integer id_pool , @RequestBody Pool_address_DTO obj) {
+        return pool_service.delete(id_pool ,obj);
     }
 
     @RequestMapping(value = "/UpdatePool/{id_pool_address}", method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-    public List<Pool_address_DTO> update(@PathVariable("id_pool_address") Pool_address_DTO obj, @RequestBody Pool_address_DTO new_obj) {
-        return pool_service.update(obj, new_obj);
+    public List<Pool_address_DTO> update(@PathVariable("id_pool_address") Integer id_pool, @RequestBody Pool_address_DTO new_obj) {
+        return pool_service.update(id_pool, new_obj);
     }
     @RequestMapping(value = "/CreatePool", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public List<Pool_address_DTO> create(@RequestBody Pool_address_DTO obj){

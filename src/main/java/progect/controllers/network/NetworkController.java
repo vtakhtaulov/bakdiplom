@@ -28,13 +28,13 @@ public class NetworkController  {
     }
 
     @RequestMapping(value = "/DeleteNetwork/{id_network}", method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-    public List<NetworkDTO> delete(@PathVariable("id_network") Integer id,@RequestBody NetworkDTO obj) {
+    public List<NetworkDTO> delete(@PathVariable("id_network") Integer id, @RequestBody NetworkDTO obj) {
         return networkService.delete( id, obj);
     }
 
     @RequestMapping(value = "/UpdateNetwork/{id_network}", method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-    public List<NetworkDTO> update(@PathVariable("id_network") NetworkDTO obj, @RequestBody NetworkDTO new_obj) {
-        return networkService.update(obj, new_obj);
+    public List<NetworkDTO> update(@PathVariable("id_network") Integer id_network, @RequestBody NetworkDTO obj) {
+        return networkService.update(id_network, obj);
     }
     @RequestMapping(value = "/CreateNetwork", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public List<NetworkDTO> create(@RequestBody NetworkDTO obj){

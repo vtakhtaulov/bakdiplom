@@ -21,7 +21,9 @@ public class Pool_address_DTO {
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd.MM.yyyy")
     private Date date_old;
     private String user_old;
+    private Integer id_user_old;
     private String user_reg;
+    private Integer id_user_reg;
 
     private Integer id_status;
     private String name_status;
@@ -40,6 +42,8 @@ public class Pool_address_DTO {
         this.user_reg = pool.getId_user_reg().getFioUser();
         this.id_status = pool.getIs_status().getId_status();
         this.name_status = pool.getIs_status().getName_status();
+        this.id_user_old = pool.getId_user_old().getUser_id();
+        this.id_user_old = pool.getId_user_reg().getUser_id();
     }
 
     public Integer getId_pool_address() {
@@ -122,6 +126,14 @@ public class Pool_address_DTO {
         this.name_status = name_status;
     }
 
+    public Integer getId_user_old() {
+        return id_user_old;
+    }
+
+    public void setId_user_old(Integer id_user_old) {
+        this.id_user_old = id_user_old;
+    }
+
     @Override
     public String toString() {
         return "Pool_address_DTO{" +
@@ -132,10 +144,20 @@ public class Pool_address_DTO {
                 ", date_reg=" + date_reg +
                 ", date_old=" + date_old +
                 ", user_old='" + user_old + '\'' +
+                ", id_user_old=" + id_user_old +
                 ", user_reg='" + user_reg + '\'' +
+                ", id_user_reg=" + id_user_reg +
                 ", id_status=" + id_status +
                 ", name_status='" + name_status + '\'' +
                 '}';
+    }
+
+    public Integer getId_user_reg() {
+        return id_user_reg;
+    }
+
+    public void setId_user_reg(Integer id_user_reg) {
+        this.id_user_reg = id_user_reg;
     }
 }
 

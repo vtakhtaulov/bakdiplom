@@ -153,8 +153,6 @@ public class NetworkJournalDTO {
         this.id_devices = id_devices;
     }
 
-
-
     public Integer getId_status() {
         return id_status;
     }

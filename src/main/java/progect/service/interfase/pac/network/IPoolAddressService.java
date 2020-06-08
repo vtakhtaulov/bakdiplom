@@ -9,7 +9,7 @@ public interface IPoolAddressService {
 
     List<Pool_address_DTO> findAll();
     Pool_address_DTO read(Pool_address_DTO obj);
-    boolean delete(Pool_address_DTO obj);
-    List<Pool_address_DTO> update(Pool_address_DTO obj,Pool_address_DTO new_obj);
+    List<Pool_address_DTO> delete(Integer id_pool, Pool_address_DTO obj);
+    List<Pool_address_DTO> update(Integer id_pool, Pool_address_DTO new_obj);
     List<Pool_address_DTO> create(Pool_address_DTO obj);
 }
