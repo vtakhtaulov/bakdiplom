@@ -6,17 +6,20 @@ public class NodesDTO {
 
     private Integer id_nodes;
 
-    private String usert_otv;
+    private String user_otv;
 
     private Integer id_user_otv;
 
     private String name_nodes;
 
+    public NodesDTO() {
+    }
+
     public NodesDTO(NodesDomain nodes) {
         this.id_nodes = nodes.getId_nodes();
-        this.usert_otv = nodes.getUsert_otv().getFioUser();
+        this.user_otv = nodes.getUser_otv().getFioUser();
         this.name_nodes = nodes.getName_nodes();
-        this.id_user_otv = nodes.getUsert_otv().getUser_id();
+        this.id_user_otv = nodes.getUser_otv().getUser_id();
     }
 
     public Integer getId_nodes() {
@@ -27,12 +30,12 @@ public class NodesDTO {
         this.id_nodes = id_nodes;
     }
 
-    public String getUsert_otv() {
-        return usert_otv;
+    public String getUser_otv() {
+        return user_otv;
     }
 
-    public void setUsert_otv(String usert_otv) {
-        this.usert_otv = usert_otv;
+    public void setUser_otv(String usert_otv) {
+        this.user_otv = usert_otv;
     }
 
     public Integer getId_user_otv() {
@@ -55,7 +58,7 @@ public class NodesDTO {
     public String toString() {
         return "NodesDTO{" +
                 "id_nodes=" + id_nodes +
-                ", usert_otv='" + usert_otv + '\'' +
+                ", user_otv='" + user_otv + '\'' +
                 ", id_user_otv=" + id_user_otv +
                 ", name_nodes='" + name_nodes + '\'' +
                 '}';

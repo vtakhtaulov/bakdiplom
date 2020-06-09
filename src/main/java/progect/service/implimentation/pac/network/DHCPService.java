@@ -34,18 +34,37 @@ public class DHCPService implements IDHCPService {
 
     @Override
     public List<Dhcp_poolDomain> delete(Integer id_dhcp_pool) {
-        dhсp_poolRepository.findById(id_dhcp_pool).map(dhcp_poolDomain -> {
-            dhcp_poolDomain.setIs_status(refStatusRepository.findById(2).get());
-            return dhсp_poolRepository.save(dhcp_poolDomain);
-        });
-        return dhсp_poolRepository.findAll();
+        try{
+            if (dhсp_poolRepository.findById(id_dhcp_pool).get().getIs_status().getId_status() == 2) {
+                return dhсp_poolRepository.findAll();
+            }
+            else {
+                dhсp_poolRepository.findById(id_dhcp_pool).map(dhcp_poolDomain -> {
+                    dhcp_poolDomain.setIs_status(refStatusRepository.findById(2).get());
+                    return dhсp_poolRepository.save(dhcp_poolDomain);
+                });
+                return dhсp_poolRepository.findAll();
+            }
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+            return dhсp_poolRepository.findAll();
+        }
     }
 
     @Override
-    public List<Dhcp_poolDomain> update(Dhcp_poolDomain obj, Dhcp_poolDomain new_obj) {
+    public List<Dhcp_poolDomain> update(Integer id_dhcp, Dhcp_poolDomain new_obj) {
         try {
-            BeanUtils.copyProperties(new_obj,obj, "id_DHСP_pool");
-            return dhсp_poolRepository.findAll();
+            if (dhсp_poolRepository.findById(id_dhcp).get().getIs_status().getId_status() == 2) {
+                return dhсp_poolRepository.findAll();
+            }
+            else {
+                dhсp_poolRepository.findById(id_dhcp).map(dhcp_poolDomain -> {
+                    dhcp_poolDomain.setAddress_start(new_obj.getAddress_start());
+                    dhcp_poolDomain.setAddress_end(new_obj.getAddress_end());
+                    return dhсp_poolRepository.save(dhcp_poolDomain);
+                });
+                return dhсp_poolRepository.findAll();
+            }
         } catch (Exception e){
             System.out.println(e.getMessage());
             return null;
@@ -55,7 +74,11 @@ public class DHCPService implements IDHCPService {
     @Override
     public List<Dhcp_poolDomain> create(Dhcp_poolDomain obj) {
         try {
-            dhсp_poolRepository.save(obj);
+            Dhcp_poolDomain dhcp_poolDomain = new Dhcp_poolDomain();
+            dhcp_poolDomain.setAddress_start(obj.getAddress_start());
+            dhcp_poolDomain.setAddress_end(obj.getAddress_end());
+            dhcp_poolDomain.setIs_status(refStatusRepository.findById(1).get());
+            dhсp_poolRepository.save(dhcp_poolDomain);
             return dhсp_poolRepository.findAll();
         } catch (Exception e){
             System.out.println(e.getMessage());

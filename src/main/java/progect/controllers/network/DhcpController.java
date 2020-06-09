@@ -26,13 +26,13 @@ public class DhcpController {
     }
 
     @RequestMapping(value = "/DeleteDHCP/{id_DHСP_pool}", method = RequestMethod.DELETE, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-    public List<Dhcp_poolDomain> delete(@PathVariable("id_DHСP_pool") Integer obj) {
-        return pool_service.delete(obj);
+    public List<Dhcp_poolDomain> delete(@PathVariable("id_DHСP_pool") Integer id_dhcp) {
+        return pool_service.delete(id_dhcp);
     }
 
     @RequestMapping(value = "/UpdateDHCP/{id_DHСP_pool}", method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-    public List<Dhcp_poolDomain> update(@PathVariable("id_DHСP_pool") Dhcp_poolDomain obj, @RequestBody Dhcp_poolDomain new_obj) {
-        return pool_service.update(obj, new_obj);
+    public List<Dhcp_poolDomain> update(@PathVariable("id_DHСP_pool") Integer id_DHCP_pool, @RequestBody Dhcp_poolDomain new_obj) {
+        return pool_service.update(id_DHCP_pool, new_obj);
     }
     @RequestMapping(value = "/CreateDHCP", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public List<Dhcp_poolDomain> create(@RequestBody Dhcp_poolDomain obj){

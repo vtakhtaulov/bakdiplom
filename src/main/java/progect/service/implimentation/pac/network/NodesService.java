@@ -6,7 +6,9 @@ import progect.DTO.network.NetworkDTO;
 import progect.DTO.network.NodesDTO;
 import progect.domain.network.NetworkDomain;
 import progect.domain.network.NodesDomain;
+import progect.domain.user.UsersDomain;
 import progect.repository.network.NodesRepository;
+import progect.repository.user.UserRepository;
 import progect.service.interfase.pac.network.INodesService;
 
 import java.util.ArrayList;
@@ -16,6 +18,9 @@ import java.util.List;
 public class NodesService implements INodesService {
     @Autowired
     private NodesRepository nodesRepository;
+    @Autowired
+    private UserRepository userRepository;
+
     @Override
     public List<NodesDTO> findAll() {
         return mapperEntityToDTO();
@@ -27,18 +32,34 @@ public class NodesService implements INodesService {
     }
 
     @Override
-    public boolean delete(NodesDTO obj) {
-        return false;
+    public List<NodesDTO> delete(Integer id_nodes) {
+        nodesRepository.deleteNodes(id_nodes);
+        return mapperEntityToDTO();
     }
 
     @Override
-    public List<NodesDTO> update(NodesDTO obj, NodesDTO new_obj) {
-        return mapperEntityToDTO();
+    public List<NodesDTO> update(Integer id_nodes, NodesDTO new_obj) {
+        try{
+            nodesRepository.findById(id_nodes).map(nodesDomain -> {
+                    nodesDomain.setName_nodes(new_obj.getName_nodes());
+                    nodesDomain.setUser_otv(userRepository.findById(new_obj.getId_user_otv()).get());
+                    return nodesRepository.save(nodesDomain);
+            });
+            return mapperEntityToDTO();
+        }
+        catch (Exception e){
+            System.out.println(e.getMessage());
+            return mapperEntityToDTO();
+        }
     }
 
     @Override
     public List<NodesDTO> create(NodesDTO obj) {
-        return mapperEntityToDTO();
+       NodesDomain nodesDomain = new NodesDomain();
+       nodesDomain.setName_nodes(obj.getName_nodes());
+       nodesDomain.setUser_otv(userRepository.findById(obj.getId_user_otv()).get());
+       nodesRepository.save(nodesDomain);
+       return mapperEntityToDTO();
     }
 
     private List<NodesDTO> mapperEntityToDTO()

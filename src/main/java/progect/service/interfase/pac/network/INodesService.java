@@ -10,7 +10,7 @@ import java.util.List;
 public interface INodesService {
     List<NodesDTO> findAll();
     NodesDTO read(NodesDTO obj);
-    boolean delete(NodesDTO obj);
-    List<NodesDTO> update(NodesDTO obj, NodesDTO new_obj);
+    List<NodesDTO> delete(Integer id_nodes);
+    List<NodesDTO> update(Integer id_nodes, NodesDTO new_obj);
     List<NodesDTO> create(NodesDTO obj);
 }

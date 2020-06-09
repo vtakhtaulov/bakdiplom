@@ -16,8 +16,8 @@ public class NodesDomain {
     private Integer id_nodes;
 
     @ManyToOne
-    @JoinColumn(name = "usert_otv",referencedColumnName = "user_id")
-    private UsersDomain usert_otv;
+    @JoinColumn(name = "user_otv",referencedColumnName = "user_id")
+    private UsersDomain user_otv;
 
     @NotNull
     private String name_nodes;
@@ -30,12 +30,12 @@ public class NodesDomain {
         this.id_nodes = id_nodes;
     }
 
-    public UsersDomain getUsert_otv() {
-        return usert_otv;
+    public UsersDomain getUser_otv() {
+        return user_otv;
     }
 
-    public void setUsert_otv(UsersDomain usert_otv) {
-        this.usert_otv = usert_otv;
+    public void setUser_otv(UsersDomain user_otv) {
+        this.user_otv = user_otv;
     }
 
     public String getName_nodes() {

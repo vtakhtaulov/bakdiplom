@@ -25,14 +25,14 @@ public class VlanController {
         return vlanService.read(obj);
     }
 
-    @RequestMapping(value = "/DeleteVlan/{id_vlan}", method = RequestMethod.DELETE, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-    public boolean delete(@PathVariable("id_vlan") VlanDomain obj) {
-        return vlanService.delete(obj);
+    @RequestMapping(value = "/DeleteVlan/{id_vlan}", method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    public List<VlanDomain>  delete(@PathVariable("id_vlan") Integer id_vlan, @RequestBody VlanDomain obj) {
+        return vlanService.delete(id_vlan, obj);
     }
 
     @RequestMapping(value = "/UpdateVlan/{id_vlan}", method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-    public List<VlanDomain> update(@PathVariable("id_vlan") VlanDomain obj, @RequestBody VlanDomain new_obj) {
-        return vlanService.update(obj, new_obj);
+    public List<VlanDomain> update(@PathVariable("id_vlan") Integer id_vlan, @RequestBody VlanDomain new_obj) {
+        return vlanService.update(id_vlan, new_obj);
     }
     @RequestMapping(value = "/CreateVlan", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public List<VlanDomain> create(@RequestBody VlanDomain obj){

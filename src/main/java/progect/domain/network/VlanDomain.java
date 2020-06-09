@@ -1,6 +1,7 @@
 package progect.domain.network;
 
 import lombok.Data;
+import progect.domain.RefStatusDomain;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -19,6 +20,10 @@ public class VlanDomain {
 
     @NotNull
     private String vlan_number;
+
+    @ManyToOne
+    @JoinColumn(name = "is_status",referencedColumnName ="id_status" )
+    private RefStatusDomain is_status;
 
 
     public VlanDomain(){}
@@ -47,5 +52,17 @@ public class VlanDomain {
         this.vlan_number = vlan_number;
     }
 
+    public RefStatusDomain getIs_status() {
+        return is_status;
+    }
 
+    public void setIs_status(RefStatusDomain is_status) {
+        this.is_status = is_status;
+    }
+
+    public void setVlan(VlanDomain obj, RefStatusDomain statusDomain){
+        this.vlan_name = obj.getVlan_name();
+        this.vlan_number = obj.getVlan_number();
+        this.is_status = statusDomain;
+    }
 }

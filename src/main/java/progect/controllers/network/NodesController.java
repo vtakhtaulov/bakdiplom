@@ -22,21 +22,22 @@ public class NodesController  {
         return nodesService.findAll();
     }
 
-    @RequestMapping(value = "/NodesNetwork/{id_nodes}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    @RequestMapping(value = "/SearchNodes/{id_nodes}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public NodesDTO read(@PathVariable("id_nodes") NodesDTO obj) {
         return nodesService.read(obj);
     }
 
     @RequestMapping(value = "/DeleteNodes/{id_nodes}", method = RequestMethod.DELETE, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-    public boolean delete(@PathVariable("id_nodes") NodesDTO obj) {
-        return nodesService.delete(obj);
+    public List<NodesDTO> delete(@PathVariable("id_nodes") Integer id_nodes) {
+
+        return nodesService.delete(id_nodes);
     }
 
-    @RequestMapping(value = "/UpdateNetwork/{id_nodes}", method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-    public List<NodesDTO> update(@PathVariable("id_nodes") NodesDTO obj, @RequestBody NodesDTO new_obj) {
-        return nodesService.update(obj, new_obj);
+    @RequestMapping(value = "/UpdateNodes/{id_nodes}", method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    public List<NodesDTO> update(@PathVariable("id_nodes") Integer id_nodes, @RequestBody NodesDTO new_obj) {
+        return nodesService.update(id_nodes, new_obj);
     }
-    @RequestMapping(value = "/CreateNetwork", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    @RequestMapping(value = "/CreateNodes", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public List<NodesDTO> create(@RequestBody NodesDTO obj){
         return nodesService.create(obj);
     }
