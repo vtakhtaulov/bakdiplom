@@ -12,13 +12,15 @@ import progect.domain.room.RoomDomain;
 import progect.domain.user.UsersDomain;
 import progect.repository.RefStatusRepository;
 import progect.repository.devices.DevicesRepository;
-import progect.repository.devices.InfoCrossDeviceRepository;
 import progect.repository.devices.PropsPortRepository;
 import progect.repository.devices.TypeDeviceRepository;
 import progect.repository.room.RoomRepository;
 import progect.repository.user.UserRepository;
 import progect.service.interfase.pac.device.IDeviceService;
 
+import javax.persistence.EntityManager;
+import javax.persistence.Query;
+import javax.persistence.criteria.CriteriaDelete;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -37,8 +39,9 @@ public class DevicesService implements IDeviceService {
     private UserRepository userRepository;
     @Autowired
     private RefStatusRepository refStatusRepository;
+
     @Autowired
-    private InfoCrossDeviceRepository infoCrossDeviceRepository;
+    private EntityManager em;
 
     @Override
     public List<DevicesDTO> findAll() {
@@ -53,7 +56,9 @@ public class DevicesService implements IDeviceService {
     @Override
     public InfoCrossDeviceEndDTO searchCrossDeviceInfo(Integer id_devices) {
         try {
-            return infoCrossDeviceRepository.findById(id_devices).get();
+            Query deviceEnd = em.createNativeQuery("select * from network.infocrossedevice inf where inf.id_devices = ?1", InfoCrossDeviceEndDTO.class);
+            deviceEnd.setParameter(1, id_devices);
+            return (InfoCrossDeviceEndDTO) deviceEnd.getResultList().get(0);
         }
         catch (Exception e){
             return null;
@@ -62,7 +67,10 @@ public class DevicesService implements IDeviceService {
 
     @Override
     public List<InfoCrossDeviceEndDTO> getAllCrossDevicesInfo() {
-        return infoCrossDeviceRepository.allInfo();
+      Query deviceEnd =  em.createNativeQuery("select * from network.infocrossedevice inf", InfoCrossDeviceEndDTO.class);
+
+        List<InfoCrossDeviceEndDTO> infoCrossDeviceEndDTOList = (List<InfoCrossDeviceEndDTO>) deviceEnd.getResultList();
+        return infoCrossDeviceEndDTOList;
     }
 
     @Override

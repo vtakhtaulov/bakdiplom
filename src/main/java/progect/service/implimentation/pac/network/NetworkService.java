@@ -1,20 +1,18 @@
 package progect.service.implimentation.pac.network;
 
+import org.apache.commons.net.util.SubnetUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.w3c.dom.events.EventException;
 import progect.DTO.MapperStringToEntity;
 import progect.DTO.network.NetworkDTO;
-import progect.DTO.network.Pool_address_DTO;
-import progect.domain.network.Dhcp_poolDomain;
 import progect.domain.network.NetworkDomain;
-import progect.domain.network.Pool_address_Domain;
 import progect.repository.RefStatusRepository;
 import progect.repository.network.DHСP_poolRepository;
 import progect.repository.network.NetworkRepository;
 import progect.repository.network.Pool_address_Repository;
 import progect.repository.network.VlanRepository;
 import progect.repository.user.UserRepository;
+import progect.service.interfase.pac.ipservice.IpServiceI;
 import progect.service.interfase.pac.network.INetworkService;
 
 import java.util.ArrayList;
@@ -35,6 +33,9 @@ public class NetworkService implements INetworkService {
     private VlanRepository vlanRepository;
     @Autowired
     private RefStatusRepository refStatusRepository;
+
+    @Autowired
+    private IpServiceI ipService;
 
     @Override
     public List<NetworkDTO> findAll() {
@@ -124,19 +125,23 @@ public class NetworkService implements INetworkService {
 
     @Override
     public Integer createNetworkDhcp(MapperStringToEntity obj) {
-
-
         return null;
     }
-
-
     private List<NetworkDTO> mapperEntityToDTO()
     {
         List<NetworkDTO> listNetDTO = new ArrayList<>();
         List<NetworkDomain> listNetDom = networkRepository.findAll();
-        for(int i = 0; i<listNetDom.size(); i++) {
+        for(int i = 0; i < listNetDom.size(); i++) {
             NetworkDomain net_dom = listNetDom.get(i);
-            listNetDTO.add(new NetworkDTO(net_dom));
+            String endIpAddress = ipService.netAddress(net_dom.getNetworkInfo());
+
+            float status = (((float) networkRepository.getInitIp_inNetwork(net_dom.getIp_address_network()).size() /
+                    (float)ipService.getAllIpAddress(net_dom.getIp_address_network(), endIpAddress).size())*100);
+
+            String name_status =  networkRepository.getInitIp_inNetwork(net_dom.getIp_address_network()).size()+" из "+
+                    ipService.getAllIpAddress(net_dom.getIp_address_network(), endIpAddress).size();
+
+            listNetDTO.add(new NetworkDTO(net_dom, (float)((float) Math.round(status * 100.0) / 100.0), name_status));
         }
         return listNetDTO;
     }

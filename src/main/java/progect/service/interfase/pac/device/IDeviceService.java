@@ -2,7 +2,6 @@ package progect.service.interfase.pac.device;
 
 import progect.DTO.devices.DevicesDTO;
 import progect.DTO.devices.InfoCrossDeviceEndDTO;
-import progect.domain.network.CrossesDomain;
 
 import java.util.List;
 

@@ -1,40 +1,45 @@
 package progect.DTO.devices;
 
-import com.fasterxml.jackson.annotation.JsonView;
-
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.Table;
 import java.io.Serializable;
 
 @Entity
-@Table
 public class InfoCrossDeviceEndDTO implements Serializable {
-@Id
+
+    @Id
+    private Integer id;
+
     private Integer id_devices;
+
     private String hostname;
+
     private String inventar_number;
-    private Integer id_user_dev_otv;
-    private String user_dev_otv;
+
+    private String mac_address;
+
+    private Integer user_id;
+
+    private String fiouser;
+
     private Integer id_network_journal;
+
     private String ip_address;
+
     private Integer id_vlan;
+
     private String vlan_name;
 
     public InfoCrossDeviceEndDTO() {
     }
-/*
-    public InfoCrossDeviceEndDTO() {
-        this.id_device = id_device;
-        this.host_name = host_name;
-        this.inventar_number = inventar_number;
-        this.id_user_dev_otv = id_user_dev_otv;
-        this.user_dev_otv = user_dev_otv;
-        this.id_network_journal = id_network_journal;
-        this.io_address = io_address;
-        this.id_vlan = id_vlan;
-        this.vlan_name = vlan_name;
-    }*/
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
     public Integer getId_devices() {
         return id_devices;
@@ -60,20 +65,28 @@ public class InfoCrossDeviceEndDTO implements Serializable {
         this.inventar_number = inventar_number;
     }
 
-    public Integer getId_user_dev_otv() {
-        return id_user_dev_otv;
+    public String getMac_address() {
+        return mac_address;
     }
 
-    public void setId_user_dev_otv(Integer id_user_dev_otv) {
-        this.id_user_dev_otv = id_user_dev_otv;
+    public void setMac_address(String mac_address) {
+        this.mac_address = mac_address;
     }
 
-    public String getUser_dev_otv() {
-        return user_dev_otv;
+    public Integer getUser_id() {
+        return user_id;
     }
 
-    public void setUser_dev_otv(String user_dev_otv) {
-        this.user_dev_otv = user_dev_otv;
+    public void setUser_id(Integer user_id) {
+        this.user_id = user_id;
+    }
+
+    public String getFiouser() {
+        return fiouser;
+    }
+
+    public void setFiouser(String fiouser) {
+        this.fiouser = fiouser;
     }
 
     public Integer getId_network_journal() {
@@ -111,11 +124,13 @@ public class InfoCrossDeviceEndDTO implements Serializable {
     @Override
     public String toString() {
         return "InfoCrossDeviceEndDTO{" +
-                "id_devices=" + id_devices +
+                "id=" + id +
+                ", id_devices=" + id_devices +
                 ", hostname='" + hostname + '\'' +
                 ", inventar_number='" + inventar_number + '\'' +
-                ", id_user_dev_otv=" + id_user_dev_otv +
-                ", user_dev_otv='" + user_dev_otv + '\'' +
+                ", mac_address='" + mac_address + '\'' +
+                ", user_id=" + user_id +
+                ", fiouser='" + fiouser + '\'' +
                 ", id_network_journal=" + id_network_journal +
                 ", ip_address='" + ip_address + '\'' +
                 ", id_vlan=" + id_vlan +

@@ -41,10 +41,13 @@ public class NetworkDTO {
     private Integer id_status;
     private String name_status;
 
+    private Float status_network;
+    private String name_stat_network;
+
     public NetworkDTO() {
     }
 
-    public NetworkDTO(NetworkDomain net) {
+    public NetworkDTO(NetworkDomain net, Float status_network, String name_stat_network) {
         this.id_network = net.getId_network();
         this.pool_address = net.getPoolIpAddress();
         this.id_pool_address = net.getId_pool_address().getId_pool_address();
@@ -63,6 +66,8 @@ public class NetworkDTO {
         this.date_old = net.getDate_old();
         this.id_status = net.getIs_status().getId_status();
         this.name_status = net.getIs_status().getName_status();
+        this.status_network = status_network;
+        this.name_stat_network = name_stat_network;
     }
 
     public Integer getId_network() {
@@ -209,6 +214,22 @@ public class NetworkDTO {
         this.name_status = name_status;
     }
 
+    public Float getStatus_network() {
+        return status_network;
+    }
+
+    public void setStatus_network(Float status_network) {
+        this.status_network = status_network;
+    }
+
+    public String getName_stat_network() {
+        return name_stat_network;
+    }
+
+    public void setName_stat_network(String name_stat_network) {
+        this.name_stat_network = name_stat_network;
+    }
+
     @Override
     public String toString() {
         return "NetworkDTO{" +
@@ -225,11 +246,13 @@ public class NetworkDTO {
                 ", id_dhcp_pool=" + id_dhcp_pool +
                 ", ip_address_network='" + ip_address_network + '\'' +
                 ", networkMask='" + networkMask + '\'' +
-                ", defaultGeteway=" + defaultGeteway +
+                ", defaultGeteway='" + defaultGeteway + '\'' +
                 ", date_reg=" + date_reg +
                 ", date_old=" + date_old +
                 ", id_status=" + id_status +
                 ", name_status='" + name_status + '\'' +
+                ", status_network=" + status_network +
+                ", name_stat_network='" + name_stat_network + '\'' +
                 '}';
     }
 }

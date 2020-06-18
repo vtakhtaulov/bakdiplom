@@ -29,7 +29,6 @@ public class NodesController  {
 
     @RequestMapping(value = "/DeleteNodes/{id_nodes}", method = RequestMethod.DELETE, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public List<NodesDTO> delete(@PathVariable("id_nodes") Integer id_nodes) {
-
         return nodesService.delete(id_nodes);
     }
 

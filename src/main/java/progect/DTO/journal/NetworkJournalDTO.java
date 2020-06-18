@@ -38,6 +38,8 @@ public class NetworkJournalDTO {
     private Integer id_status;
     private String name_status;
 
+    public NetworkJournalDTO() {
+    }
 
     public NetworkJournalDTO(NetworkJournalDomain obj) {
         this.id_network_journal = obj.getId_network_journal();

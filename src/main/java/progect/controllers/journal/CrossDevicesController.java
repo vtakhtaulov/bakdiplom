@@ -3,10 +3,7 @@ package progect.controllers.journal;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
-import progect.DTO.devices.InfoCrossDeviceEndDTO;
-import progect.DTO.journal.ConfigurationDTO;
 import progect.DTO.journal.CrossDevicesDTO;
-import progect.service.interfase.pac.journal.IConfigurationService;
 import progect.service.interfase.pac.journal.ICrossDevicesService;
 
 import java.util.List;

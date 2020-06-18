@@ -29,15 +29,16 @@ public class NetworkJournalController  {
         return networkJournalService.read(obj);
     }
 
-    @RequestMapping(value = "/DeleteNetworkJournal/{id_network_journal}", method = RequestMethod.DELETE, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-    public boolean delete(@PathVariable("id_network_journal") NetworkJournalDTO obj) {
-        return networkJournalService.delete(obj);
+    @RequestMapping(value = "/DeleteNetworkJournal/{id_network_journal}", method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    public List<NetworkJournalDTO> delete(@PathVariable("id_network_journal") Integer id_network_journal,  @RequestBody NetworkJournalDTO new_obj) {
+        return networkJournalService.delete(id_network_journal, new_obj);
     }
 
     @RequestMapping(value = "/UpdateNetworkJournal/{id_network_journal}", method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-    public List<NetworkJournalDTO> update(@PathVariable("id_network_journal") NetworkJournalDTO obj, @RequestBody NetworkJournalDTO new_obj) {
-        return networkJournalService.update(obj, new_obj);
+    public List<NetworkJournalDTO> update(@PathVariable("id_network_journal") Integer id_network_journal, @RequestBody NetworkJournalDTO new_obj) {
+        return networkJournalService.update(id_network_journal, new_obj);
     }
+
     @RequestMapping(value = "/CreateNetworkJournal", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public List<NetworkJournalDTO> create(@RequestBody NetworkJournalDTO obj){
         return networkJournalService.create(obj);

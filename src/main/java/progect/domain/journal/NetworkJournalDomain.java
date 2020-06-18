@@ -1,6 +1,8 @@
 package progect.domain.journal;
 
 import lombok.Data;
+import progect.DTO.journal.NetworkJournalDTO;
+import progect.DTO.network.NetworkDTO;
 import progect.domain.RefStatusDomain;
 import progect.domain.user.UsersDomain;
 import progect.domain.devices.DevicesDomain;
@@ -57,6 +59,18 @@ public class NetworkJournalDomain {
 
 
     public NetworkJournalDomain() {
+    }
+
+    public void setNetworkJournalDomain(NetworkDomain networkDomain, NetworkJournalDTO dto, UsersDomain user_reg, UsersDomain user_old, DevicesDomain device, RefStatusDomain status){
+        this.id_network = networkDomain;
+        this.DNS_zone = dto.getDNS_zone();
+        this.date_reg = new Date();
+        this.date_old = null;
+        this.ip_address = dto.getIp_address();
+        this.id_user_reg = user_reg;
+        this.id_user_old = user_old;
+        this.id_devices = device;
+        this.is_status = status;
     }
 
     public Integer getId_network_journal() {

@@ -1,17 +1,9 @@
 package progect.repository.devices;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
-import progect.DTO.devices.DevicesDTO;
-import progect.DTO.devices.InfoCrossDeviceEndDTO;
-import progect.DTO.user.UserDTO;
 import progect.domain.devices.DevicesDomain;
 
-import java.nio.file.OpenOption;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 import java.util.Optional;
 
 public interface DevicesRepository extends JpaRepository<DevicesDomain, Integer> {
@@ -23,9 +15,5 @@ public interface DevicesRepository extends JpaRepository<DevicesDomain, Integer>
 
     @Query(value = "select * from network.devices d where cast(d.id_room as varchar )= cast(?1 as varchar)", nativeQuery = true)
     Optional<DevicesDomain> findById_room(Integer id);
-
-
-    @Query(value = "select * from network.infoCrosseDevice d where cast(d.id_devices as varchar )= cast(?1 as varchar)", nativeQuery = true)
-    Optional<InfoCrossDeviceEndDTO> findById_dev(Integer id);
 }
 
