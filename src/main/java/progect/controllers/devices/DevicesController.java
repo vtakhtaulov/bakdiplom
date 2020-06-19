@@ -5,6 +5,7 @@ import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 import progect.DTO.devices.DevicesDTO;
 import progect.DTO.devices.InfoCrossDeviceEndDTO;
+import progect.DTO.filter.NetworkJournalDeviceFilter;
 import progect.service.interfase.pac.device.IDeviceService;
 
 import java.util.List;
@@ -55,4 +56,8 @@ public class DevicesController {
         }
     }
 
+    @RequestMapping(value = "/getNetJournalDeviceFilter", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    public List<NetworkJournalDeviceFilter> getAllDeviceFilter() {
+        return deviceService.getAllDeviceFilter();
+    }
 }

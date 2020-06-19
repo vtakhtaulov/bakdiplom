@@ -8,8 +8,10 @@ import progect.domain.network.NetworkDomain;
 import progect.repository.RefStatusRepository;
 import progect.repository.devices.DevicesRepository;
 import progect.repository.journal.NetworkJournalRepository;
+import progect.repository.network.DHСP_poolRepository;
 import progect.repository.network.NetworkRepository;
 import progect.repository.user.UserRepository;
+import progect.service.interfase.pac.ipservice.IpServiceI;
 import progect.service.interfase.pac.journal.INetworkJournalService;
 
 import java.util.ArrayList;
@@ -28,6 +30,10 @@ public class NetworkJournalService implements INetworkJournalService {
     private NetworkRepository networkRepository;
     @Autowired
     private DevicesRepository devicesRepository;
+    @Autowired
+    private IpServiceI ipService;
+    @Autowired
+    private DHСP_poolRepository dhсp_poolRepository;
 
     @Override
     public List<NetworkJournalDTO> findAll() {
@@ -109,4 +115,6 @@ public class NetworkJournalService implements INetworkJournalService {
         }
         return listDTO;
     }
+
+
 }

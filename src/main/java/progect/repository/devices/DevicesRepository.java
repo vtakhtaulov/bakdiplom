@@ -4,6 +4,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import progect.domain.devices.DevicesDomain;
 
+import java.util.List;
 import java.util.Optional;
 
 public interface DevicesRepository extends JpaRepository<DevicesDomain, Integer> {
@@ -15,5 +16,13 @@ public interface DevicesRepository extends JpaRepository<DevicesDomain, Integer>
 
     @Query(value = "select * from network.devices d where cast(d.id_room as varchar )= cast(?1 as varchar)", nativeQuery = true)
     Optional<DevicesDomain> findById_room(Integer id);
+
+    @Query(
+            value = "select * from network.devices d \n" +
+                    "\tleft join network.network_journal nj on d.id_devices = nj.id_devices\n" +
+                    "\twhere nj.id_devices is null or nj.is_status != 1",
+            nativeQuery = true
+    )
+    List<DevicesDomain> getInfoConnectDevice();
 }
 

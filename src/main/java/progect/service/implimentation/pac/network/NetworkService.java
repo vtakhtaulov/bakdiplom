@@ -5,8 +5,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import progect.DTO.MapperStringToEntity;
 import progect.DTO.network.NetworkDTO;
+import progect.domain.journal.NetworkJournalDomain;
 import progect.domain.network.NetworkDomain;
 import progect.repository.RefStatusRepository;
+import progect.repository.journal.NetworkJournalRepository;
 import progect.repository.network.DHСP_poolRepository;
 import progect.repository.network.NetworkRepository;
 import progect.repository.network.Pool_address_Repository;
@@ -33,6 +35,8 @@ public class NetworkService implements INetworkService {
     private VlanRepository vlanRepository;
     @Autowired
     private RefStatusRepository refStatusRepository;
+    @Autowired
+    private NetworkJournalRepository networkJournalRepository;
 
     @Autowired
     private IpServiceI ipService;
@@ -61,6 +65,11 @@ public class NetworkService implements INetworkService {
                     networkDomain.setIs_status(refStatusRepository.findById(2).get());
                     return networkRepository.save(networkDomain);
                 });
+                NetworkJournalDomain networkJournalDomain = networkJournalRepository.CascadeDelNet(id_network);
+                networkJournalDomain.setIs_status(refStatusRepository.findById(2).get());
+                networkJournalDomain.setId_user_old(userRepository.findById(obj.getId_user_old()).get());
+                networkJournalDomain.setDate_old(new Date());
+                networkJournalRepository.save(networkJournalDomain);
                 return mapperEntityToDTO();
             } catch (Exception e) {
                 System.out.println(e.getMessage());
@@ -110,7 +119,7 @@ public class NetworkService implements INetworkService {
                     obj,
                     pool_address_repository.findById(obj.getId_pool_address()).get(),
                     userRepository.findById(obj.getId_user_reg()).get(),
-                    userRepository.findById(obj.getId_user_old()).get(),
+                    userRepository.findById(0).get(),
                     vlanRepository.findById(obj.getId_vlan()).get(),
                     dhсp_poolRepository.findById(obj.getId_dhcp_pool()).get(),
                     refStatusRepository.findById(1).get()

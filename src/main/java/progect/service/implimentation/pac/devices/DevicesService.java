@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import progect.DTO.devices.DevicesDTO;
 import progect.DTO.devices.InfoCrossDeviceEndDTO;
+import progect.DTO.filter.NetworkJournalDeviceFilter;
 import progect.domain.RefStatusDomain;
 import progect.domain.devices.DevicesDomain;
 import progect.domain.devices.PropsPortDomain;
@@ -20,7 +21,6 @@ import progect.service.interfase.pac.device.IDeviceService;
 
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
-import javax.persistence.criteria.CriteriaDelete;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -124,6 +124,20 @@ public class DevicesService implements IDeviceService {
         devicesRepository.save(devicesDomain);
 
         return mapperEntityToDTO();
+    }
+
+    @Override
+    public List<NetworkJournalDeviceFilter> getAllDeviceFilter() {
+        List<DevicesDomain> devicesDomains = devicesRepository.getInfoConnectDevice();
+        List<NetworkJournalDeviceFilter> networkJournalDeviceFilters = new ArrayList<>();
+
+        for (DevicesDomain devices: devicesDomains) {
+            NetworkJournalDeviceFilter net = new NetworkJournalDeviceFilter();
+            net.setId_devices(devices.getId_devices());
+            net.setHostname(devices.getHostname());
+            networkJournalDeviceFilters.add(net);
+        }
+        return networkJournalDeviceFilters;
     }
 
     private List<DevicesDTO> mapperEntityToDTO()
