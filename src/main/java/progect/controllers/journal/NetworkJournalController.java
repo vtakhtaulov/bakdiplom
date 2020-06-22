@@ -3,6 +3,7 @@ package progect.controllers.journal;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
+import progect.DTO.filter.NetworkJournalIpAddressFilter;
 import progect.DTO.journal.ConfigurationDTO;
 import progect.DTO.journal.CrossDevicesDTO;
 import progect.DTO.journal.NetworkJournalDTO;
@@ -42,6 +43,11 @@ public class NetworkJournalController  {
     @RequestMapping(value = "/CreateNetworkJournal", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public List<NetworkJournalDTO> create(@RequestBody NetworkJournalDTO obj){
         return networkJournalService.create(obj);
+    }
+
+    @RequestMapping(value = "/NetworkJournalIpFilter/{id_network}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    public List<NetworkJournalIpAddressFilter> findByIpAddress(@PathVariable("id_network") Integer id_network) {
+        return networkJournalService.findByIpAddress(id_network);
     }
 
 }

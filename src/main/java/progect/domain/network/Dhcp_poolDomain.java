@@ -59,4 +59,8 @@ public class Dhcp_poolDomain {
     public void setIs_status(RefStatusDomain is_status) {
         this.is_status = is_status;
     }
+
+    public String getPoolIP(){
+        return this.address_start+"-"+this.address_end ;
+    }
 }

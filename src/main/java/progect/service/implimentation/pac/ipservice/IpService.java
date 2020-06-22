@@ -102,16 +102,40 @@ public class IpService implements IpServiceI {
     }
 
     @Override
-    public List<String> getAllIpAddress (String startAddress, String endAddress){
-        String[] startParts = startAddress.split("(?<=\\.)(?!.*\\.)");
-        String[] endParts = endAddress.split("(?<=\\.)(?!.*\\.)");
+    public List<String> getAllIpAddress(String startAddress, String endAddress){
+        String[] startParts = startAddress.replace(".", "/").split("/");
+        String[] endParts = endAddress.replace(".", "/").split("/");
 
-        int first = Integer.parseInt(startParts[1]);
-        int last = Integer.parseInt(endParts[1] );
+        int endActet4 = Integer.parseInt(endParts[3]);
         List<String> resultListAddress = new ArrayList<>();
 
-        for (int i = first + 1; i <= last-1; i++) {
-            resultListAddress.add(startParts[0] + i);
+        int actet4 = 0;
+
+        while(Integer.parseInt(startParts[1]) <= Integer.parseInt(endParts[1])) {
+            actet4 = 0;
+            startParts[1] = String.valueOf((Integer.parseInt(startParts[1]) + 1));
+            resultListAddress.add(startParts[0] + "." + startParts[1] + "." + startParts[2] + "." + startParts[3]);
+            while (Integer.parseInt(startParts[2]) <= Integer.parseInt(endParts[2])) {
+                actet4 = 0;
+                if(Integer.parseInt(startParts[2]) == Integer.parseInt(endParts[2])){
+                    while (actet4 <= endActet4 - 2) {
+                        startParts[3] = String.valueOf((Integer.parseInt(startParts[3]) + 1));
+                        resultListAddress.add(startParts[0] + "." + startParts[1] + "." + startParts[2] + "." + startParts[3]);
+                        actet4++;
+                    }
+                    break;
+                }
+                else{
+                    while (actet4 <= 254){
+                        startParts[3] = String.valueOf((Integer.parseInt(startParts[3]) + 1));
+                        resultListAddress.add(startParts[0]+"."+startParts[1]+"."+startParts[2]+"."+startParts[3]);
+                        actet4++;
+                    }
+                    startParts[3] = String.valueOf('0');
+                }
+                startParts[2] = String.valueOf((Integer.parseInt(startParts[2]) + 1));
+                resultListAddress.add(startParts[0]+"."+startParts[1]+"."+startParts[2]+"."+startParts[3]);
+            }
         }
         return resultListAddress;
     }
