@@ -13,4 +13,10 @@ public interface NetworkRepository extends JpaRepository<NetworkDomain, Integer>
             "\tjoin network.network n on n.id_network = nj.id_network \n" +
             "where nj.is_status = 1 and n.ip_address_network = ?1 ", nativeQuery = true)
     List<String> getInitIp_inNetwork(String network);
+
+    @Query(
+            value = "select * from network.network n where n.id_pool_address = ?1",
+            nativeQuery = true
+    )
+    List<NetworkDomain> findBy_AndId_pool_address(Integer id_pool);
 }

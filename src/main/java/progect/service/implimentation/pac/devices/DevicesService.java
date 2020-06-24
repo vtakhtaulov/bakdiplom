@@ -9,12 +9,17 @@ import progect.domain.RefStatusDomain;
 import progect.domain.devices.DevicesDomain;
 import progect.domain.devices.PropsPortDomain;
 import progect.domain.devices.TypeDeviceDomain;
+import progect.domain.journal.CrossDevicesDomain;
+import progect.domain.journal.NetworkJournalDomain;
 import progect.domain.room.RoomDomain;
 import progect.domain.user.UsersDomain;
 import progect.repository.RefStatusRepository;
 import progect.repository.devices.DevicesRepository;
 import progect.repository.devices.PropsPortRepository;
 import progect.repository.devices.TypeDeviceRepository;
+import progect.repository.journal.CrossDevicesRepository;
+import progect.repository.journal.NetworkJournalRepository;
+import progect.repository.network.CrossesRepository;
 import progect.repository.room.RoomRepository;
 import progect.repository.user.UserRepository;
 import progect.service.interfase.pac.device.IDeviceService;
@@ -22,6 +27,7 @@ import progect.service.interfase.pac.device.IDeviceService;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -39,7 +45,10 @@ public class DevicesService implements IDeviceService {
     private UserRepository userRepository;
     @Autowired
     private RefStatusRepository refStatusRepository;
-
+    @Autowired
+    private NetworkJournalRepository networkJournalRepository;
+    @Autowired
+    private CrossDevicesRepository crossDevicesRepository;
     @Autowired
     private EntityManager em;
 
@@ -74,11 +83,40 @@ public class DevicesService implements IDeviceService {
     }
 
     @Override
-    public List<DevicesDTO> delete(Integer id_devices) {
+    public List<DevicesDTO> delete(Integer id_devices, Integer id_user_old) {
         Optional<DevicesDomain> devicesDomain = devicesRepository.findById(id_devices);
 
         propsPortRepository.delete(devicesDomain.get().getId_props_port());
         devicesRepository.delete(id_devices);
+        List<NetworkJournalDomain> networkJournalDomains = networkJournalRepository.findBy_AndId_devices(id_devices);
+        for(NetworkJournalDomain networkJournalDomain : networkJournalDomains){
+            networkJournalDomain.setIs_status(refStatusRepository.findById(2).get());
+            networkJournalDomain.setDate_old(new Date());
+            networkJournalDomain.setId_user_old(userRepository.findById(id_user_old).get());
+            networkJournalRepository.save(networkJournalDomain);
+        }
+
+       try {
+           try {
+               List<CrossDevicesDomain> crossDevicesDomains = crossDevicesRepository.findBy_deviceFirst(id_devices);
+                for(CrossDevicesDomain crossDevicesDomain : crossDevicesDomains){
+                   crossDevicesDomain.setIs_status(refStatusRepository.findById(2).get());
+                   crossDevicesDomain.setDescription("Удалено устройство");
+                   crossDevicesDomain.setId_user_old(userRepository.findById(id_user_old).get());
+                   crossDevicesDomain.setDate_old(new Date());
+                   crossDevicesRepository.save(crossDevicesDomain);
+               }
+           } catch (Exception e) {
+               CrossDevicesDomain crossDevicesDomain = crossDevicesRepository.findBy_deviceEnd(id_devices);
+               crossDevicesDomain.setIs_status(refStatusRepository.findById(2).get());
+               crossDevicesDomain.setDescription("Удалено устройство");
+               crossDevicesDomain.setId_user_old(userRepository.findById(id_user_old).get());
+               crossDevicesDomain.setDate_old(new Date());
+               crossDevicesRepository.save(crossDevicesDomain);
+           }
+       }catch (Exception e){
+           System.out.println("Не удалось удалить запись в журнале подключений: "+ e.getMessage());
+       }
         return mapperEntityToDTO();
     }
 

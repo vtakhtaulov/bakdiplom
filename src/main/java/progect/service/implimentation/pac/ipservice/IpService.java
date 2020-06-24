@@ -113,8 +113,6 @@ public class IpService implements IpServiceI {
 
         while(Integer.parseInt(startParts[1]) <= Integer.parseInt(endParts[1])) {
             actet4 = 0;
-            startParts[1] = String.valueOf((Integer.parseInt(startParts[1]) + 1));
-            resultListAddress.add(startParts[0] + "." + startParts[1] + "." + startParts[2] + "." + startParts[3]);
             while (Integer.parseInt(startParts[2]) <= Integer.parseInt(endParts[2])) {
                 actet4 = 0;
                 if(Integer.parseInt(startParts[2]) == Integer.parseInt(endParts[2])){
@@ -133,8 +131,14 @@ public class IpService implements IpServiceI {
                     }
                     startParts[3] = String.valueOf('0');
                 }
-                startParts[2] = String.valueOf((Integer.parseInt(startParts[2]) + 1));
-                resultListAddress.add(startParts[0]+"."+startParts[1]+"."+startParts[2]+"."+startParts[3]);
+                if(Integer.parseInt(startParts[2]) <= Integer.parseInt(endParts[2])){
+                    startParts[2] = String.valueOf((Integer.parseInt(startParts[2]) + 1));
+                    resultListAddress.add(startParts[0]+"."+startParts[1]+"."+startParts[2]+"."+startParts[3]);
+                }
+            }
+            if(Integer.parseInt(startParts[1]) < Integer.parseInt(endParts[1])) {
+                startParts[1] = String.valueOf((Integer.parseInt(startParts[1]) + 1));
+                resultListAddress.add(startParts[0] + "." + startParts[1] + "." + startParts[2] + "." + startParts[3]);
             }
         }
         return resultListAddress;

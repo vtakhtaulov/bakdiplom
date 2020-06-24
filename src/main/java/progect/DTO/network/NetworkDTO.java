@@ -49,7 +49,7 @@ public class NetworkDTO {
 
     public NetworkDTO(NetworkDomain net, Float status_network, String name_stat_network) {
         this.id_network = net.getId_network();
-        this.pool_address = net.getPoolIpAddress();
+        this.pool_address = net.getId_pool_address().getName_pool();
         this.id_pool_address = net.getId_pool_address().getId_pool_address();
         this.user_reg = net.getId_user_reg().getFioUser();
         this.user_old = net.getId_user_old().getFioUser();

@@ -5,8 +5,14 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import progect.DTO.network.Pool_address_DTO;
+import progect.domain.journal.NetworkJournalDomain;
+import progect.domain.network.Dhcp_poolDomain;
+import progect.domain.network.NetworkDomain;
 import progect.domain.network.Pool_address_Domain;
 import progect.repository.RefStatusRepository;
+import progect.repository.journal.NetworkJournalRepository;
+import progect.repository.network.DHСP_poolRepository;
+import progect.repository.network.NetworkRepository;
 import progect.repository.network.Pool_address_Repository;
 import progect.repository.user.UserRepository;
 import progect.service.interfase.pac.network.IPoolAddressService;
@@ -24,6 +30,13 @@ public class PoolAddressService implements IPoolAddressService {
     private UserRepository userRepository;
     @Autowired
     private RefStatusRepository refStatusRepository;
+
+    @Autowired
+    private NetworkRepository networkRepository;
+    @Autowired
+    private NetworkJournalRepository networkJournalRepository;
+    @Autowired
+    private DHСP_poolRepository dhcp_poolRepository;
 
     @Override
     public List<Pool_address_DTO> findAll() {
@@ -43,7 +56,6 @@ public class PoolAddressService implements IPoolAddressService {
     @Override
     public List<Pool_address_DTO> delete(Integer id_pool, Pool_address_DTO obj) {
         try {
-
             pool_address_repository.findById(id_pool).map(pool_address_domain -> {
                 pool_address_domain.setDate_old(new Date());
                 pool_address_domain.setId_user_old(userRepository.findById(obj.getId_user_old()).get());
@@ -51,6 +63,48 @@ public class PoolAddressService implements IPoolAddressService {
                 return pool_address_repository.save(pool_address_domain);
             });
 
+            try {
+                List<NetworkDomain> networkDomains = networkRepository.findBy_AndId_pool_address(id_pool);
+                for (NetworkDomain networkDomain : networkDomains){
+                   networkDomain.setIs_status(refStatusRepository.findById(2).get());
+                   networkDomain.setId_user_old(userRepository.findById(obj.getId_user_old()).get());
+                   networkDomain.setDate_old(new Date());
+                   networkRepository.save(networkDomain);
+               }
+
+            }catch (Exception e){
+                System.out.println("Ошибка удаления сети: "+ e.getMessage());
+            }
+            try {
+
+                List<NetworkDomain> networkDomains = networkRepository.findBy_AndId_pool_address(id_pool);
+
+                for (NetworkDomain networkDomain : networkDomains){
+                    List<NetworkJournalDomain> networkJournalDomains = networkJournalRepository.CascadeDelNet(networkDomain.getId_network());
+                    for (NetworkJournalDomain networkJournalDomain : networkJournalDomains){
+                        networkJournalDomain.setDate_old(new Date());
+                        networkJournalDomain.setIs_status(refStatusRepository.findById(2).get());
+                        networkJournalDomain.setId_user_old(userRepository.findById(obj.getId_user_old()).get());
+                       networkJournalRepository.save(networkJournalDomain);
+                    }
+                }
+
+            }catch (Exception e)
+            {
+                System.out.println("Ошибка удаления записи из Журнала ip-адресного пространства:" + e.getMessage());
+            }
+
+            try{
+                List<NetworkDomain> networkDomains = networkRepository.findBy_AndId_pool_address(id_pool);
+
+                for (NetworkDomain networkDomain : networkDomains){
+                        Dhcp_poolDomain dhcp_poolDomain = dhcp_poolRepository.findById(networkDomain.getId_DHCP_pool().getId_DHCP_pool()).get();
+                        dhcp_poolDomain.setIs_status(refStatusRepository.findById(2).get());
+                        dhcp_poolRepository.save(dhcp_poolDomain);
+                }
+            }catch (Exception e){
+                System.out.println("Ошибка удаления DHCP пула:" + e.getMessage());
+            }
             return mapperEntityToDTO();
         }
         catch (Exception e){

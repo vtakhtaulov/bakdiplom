@@ -112,23 +112,41 @@ public class NetworkJournalService implements INetworkJournalService {
             String netAddrIPend = ipService.netAddress(networkRepository.findById(id_network).get().getNetworkInfo());
 
             NetworkDomain networkDomain = networkRepository.findById(id_network).get();
+            List<String> ListIpAddressNet = new ArrayList<>();
+            List<String> ListDHCPIPAddress = new ArrayList<>();
 
-            String netAddrDHCP = dhсp_poolRepository.findById(networkDomain.getId_DHCP_pool().getId_DHCP_pool()).get().getPoolIP();
+            try {
+                String netAddrDHCP = dhсp_poolRepository.findById(networkDomain.getId_DHCP_pool().getId_DHCP_pool()).get().getPoolIP();
 
-            String[] dhcpPoolAddress = netAddrDHCP.replaceAll(" ", "").split("-");
+                String[] dhcpPoolAddress = netAddrDHCP.replaceAll(" ", "").split("-");
 
-            List<String> ListIpAddressNet = ipService.getAllIpAddress(netAddrIP, netAddrIPend);
-            List<String> ListDHCPIPAddress = ipService.getAllIpAddress(dhcpPoolAddress[0], dhcpPoolAddress[1]);
+                ListIpAddressNet = ipService.getAllIpAddress(netAddrIP, netAddrIPend);
+                ListDHCPIPAddress = ipService.getAllIpAddress(dhcpPoolAddress[0], dhcpPoolAddress[1]);
 
-            for (int dhcpIP = 0; dhcpIP < ListDHCPIPAddress.size(); dhcpIP++) {
-                for (int netIP = 0; netIP < ListIpAddressNet.size(); netIP++) {
-                    if (equals(ListDHCPIPAddress.get(dhcpIP)) == equals(ListIpAddressNet.get(netIP))) {
-                        String t = ListIpAddressNet.get(netIP) + " (dhcp)";
-                        ListIpAddressNet.remove(netIP);
-                        ListIpAddressNet.add(t);
-                        break;
+                for (int dhcpIP = 0; dhcpIP < ListDHCPIPAddress.size(); dhcpIP++) {
+                    for (int netIP = 0; netIP < ListIpAddressNet.size(); netIP++) {
+                        if (equals(ListDHCPIPAddress.get(dhcpIP)) == equals(ListIpAddressNet.get(netIP))) {
+                            String t = ListIpAddressNet.get(netIP) + " (dhcp)";
+                            ListIpAddressNet.remove(netIP);
+                            ListIpAddressNet.add(t);
+                            break;
+                        }
                     }
                 }
+
+                List<String> ip_address_from_db = networkJournalRepository.findBy_ipAddress();
+
+                for (int i = 0; i < ip_address_from_db.size(); i++){
+                    for (int j = 0; j < ListDHCPIPAddress.size(); j++){
+                        if(equals(ListDHCPIPAddress.get(j)) == equals(ip_address_from_db.get(i))){
+                            ListDHCPIPAddress.remove(j);
+                            break;
+                        }
+                    }
+                }
+
+            }catch (Exception e) {
+                ListIpAddressNet = ipService.getAllIpAddress(netAddrIP, netAddrIPend);
             }
 
             List<NetworkJournalIpAddressFilter> networkJournalIpAddressFilters = new ArrayList<>();
@@ -136,6 +154,7 @@ public class NetworkJournalService implements INetworkJournalService {
                 NetworkJournalIpAddressFilter netFilter = new NetworkJournalIpAddressFilter(ip, ListIpAddressNet.get(ip));
                 networkJournalIpAddressFilters.add(netFilter);
             }
+
             return networkJournalIpAddressFilters;
         }catch (Exception e){
             NetworkJournalIpAddressFilter networkJournalIpAddressFilter = new NetworkJournalIpAddressFilter(0,"");

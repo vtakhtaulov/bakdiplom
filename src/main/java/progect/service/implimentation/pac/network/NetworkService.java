@@ -65,11 +65,13 @@ public class NetworkService implements INetworkService {
                     networkDomain.setIs_status(refStatusRepository.findById(2).get());
                     return networkRepository.save(networkDomain);
                 });
-                NetworkJournalDomain networkJournalDomain = networkJournalRepository.CascadeDelNet(id_network);
-                networkJournalDomain.setIs_status(refStatusRepository.findById(2).get());
-                networkJournalDomain.setId_user_old(userRepository.findById(obj.getId_user_old()).get());
-                networkJournalDomain.setDate_old(new Date());
-                networkJournalRepository.save(networkJournalDomain);
+                List<NetworkJournalDomain> networkJournalDomains = networkJournalRepository.CascadeDelNet(id_network);
+                for(NetworkJournalDomain networkJournalDomain : networkJournalDomains){
+                    networkJournalDomain.setIs_status(refStatusRepository.findById(2).get());
+                    networkJournalDomain.setId_user_old(userRepository.findById(obj.getId_user_old()).get());
+                    networkJournalDomain.setDate_old(new Date());
+                    networkJournalRepository.save(networkJournalDomain);
+                }
                 return mapperEntityToDTO();
             } catch (Exception e) {
                 System.out.println(e.getMessage());
@@ -136,6 +138,7 @@ public class NetworkService implements INetworkService {
     public Integer createNetworkDhcp(MapperStringToEntity obj) {
         return null;
     }
+
     private List<NetworkDTO> mapperEntityToDTO()
     {
         List<NetworkDTO> listNetDTO = new ArrayList<>();

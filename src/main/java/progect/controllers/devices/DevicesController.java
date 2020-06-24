@@ -27,9 +27,9 @@ public class DevicesController {
         return deviceService.read(obj);
     }
 
-    @RequestMapping(value = "/DeleteDevices/{id_devices}", method = RequestMethod.DELETE, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-    public List<DevicesDTO> delete(@PathVariable("id_devices") Integer id_devices) {
-        return deviceService.delete(id_devices);
+    @RequestMapping(value = "/DeleteDevices/{id_devices}?{id_user_old}", method = RequestMethod.DELETE, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    public List<DevicesDTO> delete(@PathVariable("id_devices") Integer id_devices, @PathVariable("id_user_old") Integer id_user_old) {
+        return deviceService.delete(id_devices, id_user_old);
     }
 
     @RequestMapping(value = "/SearchCrossDevicesInfo/{id_devices}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)

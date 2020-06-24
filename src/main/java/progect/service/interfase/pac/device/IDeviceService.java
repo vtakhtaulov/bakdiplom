@@ -11,7 +11,7 @@ public interface IDeviceService {
     DevicesDTO read(DevicesDTO obj);
     InfoCrossDeviceEndDTO searchCrossDeviceInfo(Integer id_devices);
     List<InfoCrossDeviceEndDTO> getAllCrossDevicesInfo();
-    List<DevicesDTO> delete(Integer id_devices);
+    List<DevicesDTO> delete(Integer id_devices, Integer id_user_old);
     List<DevicesDTO> update(DevicesDTO obj,Integer id_devices);
     List<DevicesDTO> create(DevicesDTO obj);
     List<NetworkJournalDeviceFilter> getAllDeviceFilter();
