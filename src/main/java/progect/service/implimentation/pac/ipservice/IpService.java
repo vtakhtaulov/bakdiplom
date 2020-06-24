@@ -110,13 +110,13 @@ public class IpService implements IpServiceI {
         List<String> resultListAddress = new ArrayList<>();
 
         int actet4 = 0;
-
         while(Integer.parseInt(startParts[1]) <= Integer.parseInt(endParts[1])) {
             actet4 = 0;
+
             while (Integer.parseInt(startParts[2]) <= Integer.parseInt(endParts[2])) {
                 actet4 = 0;
                 if(Integer.parseInt(startParts[2]) == Integer.parseInt(endParts[2])){
-                    while (actet4 <= endActet4 - 2) {
+                    while (actet4 <= endActet4 - 1) {
                         startParts[3] = String.valueOf((Integer.parseInt(startParts[3]) + 1));
                         resultListAddress.add(startParts[0] + "." + startParts[1] + "." + startParts[2] + "." + startParts[3]);
                         actet4++;
@@ -131,15 +131,11 @@ public class IpService implements IpServiceI {
                     }
                     startParts[3] = String.valueOf('0');
                 }
-                if(Integer.parseInt(startParts[2]) <= Integer.parseInt(endParts[2])){
-                    startParts[2] = String.valueOf((Integer.parseInt(startParts[2]) + 1));
-                    resultListAddress.add(startParts[0]+"."+startParts[1]+"."+startParts[2]+"."+startParts[3]);
-                }
+                startParts[2] = String.valueOf((Integer.parseInt(startParts[2]) + 1));
+                resultListAddress.add(startParts[0]+"."+startParts[1]+"."+startParts[2]+"."+startParts[3]);
             }
-            if(Integer.parseInt(startParts[1]) < Integer.parseInt(endParts[1])) {
-                startParts[1] = String.valueOf((Integer.parseInt(startParts[1]) + 1));
-                resultListAddress.add(startParts[0] + "." + startParts[1] + "." + startParts[2] + "." + startParts[3]);
-            }
+            startParts[1] = String.valueOf((Integer.parseInt(startParts[1]) + 1));
+            resultListAddress.add(startParts[0] + "." + startParts[1] + "." + startParts[2] + "." + startParts[3]);
         }
         return resultListAddress;
     }

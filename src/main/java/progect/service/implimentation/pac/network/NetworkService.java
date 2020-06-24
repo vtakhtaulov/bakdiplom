@@ -145,6 +145,7 @@ public class NetworkService implements INetworkService {
         List<NetworkDomain> listNetDom = networkRepository.findAll();
         for(int i = 0; i < listNetDom.size(); i++) {
             NetworkDomain net_dom = listNetDom.get(i);
+
             String endIpAddress = ipService.netAddress(net_dom.getNetworkInfo());
 
             float status = (((float) networkRepository.getInitIp_inNetwork(net_dom.getIp_address_network()).size() /

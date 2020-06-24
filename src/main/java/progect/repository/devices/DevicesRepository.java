@@ -18,9 +18,7 @@ public interface DevicesRepository extends JpaRepository<DevicesDomain, Integer>
     Optional<DevicesDomain> findById_room(Integer id);
 
     @Query(
-            value = "select * from network.devices d \n" +
-                    "\tleft join network.network_journal nj on d.id_devices = nj.id_devices\n" +
-                    "\twhere nj.id_devices is null or nj.is_status != 1",
+            value = "select * from network.devices d ",
             nativeQuery = true
     )
     List<DevicesDomain> getInfoConnectDevice();
